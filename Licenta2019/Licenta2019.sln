@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Entities", "01 - Entities", "{9FAC0FDF-70B6-49EB-B3F0-040FC946C23C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Models", "02 - Models", "{4EC9086F-DBCD-4E38-9670-0B378F1A1CC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - DataAccess", "03 - DataAccess", "{0B0412E5-D3B7-4136-808F-EF8AF421A9F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - BusinessLogic", "04 - BusinessLogic", "{0A6F60F2-4508-495A-BD51-3531C5E32A0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Services", "05 - Services", "{2FC98618-60CF-431C-90EF-FB4390B5A014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{BCE5403B-E3D3-4B41-A323-3F62BC9696B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCE5403B-E3D3-4B41-A323-3F62BC9696B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE5403B-E3D3-4B41-A323-3F62BC9696B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE5403B-E3D3-4B41-A323-3F62BC9696B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE5403B-E3D3-4B41-A323-3F62BC9696B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCE5403B-E3D3-4B41-A323-3F62BC9696B7} = {2FC98618-60CF-431C-90EF-FB4390B5A014}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54DFF023-9DA8-4957-B4F9-95AC96A005B9}
+	EndGlobalSection
+EndGlobal
