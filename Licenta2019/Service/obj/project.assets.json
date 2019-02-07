@@ -1065,6 +1065,18 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.TagHelpers.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Mvc.Versioning/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Mvc.ViewFeatures/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -1610,18 +1622,18 @@
           "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/2.1.1": {
+      "Microsoft.EntityFrameworkCore/2.1.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.1",
-          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Analyzers": "2.1.4",
           "Microsoft.Extensions.Caching.Memory": "2.1.1",
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
           "Microsoft.Extensions.Logging": "2.1.1",
           "Remotion.Linq": "2.2.0",
           "System.Collections.Immutable": "1.5.0",
           "System.ComponentModel.Annotations": "4.5.0",
-          "System.Diagnostics.DiagnosticSource": "4.5.0",
+          "System.Diagnostics.DiagnosticSource": "4.5.1",
           "System.Interactive.Async": "3.1.1"
         },
         "compile": {
@@ -1631,7 +1643,7 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/2.1.1": {
+      "Microsoft.EntityFrameworkCore.Abstractions/2.1.4": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
@@ -1640,7 +1652,7 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/2.1.1": {
+      "Microsoft.EntityFrameworkCore.Analyzers/2.1.4": {
         "type": "package"
       },
       "Microsoft.EntityFrameworkCore.Design/2.1.1": {
@@ -1671,10 +1683,10 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/2.1.1": {
+      "Microsoft.EntityFrameworkCore.Relational/2.1.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "2.1.1"
+          "Microsoft.EntityFrameworkCore": "2.1.4"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
@@ -1683,10 +1695,10 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
+      "Microsoft.EntityFrameworkCore.SqlServer/2.1.4": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.4",
           "System.Data.SqlClient": "4.5.1"
         },
         "compile": {
@@ -2866,6 +2878,63 @@
           }
         }
       },
+      "Swashbuckle.AspNetCore/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "4.0.1",
+          "Swashbuckle.AspNetCore.SwaggerUI": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.Swagger/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ApiExplorer": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
+          "Microsoft.AspNetCore.Mvc.DataAnnotations": "2.0.0",
+          "Swashbuckle.AspNetCore.Swagger": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing": "2.0.0",
+          "Microsoft.AspNetCore.StaticFiles": "2.0.0",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3033,7 +3102,7 @@
           "ref/netstandard1.3/System.Diagnostics.Debug.dll": {}
         }
       },
-      "System.Diagnostics.DiagnosticSource/4.5.0": {
+      "System.Diagnostics.DiagnosticSource/4.5.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
@@ -4333,6 +4402,55 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataAccess": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.4"
+        },
+        "compile": {
+          "bin/placeholder/DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
       }
     }
   },
@@ -5185,6 +5303,19 @@
         "microsoft.aspnetcore.mvc.taghelpers.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Mvc.Versioning/2.2.0": {
+      "sha512": "Ux+1JcKPyvJlcY/DtMbvNUnV4DtfBVVrncYoXa/rrjZj8KoXj1j1owjHhcMcP32PEpevqfxzE7Ppw/qf/LbmiQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.mvc.versioning/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Versioning.xml",
+        "microsoft.aspnetcore.mvc.versioning.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.versioning.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Mvc.ViewFeatures/2.1.1": {
       "sha512": "4F4uu3Hh5pgQ/2XkKgG2XEfPIvzUUjpOrSPIdOpMzxloTfYM/jK6xEW6kM9DE5vYhyW9EE02sngRBh8cmU0vng==",
       "type": "package",
@@ -5745,41 +5876,41 @@
         "microsoft.dotnet.platformabstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/2.1.1": {
-      "sha512": "R0zD5lDEA0Aari3+stBhAP5dredWIHcu4+tKfumG7Q6r34Psl5a3fC4hXOBD4W8Mc+aRaee3xehLQC0M0EHEdA==",
+    "Microsoft.EntityFrameworkCore/2.1.4": {
+      "sha512": "Rt2SIF3LPQfBzQYbhOv8LwQKy7UkZh+zJcls5eLTOlbPahLXH7IWCkk3mQpzTvljG55vkhzNcOjzrVLcO0uICA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/2.1.1",
+      "path": "microsoft.entityframeworkcore/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.2.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.2.1.4.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/2.1.1": {
-      "sha512": "eAkWeRhvwMLbAmS73HUESlE/sRmGYdKr1nzZ/IOmyRFz37e8BGEGwwbazKhi2OjjzdIWJxmMdB4nGQUP2mco7A==",
+    "Microsoft.EntityFrameworkCore.Abstractions/2.1.4": {
+      "sha512": "3djJy9gM2PZQFz6NHPSVzAN8azBu7afehDLwGkCR8yCMVhNzkkVdT/JZMfsSzuNZ302wIFWbzEYSAEI6lBddMA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/2.1.1",
+      "path": "microsoft.entityframeworkcore.abstractions/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.2.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.2.1.4.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/2.1.1": {
-      "sha512": "Cvyj3q8j0vhhEBbxRXXTZZhrO0RW/hRJQ6VzfGcfvMh+Zhkr8Jl4CP8gA5GXOgg+0dxYYC+GfT27EqjbxM3Qbg==",
+    "Microsoft.EntityFrameworkCore.Analyzers/2.1.4": {
+      "sha512": "VEyuULTq48tbPjwLXo9j5WdObg0ViHYI4CwvdaYG23r13wIP2MJqpn4Nc9HpUQPPxGDqL2FO9HRvSY3Xufgtcw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/2.1.1",
+      "path": "microsoft.entityframeworkcore.analyzers/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
-        "microsoft.entityframeworkcore.analyzers.2.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.2.1.4.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -5813,29 +5944,29 @@
         "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/2.1.1": {
-      "sha512": "GdS22wCLqf+W+NvWzuz/0oXmulD0mlxa65Z/RO65YiAJRDhLZ/4/QYeDEIvh8HF9Fw4kB/UnrQ756uv0+IDDKQ==",
+    "Microsoft.EntityFrameworkCore.Relational/2.1.4": {
+      "sha512": "Ekl7Kjo5YrPahQ1FJJVSd1ZTnmbtCPdkbI8CMZfbGBQMtrYgBttHxE4bTA4+Ys69+BTRMc/AdWoCfRyioxZA+w==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/2.1.1",
+      "path": "microsoft.entityframeworkcore.relational/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.2.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.2.1.4.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/2.1.1": {
-      "sha512": "+owJ/RcmFOrRseb+9PEjqhoOcE7l+DeTe0Jwte0tqhYoiPxZpC6jtGhUhpftPSBkC662siPR7kNm2TfxpPVilQ==",
+    "Microsoft.EntityFrameworkCore.SqlServer/2.1.4": {
+      "sha512": "f5Zl534MVOrVhe5kAYE9eFN+4AYW6IUw7+i5NeNQ+8eJQpAjCW5HlzGBkFVerHwzkjcM/Z3tlqMTzrdpO+f0HA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/2.1.1",
+      "path": "microsoft.entityframeworkcore.sqlserver/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.2.1.1.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.2.1.4.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -7403,6 +7534,57 @@
         "version.txt"
       ]
     },
+    "Swashbuckle.AspNetCore/4.0.1": {
+      "sha512": "k8TzWTpjwO+4xXsMaaAsAPAdYKyM5wuRvSP+ZmgtyXwhW45ChBVq3xdVJ8Tz+hQ0ziBZSh5p6r2dkRN6SyasVA==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.dll",
+        "swashbuckle.aspnetcore.4.0.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.Swagger/4.0.1": {
+      "sha512": "2+dXBiOvwjNmkMkBOqGU9ShBJXQp6+UN/Kxfk3HLxwsof9zzgRZ+3rOdjHQuYiY7t1Nl7wlCgn9HbmJyZGhdaQ==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swagger/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.xml",
+        "swashbuckle.aspnetcore.swagger.4.0.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swagger.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen/4.0.1": {
+      "sha512": "opm/wgG8u987ZuAUtL1E8XrJig+UbGYbFmz8VnA8Vn3AqZyQZy4k243X9egz1iWl/B6sNcgMlFyv3wkdmjJX6g==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swaggergen/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
+        "swashbuckle.aspnetcore.swaggergen.4.0.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggergen.nuspec"
+      ]
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/4.0.1": {
+      "sha512": "EjPeIYSMLr5FrY4sVJiWrzIQe07Hriv8tOztJa7US88im/tO+tX70y7OJ2Cr8QYojc7IotjZSH1lD8j44DLnrQ==",
+      "type": "package",
+      "path": "swashbuckle.aspnetcore.swaggerui/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
+        "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
+        "swashbuckle.aspnetcore.swaggerui.4.0.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -8045,10 +8227,10 @@
         "system.diagnostics.debug.nuspec"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/4.5.0": {
-      "sha512": "UumL3CJklk5WyEt0eImPmjeuyY1JgJ7Thmg2hAeZGKCv+9iuuAsoc2wcXjypdo3J8VNEmVCH2Bgn/kIw8NI2bA==",
+    "System.Diagnostics.DiagnosticSource/4.5.1": {
+      "sha512": "zCno/m44ymWhgLFh7tELDG9587q0l/EynPM0m4KgLaWQbz/TEKvNRX2YT5ip2qXW/uayifQ2ZqbnErsKJ4lYrQ==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/4.5.0",
+      "path": "system.diagnostics.diagnosticsource/4.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8064,7 +8246,7 @@
         "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.xml",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
         "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.4.5.0.nupkg.sha512",
+        "system.diagnostics.diagnosticsource.4.5.1.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11784,13 +11966,36 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BusinessLogic >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
+      "Microsoft.AspNetCore.Mvc.Versioning >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Swashbuckle.AspNetCore >= 4.0.1"
     ]
   },
   "packageFolders": {
@@ -11822,7 +12027,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Cmirza\\Source\\Repos\\GithubLicense\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Cmirza\\Source\\Repos\\GithubLicense\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -11840,6 +12049,10 @@
             "version": "[2.1.1, )",
             "autoReferenced": true
           },
+          "Microsoft.AspNetCore.Mvc.Versioning": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
             "target": "Package",
@@ -11849,6 +12062,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[4.0.1, )"
           }
         },
         "imports": [

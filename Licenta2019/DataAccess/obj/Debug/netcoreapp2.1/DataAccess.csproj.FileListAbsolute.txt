@@ -1,0 +1,12 @@
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\bin\Debug\netcoreapp2.1\Entities.dll
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.csprojAssemblyReference.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.AssemblyInfo.cs
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\bin\Debug\netcoreapp2.1\DataAccess.deps.json
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\bin\Debug\netcoreapp2.1\DataAccess.dll
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\bin\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.csproj.CopyComplete
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\bin\Debug\netcoreapp2.1\DataAccess.pdb
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.dll
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\DataAccess\obj\Debug\netcoreapp2.1\DataAccess.pdb
