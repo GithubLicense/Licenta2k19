@@ -17,6 +17,8 @@ namespace Service
 
     using BusinessLogic.Configurations;
 
+    using FluentValidation.AspNetCore;
+
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Mvc.Versioning;
     using Microsoft.IdentityModel.Tokens;
@@ -35,7 +37,14 @@ namespace Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddFluentValidation(
+                fv =>
+                    {
+                        fv.RegisterValidatorsFromAssembly(
+                            AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(
+                                assembly => assembly.FullName.Contains("BusinessLogic")));
+                    }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
 
             services.AddSwaggerGen(c =>
                 {
