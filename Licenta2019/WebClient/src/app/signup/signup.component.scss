@@ -1,0 +1,28 @@
+.register-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.register-form {
+    width: 300px;
+    height: 500px;
+    margin-top: 3%;
+    margin-right: 10%;
+    background-color: #3388cc;
+
+    .title{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        padding-top: 5px; 
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column; 
+        padding-top: 15px; 
+        padding-left: 30px;
+        color: white;
+    }
+}

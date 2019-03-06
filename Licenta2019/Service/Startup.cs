@@ -20,6 +20,7 @@ namespace Service
     using FluentValidation.AspNetCore;
 
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Cors.Infrastructure;
     using Microsoft.AspNetCore.Mvc.Versioning;
     using Microsoft.IdentityModel.Tokens;
 
@@ -44,6 +45,16 @@ namespace Service
                             AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(
                                 assembly => assembly.FullName.Contains("BusinessLogic")));
                     }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(options =>
+                    {
+                        var corsBuilder = new CorsPolicyBuilder();
+                        corsBuilder.AllowAnyHeader();
+                        corsBuilder.AllowAnyMethod();
+                        corsBuilder.AllowAnyOrigin();
+                        corsBuilder.AllowCredentials();
+                        options.AddPolicy("SiteCorsPolicy", corsBuilder.Build());
+                    });
 
 
             services.AddSwaggerGen(c =>
@@ -100,6 +111,7 @@ namespace Service
                     c.RoutePrefix = string.Empty;
                 });
 
+            app.UseCors("SiteCorsPolicy");
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseMvc();
