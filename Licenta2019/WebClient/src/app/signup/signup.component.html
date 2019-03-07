@@ -2,15 +2,18 @@
   <app-home></app-home>
   <div class="register-form">
     <div class="title"> Sign-up</div>
-    <form (submit)="onSubmit()" class="form">
+    <form class="form">
       First Name
-      <input [(ngModel)]="first_name" name="First-Name" placeholder="First Name" class="form-input">
+      <input [(ngModel)]="first_name" type="text" name="First-Name"  class="form-input" required>
       Last Name
-      <input [(ngModel)]="last_name" name="Last-Name" placeholder="Last Name" class="form-input">
+      <input [(ngModel)]="last_name" type="text" name="Last-Name"  class="form-input" required>
       Email
-      <input [(ngModel)]="email" name="Email" type="email" placeholder="Email" class="form-input">
+      <input [(ngModel)]="email" name="Email" type="email"  class="form-input" required>
       Password
-      <input [(ngModel)]="password" name="Password" type="password" placeholder="Password" class="form-input">
+      <input [(ngModel)]="password" name="Password" type="password"  class="form-input" required>
     </form>
+    <div class="button">
+    <button mat-raised-button id="submit-button" (click)="onSubmit()">Submit</button>
+    </div>
   </div>
 </div>

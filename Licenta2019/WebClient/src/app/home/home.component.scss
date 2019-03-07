@@ -1,7 +1,12 @@
+.home-content{
+    display: flex;
+    flex-direction: column;
+}
+
 .home-introduction{
     color: #3388cc;
-    margin-top: 7%;
-    margin-left: 7%; 
+    margin-top: 130px;
+    margin-left: 130px; 
 }
 
 .big-message{
@@ -13,8 +18,8 @@
 }
 
 .home-buttons {
-    margin-top: 2%;
-    margin-left: 7%;
+    margin-top: 20px;
+    margin-left: 130px;
 }
 
 #sign-up-button{ 

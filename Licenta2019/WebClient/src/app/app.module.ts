@@ -10,13 +10,19 @@ import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { SignupService } from './signup/signup.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -24,9 +30,10 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
