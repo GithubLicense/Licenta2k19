@@ -14,9 +14,12 @@ namespace DataAccess.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     FirstName = table.Column<string>(maxLength: 25, nullable: false),
                     LastName = table.Column<string>(maxLength: 25, nullable: false),
+                    Year = table.Column<string>(maxLength: 1, nullable: true),
+                    Group = table.Column<string>(maxLength: 2, nullable: true),
+                    UserPosition = table.Column<string>(nullable: false),
                     Email = table.Column<string>(maxLength: 30, nullable: false),
-                    PasswordHash = table.Column<string>(nullable: false),
-                    PasswordSalt = table.Column<string>(nullable: false)
+                    PasswordHash = table.Column<string>(nullable: true),
+                    PasswordSalt = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -15,7 +15,7 @@ namespace DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -32,15 +32,22 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(25);
 
+                    b.Property<string>("Group")
+                        .HasMaxLength(2);
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(25);
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<string>("PasswordHash");
+
+                    b.Property<string>("PasswordSalt");
+
+                    b.Property<string>("UserPosition")
                         .IsRequired();
 
-                    b.Property<string>("PasswordSalt")
-                        .IsRequired();
+                    b.Property<string>("Year")
+                        .HasMaxLength(1);
 
                     b.HasKey("Id");
 

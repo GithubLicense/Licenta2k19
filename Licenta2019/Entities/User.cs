@@ -10,6 +10,12 @@ namespace Entities
 
         public string LastName { get; set; }
 
+        public string Year { get; set; }
+
+        public string Group { get; set; }
+
+        public UserPosition UserPosition { get; set; }
+
         public string Email { get; set; }
 
         public string PasswordHash { get; set; }

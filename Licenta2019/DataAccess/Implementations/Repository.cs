@@ -38,6 +38,12 @@ namespace DataAccess.Implementations
             return _context.Set<T>().ToList();
         }
 
+        public void Update<T>(T entity)
+            where T : BaseEntity
+        {
+            _context.Set<T>().Update(entity);
+        }
+
         public void Save()
         {
             _context.SaveChanges();

@@ -26,10 +26,10 @@ namespace BusinessLogic.Validators
                 .NotNull()
                 .Length(1, 25);
 
-            RuleFor(user => user.Password)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(6);
+            //RuleFor(user => user.Password)
+            //    .NotEmpty()
+            //    .NotNull()
+            //    .MinimumLength(6);
         }
     }
 }

@@ -27,11 +27,17 @@ namespace DataAccess.Configurations.Entities
                 .IsRequired()
                 .HasMaxLength(30);
 
-            builder.Property(p => p.PasswordHash)
-                .IsRequired();
+            builder.Property(p => p.Year)
+                .HasMaxLength(1);
 
-            builder.Property(p => p.PasswordSalt)
-                .IsRequired();
+            builder.Property(p => p.Group)
+                .HasMaxLength(2);
+
+            builder.Property(p => p.UserPosition)
+               .IsRequired()
+               .HasConversion(
+                   s => s.ToString(),
+                   s => (UserPosition)Enum.Parse(typeof(UserPosition), s));
         }
     }
 }

@@ -54,7 +54,7 @@ namespace AdminService
 
             services.AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("v1", new Info { Title = "Authentication API", Version = "v1" });
+                    c.SwaggerDoc("v1", new Info { Title = "Admin API", Version = "v1" });
                 });
 
             services.AddBusinessLogic(Configuration.GetConnectionString("LicenseProject"));
@@ -73,7 +73,16 @@ namespace AdminService
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Admin API V1");
+                c.RoutePrefix = string.Empty;
+            });
+
+            app.UseCors("SiteCorsPolicy");
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
