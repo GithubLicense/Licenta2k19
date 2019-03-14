@@ -1,0 +1,11 @@
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\bin\Debug\netcoreapp2.1\AdminService.deps.json
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\bin\Debug\netcoreapp2.1\AdminService.runtimeconfig.json
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\bin\Debug\netcoreapp2.1\AdminService.runtimeconfig.dev.json
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\bin\Debug\netcoreapp2.1\AdminService.dll
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.csprojAssemblyReference.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.csproj.CoreCompileInputs.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.RazorAssemblyInfo.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.RazorAssemblyInfo.cs
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.AssemblyInfoInputs.cache
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.AssemblyInfo.cs
+C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\AdminService\obj\Debug\netcoreapp2.1\AdminService.RazorTargetAssemblyInfo.cache
