@@ -3,3 +3,6 @@
 ################################################################################
 
 /Licenta2019/Models/obj/Release/netcoreapp2.1
+/Licenta2019/BusinessLogic/obj/Release/netcoreapp2.1
+/Licenta2019/DataAccess/obj/Release/netcoreapp2.1
+/Licenta2019/Entities/obj/Release/netcoreapp2.1
