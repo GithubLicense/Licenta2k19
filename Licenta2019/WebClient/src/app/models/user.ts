@@ -7,3 +7,7 @@ export class UserLogin {
     Email: string;
     Password: string;
 }
+
+export class UserInformation {
+    
+}

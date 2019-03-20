@@ -15,3 +15,4 @@ C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcorea
 C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfo.cs
 C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.dll
 C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.csprojAssemblyReference.cache
