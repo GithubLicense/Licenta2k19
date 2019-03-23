@@ -1,6 +1,6 @@
-﻿namespace Entities
+﻿namespace Models
 {
-    public class Course : BaseEntity
+    public class CourseDto
     {
         public string Name { get; set; }
 

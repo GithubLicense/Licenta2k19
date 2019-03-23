@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLogic.Configurations
+﻿namespace BusinessLogic.Configurations
 {
     using BusinessLogic.Abstractions;
     using BusinessLogic.Implementations;
@@ -17,6 +13,8 @@ namespace BusinessLogic.Configurations
         {
             services.AddDataAccess(connectionString);
             services.AddScoped<IUserLogic, UserLogic>();
+            services.AddScoped<ICourseLogic, CourseLogic>();
+            services.AddScoped<ICourseManagementLogic, CourseManagementLogic>();
         }
     }
 }

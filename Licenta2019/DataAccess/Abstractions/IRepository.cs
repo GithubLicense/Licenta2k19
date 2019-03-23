@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Abstractions
 {
@@ -20,6 +19,9 @@ namespace DataAccess.Abstractions
             where T : BaseEntity;
 
         ICollection<T> GetAll<T>()
+            where T : BaseEntity;
+
+        void Delete<T>(T entity)
             where T : BaseEntity;
 
         void Save();

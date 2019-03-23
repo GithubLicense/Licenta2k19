@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Implementations
 {
@@ -36,6 +35,12 @@ namespace DataAccess.Implementations
             where T : BaseEntity
         {
             return _context.Set<T>().ToList();
+        }
+
+        public void Delete<T>(T entity) 
+            where T : BaseEntity
+        {
+            _context.Set<T>().Remove(entity);
         }
 
         public void Update<T>(T entity)

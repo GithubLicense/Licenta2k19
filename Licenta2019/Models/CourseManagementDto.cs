@@ -1,11 +1,9 @@
 ﻿using System;
 
-namespace Entities
+namespace Models
 {
-    public class CourseManagement : BaseEntity
+    public class CourseManagementDto
     {
-        public Course Course { get; set; }
-
         public Guid CourseId { get; set; }
 
         public Guid UserId { get; set; }
