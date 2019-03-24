@@ -31,6 +31,11 @@ namespace DataAccess.Implementations
             return _context.Set<T>().FirstOrDefault(filter);
         }
 
+        public ICollection<T> GetAllByFilter<T>(Expression<Func<T, bool>> filter) where T : BaseEntity
+        {
+            return _context.Set<T>().Where(filter).ToList();
+        }
+
         public ICollection<T> GetAll<T>()
             where T : BaseEntity
         {

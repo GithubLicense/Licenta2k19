@@ -72,6 +72,15 @@ namespace AdminService.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet("users/{userId:guid}")]
+        public ICollection<CourseDto> GetByStudent([FromRoute] Guid userId)
+        {
+            var result = _courseLogic.GetByStudent(userId);
+
+            return result;
+        }
+
         [HttpGet]
         public ICollection<CourseDto> GetAll()
         {

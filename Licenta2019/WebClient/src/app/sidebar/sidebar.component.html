@@ -2,14 +2,13 @@
   <span>{{userInformation.lastName}}</span><br>
   <span>{{userInformation.firstName}}</span><br>
   <span>Year {{userInformation.year}} Group {{userInformation.group}}</span><br><br>
-  <div class="year" (click)="showObjects()">Year 1</div>
-      <div *ngIf="showObject==true" class="object">IP</div>
-      <div *ngIf="showObject==true" class="object">Logica</div>
-      <div *ngIf="showObject==true" class="object">Engleza</div>
-      <div *ngIf="showObject==true" class="object">Matematica</div>
-      <div *ngIf="showObject==true" class="object">Structuri de date</div>
-      <div *ngIf="showObject==true" class="object">ACSO</div>
 
-  <div class="year">Year 2</div>
-  <div class="year">Year 3</div>
+  <div *ngFor="let year of userYears">
+    <div class="year" (click)="showObjects(year)">Year {{year}}</div>
+    <div *ngIf="showYearCourses[year-1] == true">
+      <div *ngFor="let course of courses">
+        <div *ngIf="course.year == year" class="object">{{course.name}}</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -18,6 +18,9 @@ namespace DataAccess.Abstractions
         T GetLastByFilter<T>(Expression<Func<T, bool>> filter)
             where T : BaseEntity;
 
+        ICollection<T> GetAllByFilter<T>(Expression<Func<T, bool>> filter)
+            where T : BaseEntity; 
+
         ICollection<T> GetAll<T>()
             where T : BaseEntity;
 

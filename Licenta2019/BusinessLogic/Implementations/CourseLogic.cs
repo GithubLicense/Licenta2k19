@@ -68,6 +68,29 @@ namespace BusinessLogic.Implementations
             return courseDto;
         }
 
+        public ICollection<CourseDto> GetByStudent(Guid userId)
+        {
+            var courseManagementDtos = _repository.GetAllByFilter<CourseManagement>(c => c.UserId == userId);
+
+            ICollection<CourseDto> courseDtos = new List<CourseDto>();
+
+            foreach (var courseManagementDto in courseManagementDtos)
+            {
+                var course = _repository.GetLastByFilter<Course>(c => c.Id == courseManagementDto.CourseId);
+
+                var courseDto = new CourseDto
+                {
+                    Name = course.Name,
+                    Year = course.Year,
+                    Semester = course.Semester
+                };
+
+                courseDtos.Add(courseDto);
+            }
+
+            return courseDtos;
+        }
+
         public ICollection<CourseDto> GetAll()
         {
             List<CourseDto> courseDtos = new List<CourseDto>();
