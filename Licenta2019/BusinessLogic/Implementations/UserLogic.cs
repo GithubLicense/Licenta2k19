@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLogic.Implementations
 {
@@ -67,20 +66,34 @@ namespace BusinessLogic.Implementations
             return userDto;
         }
 
-        public User Create(UserDto userDto, string password)
+        public User Create(SignUpUserDto userDto, string password)
         {
-            User user = new User
-            {
-                FirstName = userDto.FirstName,
-                Email = userDto.Email,
-                LastName = userDto.LastName,
-            };
+            var user = _repository.GetLastByFilter<User>(x => x.Email == userDto.Email);
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
 
             user.PasswordHash = System.Convert.ToBase64String(passwordHash);
             user.PasswordSalt = System.Convert.ToBase64String(passwordSalt);
+
+            _repository.Update(user);
+            _repository.Save();
+
+            return user;
+        }
+
+
+        public User CreateStudent(UserDto userDto)
+        {
+            User user = new User
+            {
+                LastName = userDto.LastName,
+                FirstName = userDto.FirstName,
+                Email = userDto.Email,
+                Year = userDto.Year,
+                Group = userDto.Group,
+                UserPosition = UserPosition.Student
+            };
 
             _repository.Insert(user);
             _repository.Save();

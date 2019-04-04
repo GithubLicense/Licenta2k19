@@ -1,0 +1,52 @@
+.sidenav {
+    height: 510px; 
+    width: 270px; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    background-color: #3388cc; 
+    overflow-x: hidden; 
+    padding-top: 20px;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    overflow: auto;
+
+    .year {
+      width: 220px;
+      height: 50px;
+      background-color: white;
+      color: #3388cc;
+      margin-left: 15px;
+      margin-bottom: 10px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 50px; 
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+      .object{
+        width: 180px;
+        height: auto;
+        min-height: 25px;
+        background-color: white;
+        color: #3388cc;
+        margin-left: 40px;
+        margin-bottom: 10px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 25px; 
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+  }
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+  }

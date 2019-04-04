@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Models
+﻿namespace Models
 {
     public class UserDto : BaseDto
     {
@@ -10,8 +6,11 @@ namespace Models
 
         public string LastName { get; set; }
 
+        public string Year { get; set; }
+
+        public string Group { get; set; }
+
         public string Email { get; set; }
 
-        public string Password { get; set; }
     }
 }

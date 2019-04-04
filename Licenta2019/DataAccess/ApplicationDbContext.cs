@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     using DataAccess.Configurations.Entities;
 
@@ -18,10 +14,14 @@ namespace DataAccess
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseManagement> CourseManagements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseManagementConfiguration());
 
         }
     }

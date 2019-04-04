@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Service.Controllers
 {
@@ -61,6 +58,9 @@ namespace Service.Controllers
                 user.FirstName,
                 user.LastName,
                 user.Email,
+                user.Year,
+                user.Group,
+                user.UserPosition,
                 Token = tokenString
             });
 
@@ -68,7 +68,7 @@ namespace Service.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody] UserDto userDto)
+        public IActionResult Register([FromBody] SignUpUserDto userDto)
         {
             if (!ModelState.IsValid)
             {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Abstractions
 {
@@ -13,10 +12,19 @@ namespace DataAccess.Abstractions
         void Insert<T>(T entity)
             where T : BaseEntity;
 
+        void Update<T>(T entity)
+            where T : BaseEntity;
+
         T GetLastByFilter<T>(Expression<Func<T, bool>> filter)
             where T : BaseEntity;
 
+        ICollection<T> GetAllByFilter<T>(Expression<Func<T, bool>> filter)
+            where T : BaseEntity; 
+
         ICollection<T> GetAll<T>()
+            where T : BaseEntity;
+
+        void Delete<T>(T entity)
             where T : BaseEntity;
 
         void Save();

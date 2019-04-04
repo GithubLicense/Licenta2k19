@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataAccess.Implementations
 {
@@ -32,10 +31,27 @@ namespace DataAccess.Implementations
             return _context.Set<T>().FirstOrDefault(filter);
         }
 
+        public ICollection<T> GetAllByFilter<T>(Expression<Func<T, bool>> filter) where T : BaseEntity
+        {
+            return _context.Set<T>().Where(filter).ToList();
+        }
+
         public ICollection<T> GetAll<T>()
             where T : BaseEntity
         {
             return _context.Set<T>().ToList();
+        }
+
+        public void Delete<T>(T entity) 
+            where T : BaseEntity
+        {
+            _context.Set<T>().Remove(entity);
+        }
+
+        public void Update<T>(T entity)
+            where T : BaseEntity
+        {
+            _context.Set<T>().Update(entity);
         }
 
         public void Save()

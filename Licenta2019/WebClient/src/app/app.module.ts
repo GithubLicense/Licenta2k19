@@ -9,10 +9,11 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './signup/signup.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -22,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     SignupComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule 
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

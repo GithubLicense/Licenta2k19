@@ -7,3 +7,12 @@ C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\Entities\obj\
 C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfo.cs
 C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.dll
 C:\Users\Cmirza\Source\Repos\GithubLicense\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\bin\Debug\netcoreapp2.1\Entities.deps.json
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\bin\Debug\netcoreapp2.1\Entities.dll
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\bin\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfoInputs.cache
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.AssemblyInfo.cs
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.dll
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\Bogdan\Source\Repos\Licenta2k19\Licenta2019\Entities\obj\Debug\netcoreapp2.1\Entities.csprojAssemblyReference.cache

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLogic.Abstractions
 {
@@ -16,6 +15,8 @@ namespace BusinessLogic.Abstractions
 
         UserInformationsDto GetById(Guid id);
 
-        User Create(UserDto user, string password);
+        User Create(SignUpUserDto user, string password);
+
+        User CreateStudent(UserDto user);
     }
 }

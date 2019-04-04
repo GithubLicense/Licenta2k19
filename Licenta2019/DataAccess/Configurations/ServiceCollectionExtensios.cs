@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataAccess.Configurations
+﻿namespace DataAccess.Configurations
 {
     using DataAccess.Abstractions;
     using DataAccess.Implementations;

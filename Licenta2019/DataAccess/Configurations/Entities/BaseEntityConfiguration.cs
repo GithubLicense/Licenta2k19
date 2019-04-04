@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DataAccess.Configurations.Entities
+﻿namespace DataAccess.Configurations.Entities
 {
     using global::Entities;
 
