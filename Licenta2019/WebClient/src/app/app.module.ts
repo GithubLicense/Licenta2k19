@@ -14,6 +14,7 @@ import { SignupService } from './signup/signup.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 
@@ -24,7 +25,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SignupComponent,
     LoginComponent,
     ProfileComponent,
-    SidebarComponent
+    SidebarComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
