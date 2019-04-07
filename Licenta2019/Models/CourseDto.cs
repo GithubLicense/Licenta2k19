@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-    public class CourseDto
+    public class CourseDto : BaseDto
     {
         public string Name { get; set; }
 

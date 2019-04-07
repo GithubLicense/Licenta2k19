@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic.Abstractions;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -74,7 +75,7 @@ namespace AdminService.Controllers
 
 
         [HttpGet("users/{userId:guid}")]
-        public ICollection<CourseDto> GetByStudent([FromRoute] Guid userId)
+        public ICollection<Course> GetByStudent([FromRoute] Guid userId)
         {
             var result = _courseLogic.GetByStudent(userId);
 

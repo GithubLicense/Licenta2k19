@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,13 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() button: boolean; 
+  @Input() button: any; 
   showButton: boolean;
-  constructor() { }
+  course:any;
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if(this.button){
-      this.showButton = this.button;
+      this.showButton = true;
+      this.course = this.button;
     }
     else
     {
@@ -22,8 +26,14 @@ export class ProfileComponent implements OnInit {
   }
 
   selectCourse(course: any) {
+    if(this.course)
+    {
+      this.router.navigate(['/profile/', course.id,'add-project']);
+    }
+
     if (course) {
       this.showButton = true;
+      this.course = course;
     }
   }
 

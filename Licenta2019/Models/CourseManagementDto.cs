@@ -2,7 +2,7 @@
 
 namespace Models
 {
-    public class CourseManagementDto
+    public class CourseManagementDto : BaseDto
     {
         public Guid CourseId { get; set; }
 

@@ -1,8 +1,8 @@
 export class Project{
     Code: string;
     Name: string;
-    NrMembers: string;
-    NrTeams: string;
+    NumberOfMembers: string;
+    NumberOfTeams: string;
     MaxGrade: string;
     Description: string;
 }

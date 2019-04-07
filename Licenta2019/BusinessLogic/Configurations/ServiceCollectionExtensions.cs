@@ -15,6 +15,7 @@
             services.AddScoped<IUserLogic, UserLogic>();
             services.AddScoped<ICourseLogic, CourseLogic>();
             services.AddScoped<ICourseManagementLogic, CourseManagementLogic>();
+            services.AddScoped<IProjectLogic, ProjectLogic>();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BusinessLogic.Abstractions
 
         CourseDto GetById(Guid courseEntityId);
 
-        ICollection<CourseDto> GetByStudent(Guid userId);
+        ICollection<Course> GetByStudent(Guid userId);
 
         ICollection<CourseDto> GetAll();
     }
