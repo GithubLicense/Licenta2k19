@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { SidebarService } from './sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
+  @Output() course: EventEmitter<any> = new EventEmitter<any>();
   userInformation: any;
   showObject: boolean;
   coursesLoaded: boolean = false;
@@ -44,6 +45,10 @@ export class SidebarComponent implements OnInit {
         this.showYearCourses[i] = false;
       }
     }
+  }
+
+  selectCourse(course: any) {
+    this.course.emit(course);
   }
 
 }

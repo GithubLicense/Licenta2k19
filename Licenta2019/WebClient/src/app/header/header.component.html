@@ -1,0 +1,8 @@
+<header id="header">
+    <div class="header-logo">
+      <img src="/assets/images/fii.png">
+    </div>
+    <div class="tabs" *ngIf="showButtons">
+      <button mat-raised-button id="add-project-button" [routerLink]="['/profile/add-project']">Add new project</button>
+    </div>
+  </header>

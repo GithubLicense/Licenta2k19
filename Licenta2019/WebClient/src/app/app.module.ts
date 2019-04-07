@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AddProjectComponent } from './projects/add-project/add-project.component';
+import { HeaderComponent } from './header/header.component';
+import { StartUpComponent } from './start-up/start-up.component';
 
 
 
@@ -26,7 +29,10 @@ import { ProjectsComponent } from './projects/projects.component';
     LoginComponent,
     ProfileComponent,
     SidebarComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    AddProjectComponent,
+    HeaderComponent,
+    StartUpComponent
   ],
   imports: [
     BrowserModule,

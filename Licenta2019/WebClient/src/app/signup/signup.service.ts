@@ -8,8 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SignupService {
 
-  constructor(
-    private http: HttpClient) {
+  constructor(private http: HttpClient) {
      }
 
     public isAuthenticated(): boolean {

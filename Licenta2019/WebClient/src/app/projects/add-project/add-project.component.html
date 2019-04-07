@@ -1,0 +1,20 @@
+<app-profile [button]="true"></app-profile>
+<div class="add-project-form">
+    <form class="form">
+        Project code
+        <input [(ngModel)]="code" name="Project Code" type="text"  class="form-input" required>
+        Project name
+        <input [(ngModel)]="name" name="Project Name" type="text"  class="form-input" required>
+        Number of members
+        <input [(ngModel)]="nrMembers" name="Number of members" type="text" class="form-input" required>
+        Number of maximum teams
+        <input [(ngModel)]="nrTeams" name="Number of maximum teams" type="text" class="form-input" required>
+        Maximum grade
+        <input [(ngModel)]="maxGrade" name="Maximum grade" type="text" class="form-input" required>
+        Project description
+        <textarea [(ngModel)]="description" name="Description" rows="4" cols="50"></textarea>
+      </form>
+      <div class="button">
+      <button mat-raised-button id="submit-button" (click)="onSubmit()">Add project</button>
+      </div>
+</div>

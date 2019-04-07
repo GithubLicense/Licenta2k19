@@ -1,2 +1,5 @@
-<app-sidebar></app-sidebar>
-<app-projects></app-projects>
+<app-header  [showButtons]="showButton" ></app-header>
+<app-sidebar (course)="selectCourse($event)"></app-sidebar>
+<div class="projects">
+  <app-projects></app-projects>
+</div>

@@ -7,7 +7,7 @@
     <div class="year" (click)="showObjects(year)">Year {{year}}</div>
     <div *ngIf="showYearCourses[year-1] == true">
       <div *ngFor="let course of courses">
-        <div *ngIf="course.year == year" class="object">{{course.name}}</div>
+        <div *ngIf="course.year == year" class="object" (click)="selectCourse(course)">{{course.name}}</div>
       </div>
     </div>
   </div>
