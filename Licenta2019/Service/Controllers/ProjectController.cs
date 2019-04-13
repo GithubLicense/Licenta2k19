@@ -34,5 +34,18 @@ namespace Service.Controllers
 
             //return CreatedAtAction(nameof(GetById), new { courseId = newCourse.Id }, courseDto);
         }
+
+        [HttpGet("{courseId:guid}/projects")]
+        public IActionResult GetById([FromRoute] Guid courseId)
+        {
+            var result = _projectLogic.GetByCourseId(courseId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

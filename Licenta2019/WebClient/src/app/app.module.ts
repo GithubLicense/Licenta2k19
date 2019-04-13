@@ -18,6 +18,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './projects/add-project/add-project.component';
 import { HeaderComponent } from './header/header.component';
 import { StartUpComponent } from './start-up/start-up.component';
+import { ProjectCardComponent } from './projects/project-card/project-card.component';
+import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 
 
 
@@ -32,7 +34,9 @@ import { StartUpComponent } from './start-up/start-up.component';
     ProjectsComponent,
     AddProjectComponent,
     HeaderComponent,
-    StartUpComponent
+    StartUpComponent,
+    ProjectCardComponent,
+    ProjectsListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="project-card">
+    <div class="code">
+      {{project.code}}
+    </div>
+    <div class="grade-circle">
+      <div class="grade" [class.six]="project.maxGrade <= 6" [class.eight]="project.maxGrade > 6 && project.maxGrade <= 8"
+        [class.ten]="project.maxGrade > 8">
+        <span>{{project.maxGrade}}</span>
+      </div>
+    </div>
+    <div class="title">
+      {{project.name}}
+    </div>
+    <div class="members">
+      Maximum {{project.numberOfMembers}} students on a team.
+    </div>
+    <div *ngIf="project.numberOfTeams > 0 " class="teams">
+      Only {{project.numberOfTeams}} teams can assign to this project.
+    </div>
+    <div *ngIf="project.numberOfTeams == 0 " class="teams">
+      The maximum number of teams has been reached.
+    </div>
+</div>

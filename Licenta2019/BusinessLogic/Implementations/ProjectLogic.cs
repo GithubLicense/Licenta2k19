@@ -32,5 +32,12 @@ namespace BusinessLogic.Implementations
 
             return project;
         }
+
+        public ICollection<Project> GetByCourseId(Guid courseId)
+        {
+            var projects = _repository.GetAllByFilter<Project>(c => c.CourseId == courseId);
+
+            return projects;
+        }
     }
 }

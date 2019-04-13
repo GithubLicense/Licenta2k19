@@ -3,6 +3,7 @@
       <img src="/assets/images/fii.png">
     </div>
     <div class="tabs" *ngIf="showButtons && course">
-      <button mat-raised-button id="add-project-button" [routerLink]="['/profile',course.id,'add-project']">Add new project</button>
+      <button mat-raised-button class="header-button" [routerLink]="['/profile',course.id,'add-project']">Add new project</button>
+      <button mat-raised-button class="header-button">Projects</button>
     </div>
   </header>

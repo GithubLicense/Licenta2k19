@@ -9,5 +9,7 @@ namespace BusinessLogic.Abstractions
     public interface IProjectLogic
     {
         Project Create(ProjectDto project, Guid courseId);
+
+        ICollection<Project> GetByCourseId(Guid courseId);
     }
 }

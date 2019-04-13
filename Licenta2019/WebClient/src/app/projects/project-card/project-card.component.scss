@@ -1,0 +1,63 @@
+.project-card {
+  width: 235px;
+  height: 250px;
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border-style: dotted; 
+  border-color: #3388cc;
+  border-width: 5px; 
+  text-align: center;
+  color: #3388cc;
+  cursor: pointer;
+}
+
+.code {
+  font-size: 30px;
+  text-align: left;
+  color: #3388cc;
+}
+
+.grade-circle
+{
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+.grade {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  color: white;
+  font-size: 50px;
+
+  &.six {
+    background-color: red;
+  }
+
+  &.eight {
+    background-color: yellow;
+  }
+
+  &.ten {
+    background-color: green;
+  }
+}
+
+.title{
+  font-size:30px; 
+}
+
+.members {
+  padding-top: 20px; 
+  text-align: center;
+  font-weight: 600; 
+}
+
+.teams {
+  font-weight: 600;
+  text-align: center;
+}

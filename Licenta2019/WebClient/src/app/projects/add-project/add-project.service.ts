@@ -13,4 +13,8 @@ export class AddProjectService {
   addProject(project: Project, courseId: string): Observable<any>{
     return this.http.post<Project>("https://localhost:44308/api/v1/profile/"+courseId+"/add-project", project).pipe();
   }
+
+  getProjects(courseId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/projects").pipe();
+  }
 }
