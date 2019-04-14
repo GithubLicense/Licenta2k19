@@ -14,14 +14,10 @@ export class ProfileComponent implements OnInit {
   @Input() button: any;
   showButton: boolean;
   course: any;
-  project: ProjectDto = new ProjectDto();
-  projects: any[];
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private service: AddProjectService) {
-      this.projects = null;
-     }
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit() {
     if (this.route.snapshot.params.id) {
@@ -40,10 +36,6 @@ export class ProfileComponent implements OnInit {
   }
 
   selectCourse(course: any) {
-    this.service.getProjects(course.id).subscribe((data: any) => {
-      this.projects = data;
-    })
-    
     if (this.course) {
       this.router.navigate(['/profile/', course.id]);
     }
@@ -51,6 +43,7 @@ export class ProfileComponent implements OnInit {
     if (course) {
       this.showButton = true;
       this.course = course;
+      this.router.navigate(['/profile/', course.id]);      
     }
   }
 

@@ -9,8 +9,11 @@ export class HeaderComponent implements OnInit {
 
   @Input() showButtons:boolean;
   @Input() course:any;
-  constructor() { }
+  courseRoute: string;
+  constructor() {
+   }
 
   ngOnInit() {
+    this.courseRoute = this.course ? this.course.id? this.course.id : this.course : null;
   }
 }

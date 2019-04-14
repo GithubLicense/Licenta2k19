@@ -1,3 +1,5 @@
-<p>
-  projects-list works!
-</p>
+<app-profile [button]="courseInformation"></app-profile>
+<div *ngIf="projects" class="list-projects">
+  <div *ngFor="let project of projects">
+    <app-project-card [project]="project"></app-project-card>
+  </div>
