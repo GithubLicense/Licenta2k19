@@ -1,0 +1,51 @@
+.details {
+  margin-top: 30px;
+  margin-left: 300px;
+
+  .title {
+    font-size: 35px;
+    color: #3388cc;
+  }
+
+  .text{
+    font-size: 25px;
+    color: #3388cc;
+   }
+
+  .grade-circle {
+    margin-top:20px;
+    margin-bottom: 25px;
+    width: 35%;
+  }
+
+  .grade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    color: white;
+    font-size: 50px;
+
+    &.six {
+      background-color: yellow;
+    }
+
+    &.eight {
+      background-color: orange;
+    }
+
+    &.ten {
+      background-color: green;
+    }
+  }
+
+  .button{
+    margin-top: 30px;
+    #assign-project {
+        color:white;
+        background-color: #3388cc;
+    }  
+  }
+}

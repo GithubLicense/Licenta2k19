@@ -8,6 +8,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { AddProjectComponent } from './projects/add-project/add-project.component';
 import { StartUpComponent } from './start-up/start-up.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'profile/:id/projects',
     component: ProjectsListComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id/projects/:projectid',
+    component: ProjectDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {

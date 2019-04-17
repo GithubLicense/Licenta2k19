@@ -1,0 +1,21 @@
+<app-profile [button]="courseInformation"></app-profile>
+<div *ngIf="project" class="details">
+  <span class="title">#{{project.code}} {{project.name}}</span>
+  <div class="grade-circle">
+    <div class="grade" [class.six]="project.maxGrade <= 6" [class.eight]="project.maxGrade > 6 && project.maxGrade <= 8"
+      [class.ten]="project.maxGrade > 8">
+      <span>{{project.maxGrade}}</span>
+    </div>
+  </div>
+  <span class="text">The maximum number of students that can assign on a team in this project is {{project.numberOfMembers}}.</span>
+  <br><br>
+  <span class="text">Only {{project.numberOfTeams}} teams can assign to this project. </span>
+  <br><br>
+  <span class="title">Description of the project:</span>
+  <br><br><br>
+  <span class="text">{{project.description}}</span>
+
+  <div class="button">
+    <button mat-raised-button id="assign-project">Assign to this project</button>
+  </div>
+</div>

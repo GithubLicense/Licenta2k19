@@ -20,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
 import { StartUpComponent } from './start-up/start-up.component';
 import { ProjectCardComponent } from './projects/project-card/project-card.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProjectsListComponent } from './projects/projects-list/projects-list.co
     HeaderComponent,
     StartUpComponent,
     ProjectCardComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

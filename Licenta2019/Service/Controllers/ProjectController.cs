@@ -47,5 +47,18 @@ namespace Service.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("{courseId:guid}/projects/{projectId:guid}")]
+        public IActionResult GetByProjectId([FromRoute] Guid projectId)
+        {
+            var result = _projectLogic.GetByProjectId(projectId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

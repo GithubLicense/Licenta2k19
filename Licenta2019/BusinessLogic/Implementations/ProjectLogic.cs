@@ -39,5 +39,12 @@ namespace BusinessLogic.Implementations
 
             return projects;
         }
+
+        public Project GetByProjectId(Guid projectId)
+        {
+            var project = _repository.GetLastByFilter<Project>(c => c.Id == projectId);
+
+            return project;
+        }
     }
 }
