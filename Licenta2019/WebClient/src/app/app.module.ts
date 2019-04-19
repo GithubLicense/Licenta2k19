@@ -21,6 +21,7 @@ import { StartUpComponent } from './start-up/start-up.component';
 import { ProjectCardComponent } from './projects/project-card/project-card.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { AssignComponent } from './projects/assign/assign.component';
 
 
 
@@ -38,7 +39,8 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     StartUpComponent,
     ProjectCardComponent,
     ProjectsListComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    AssignComponent
   ],
   imports: [
     BrowserModule,

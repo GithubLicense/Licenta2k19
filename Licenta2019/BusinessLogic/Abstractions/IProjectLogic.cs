@@ -13,5 +13,9 @@ namespace BusinessLogic.Abstractions
         ICollection<Project> GetByCourseId(Guid courseId);
 
         Project GetByProjectId(Guid projectId);
+
+        int GetProjectYear(Guid projectId);
+
+        Team CreateTeam(TeamDto teamDto, Guid projectId);
     }
 }

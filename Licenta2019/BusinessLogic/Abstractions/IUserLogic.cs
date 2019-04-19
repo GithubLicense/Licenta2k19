@@ -11,7 +11,9 @@ namespace BusinessLogic.Abstractions
     {
         User Authenticate(string email, string password);
 
-        IEnumerable<UserInformationsDto> GetAll();
+        ICollection<UserInformationsDto> GetAll();
+
+        ICollection<UserInformationsDto> GetAllByYear(string year);
 
         UserInformationsDto GetById(Guid id);
 

@@ -9,7 +9,7 @@ import { AddProjectService } from '../add-project/add-project.service';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  courseInformation: any;
+  courseInformation: string;
   projectId: string;
   project: any;
 
@@ -23,7 +23,6 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectId = this.route.snapshot.params.projectid;
     this.service.getProjectById(this.courseInformation, this.projectId).subscribe((data: any) => {
       this.project = data;
-      console.log(this.project);
     })
   }
 

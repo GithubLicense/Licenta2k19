@@ -33,9 +33,9 @@ namespace BusinessLogic.Implementations
             return user;
         }
 
-        IEnumerable<UserInformationsDto> IUserLogic.GetAll()
+        ICollection<UserInformationsDto> GetAll()
         {
-            List<UserInformationsDto> usersDtos = new List<UserInformationsDto>();
+            ICollection<UserInformationsDto> usersDtos = new List<UserInformationsDto>();
 
             var users = this._repository.GetAll<User>();
 
@@ -43,15 +43,42 @@ namespace BusinessLogic.Implementations
             {
                 var userDto = new UserInformationsDto
                 {
+                    Id = user.Id,
                     Email = user.Email,
                     FirstName = user.FirstName,
-                    LastName = user.LastName
+                    LastName = user.LastName,
+                    Group = user.Group,
+                    Year = user.Year
                 };
                 usersDtos.Add(userDto);
             }
 
             return usersDtos;
         }
+
+        public ICollection<UserInformationsDto> GetAllByYear(string year)
+        {
+            ICollection<UserInformationsDto> usersDtos = new List<UserInformationsDto>();
+
+            var users = _repository.GetAllByFilter<User>(c => c.Year == year && c.UserPosition == UserPosition.Student);
+
+            foreach (var user in users)
+            {
+                var userDto = new UserInformationsDto
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Group = user.Group,
+                    Year = user.Year
+                };
+                usersDtos.Add(userDto);
+            }
+
+            return usersDtos;
+        }
+
 
         public UserInformationsDto GetById(Guid id)
         {
@@ -142,6 +169,11 @@ namespace BusinessLogic.Implementations
             }
 
             return true;
+        }
+
+        ICollection<UserInformationsDto> IUserLogic.GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

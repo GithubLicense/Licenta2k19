@@ -1,0 +1,47 @@
+<app-profile [button]="courseInformation"></app-profile>
+<div class="assign-page">
+<div *ngIf="project" class="assign-project">
+  <form class="form">
+      Project code
+      <input name="Project Code" type="text"  class="form-input" value="{{project.code}}" readonly>
+      Github repository
+      <input [(ngModel)]="repository" name="Github repository" type="text"  class="form-input" required>
+      Captain's github username
+      <input [(ngModel)]="username" name="Captain Github username" type="text" class="form-input" required>
+      <div *ngIf="maxTeammates > teammates.length + 1">
+      <span class="big-text">Assign teammates to project</span>
+      <br><br>
+      Teammate First Name
+      <input [(ngModel)]="firstName" name="Teammate first name" type="text" class="form-input">
+      Teammate Last Name
+      <input [(ngModel)]="lastName" name="Teammate last name" type="text" class="form-input">
+    </div>
+    </form>
+    <div *ngIf="maxTeammates > teammates.length + 1" class="button">
+        <button mat-raised-button id="search-button" (click)="search()">Search teammate</button>
+    </div>
+    <div *ngIf="maxTeammates <= teammates.length + 1" class="button">
+        <button mat-raised-button id="submit-button" (click)="submit()">Submit</button>
+    </div>
+</div>
+
+  <div *ngIf="searchedUsers && searchedUsers.length > 0" class="searched-list">
+    <span class="search-title">Search result:</span>
+    <div *ngFor="let user of searchedUsers">
+      <div class="user-info">
+        <span class="text">{{user.firstName}} {{user.lastName}}</span>
+        <button mat-raised-button id="add-button" (click)="add(user)">Add</button>
+    </div>
+    </div>
+</div>
+
+  <div *ngIf="teammates && teammates.length > 0" class="searched-list">
+      <span class="teammate-title">Teammates choosed:</span>
+      <div *ngFor="let teammate of teammates">
+          <div class="user-info">
+            <span class="text">{{teammate.firstName}} {{teammate.lastName}}</span>
+            <button mat-raised-button id="delete-button" (click)="delete(teammate)">Delete</button>
+        </div>
+        </div>
+  </div>
+</div>

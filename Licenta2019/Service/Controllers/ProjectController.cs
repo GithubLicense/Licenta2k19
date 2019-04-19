@@ -35,6 +35,19 @@ namespace Service.Controllers
             //return CreatedAtAction(nameof(GetById), new { courseId = newCourse.Id }, courseDto);
         }
 
+        [HttpPost("{courseId:guid}/projects/{projectId:guid}/assign")]
+        public IActionResult AddTeam([FromBody] TeamDto teamDto, [FromRoute] Guid projectId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var newTeam = _projectLogic.CreateTeam(teamDto, projectId);
+
+            return Ok();
+        }
+
         [HttpGet("{courseId:guid}/projects")]
         public IActionResult GetById([FromRoute] Guid courseId)
         {
@@ -52,6 +65,19 @@ namespace Service.Controllers
         public IActionResult GetByProjectId([FromRoute] Guid projectId)
         {
             var result = _projectLogic.GetByProjectId(projectId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("{courseId:guid}/projects/{projectId:guid}/year")]
+        public IActionResult GetProjectId([FromRoute] Guid projectId)
+        {
+            var result = _projectLogic.GetProjectYear(projectId);
 
             if (result == null)
             {

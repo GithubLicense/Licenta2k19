@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../../models/project';
 import { Observable } from 'rxjs';
+import { Team } from '../../models/team';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,13 @@ export class AddProjectService {
 
   getProjectById(courseId: string, projectId: string): Observable<any> {
     return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/projects/" + projectId).pipe();
+  }
+
+  getProjectYear(courseId: string, projectId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/projects/" + projectId + "/year").pipe();
+  }
+
+  assignToProject(team: Team, courseId: string, projectId: string): Observable<any>{
+    return this.http.post<Project>("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/assign", team).pipe();
   }
 }

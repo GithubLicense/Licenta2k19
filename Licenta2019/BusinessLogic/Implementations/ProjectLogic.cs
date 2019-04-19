@@ -33,6 +33,32 @@ namespace BusinessLogic.Implementations
             return project;
         }
 
+        public Team CreateTeam(TeamDto teamDto, Guid projectId)
+        {
+            Team team = new Team
+            {
+                ProjectId = projectId,
+                GithubRepository = teamDto.GithubRepository,
+                GithubUsername = teamDto.GithubUsername
+            };
+
+            _repository.Insert(team);
+
+            foreach (var teammate in teamDto.Teammates)
+            {
+                TeamMember teamMember = new TeamMember
+                {
+                    MemberId = Guid.Parse(teammate),
+                    TeamId = team.Id
+                };
+                _repository.Insert(teamMember);
+            }
+
+            _repository.Save();
+
+            return team;
+        }
+
         public ICollection<Project> GetByCourseId(Guid courseId)
         {
             var projects = _repository.GetAllByFilter<Project>(c => c.CourseId == courseId);
@@ -45,6 +71,15 @@ namespace BusinessLogic.Implementations
             var project = _repository.GetLastByFilter<Project>(c => c.Id == projectId);
 
             return project;
+        }
+
+        public int GetProjectYear(Guid projectId)
+        {
+            var project = _repository.GetLastByFilter<Project>(c => c.Id == projectId);
+
+            var course = _repository.GetLastByFilter<Course>(c => c.Id == project.CourseId);
+
+            return course.Year;
         }
     }
 }

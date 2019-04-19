@@ -90,6 +90,43 @@ namespace DataAccess.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("Entities.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("GithubRepository")
+                        .IsRequired();
+
+                    b.Property<string>("GithubUsername")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<Guid>("ProjectId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("Entities.TeamMember", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("MemberId");
+
+                    b.Property<Guid>("TeamId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamMembers");
+                });
+
             modelBuilder.Entity("Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -130,6 +167,22 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Entities.Team", b =>
+                {
+                    b.HasOne("Entities.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Entities.TeamMember", b =>
+                {
+                    b.HasOne("Entities.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

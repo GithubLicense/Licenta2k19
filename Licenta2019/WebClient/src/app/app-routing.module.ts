@@ -9,6 +9,7 @@ import { AddProjectComponent } from './projects/add-project/add-project.componen
 import { StartUpComponent } from './start-up/start-up.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { AssignComponent } from './projects/assign/assign.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'profile/:id/projects/:projectid',
     component: ProjectDetailsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id/projects/:projectid/assign',
+    component: AssignComponent,
     canActivate: [AuthGuardService]
   },
   {

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { AddProjectService } from './add-project.service';
-import { ActivatedRoute } from '@angular/router';
-import { SidebarService } from '../../sidebar/sidebar.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-project',
@@ -22,7 +21,8 @@ export class AddProjectComponent implements OnInit {
 
   constructor(
     private service: AddProjectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class AddProjectComponent implements OnInit {
     this.project.MaxGrade = this.maxGrade;
     this.project.Description = this.description;
     this.service.addProject(this.project, this.courseInformation).subscribe((data) => {
-      console.log(data);
+      this.router.navigate(["/profile",this.courseInformation,"projects"]);
     })
   }
 

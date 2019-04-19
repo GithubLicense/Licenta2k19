@@ -15,7 +15,7 @@ namespace Service.Controllers
 
     using Models;
 
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/v{version:apiVersion}")]
     public class UserController : ControllerBase
@@ -95,8 +95,16 @@ namespace Service.Controllers
             return Ok(users);
         }
 
+        [AllowAnonymous]
+        [HttpGet("users/year/{year}")]
+        public IActionResult GetAllByYear([FromRoute] string year)
+        {
+            var users = _userLogic.GetAllByYear(year);
+            return Ok(users);
+        }
+
         [HttpGet("users/{id}")]
-        public IActionResult GetById(Guid id)
+        public IActionResult GetById([FromRoute] Guid id)
         {
             var user = _userLogic.GetById(id);
             return Ok(user);

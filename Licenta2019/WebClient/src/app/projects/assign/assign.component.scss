@@ -1,0 +1,110 @@
+.assign-page{
+  display: flex;
+}
+
+.assign-project {
+  width: 300px;
+  height: 100%;
+  margin-top: 10px;
+  margin-left: 350px;
+  background-color: #3388cc;
+  border-radius: 15px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 30px;
+    color: white;
+
+    .big-text {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+
+    input {
+      border: none;
+      border-bottom: 2px solid #fff;
+      background: transparent;
+      outline: none;
+      color: #fff;
+      font-size: 16px;
+      height: 25px;
+      width: 200px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .button {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+    #search-button {
+      color: #3388cc;
+      background-color: white;
+      border: 1px solid #3388cc;
+    }
+
+    #submit-button {
+      color: #3388cc;
+      background-color: white;
+      border: 1px solid #3388cc;
+    }   
+  }
+}
+
+.searched-list{
+  margin-top: 10px;
+  margin-left: 30px;
+  .search-title{
+    padding-left: 40px;
+    font-size: 20px;
+    color: #3388cc;
+  }
+
+  .teammate-title{
+    font-size: 20px;
+    color: #3388cc;
+  }
+
+  .user-info{
+    height: 40px;
+    width: 200px;
+    position: relative;
+    color: #3388cc;
+    border: 2px solid #3388cc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top:5px;
+
+    .text {
+      line-height: 40px;
+      padding-left: 10px
+    }
+    #add-button {
+      position: absolute;
+      right: 10px;
+      color: white;
+      background-color: #3388cc;
+      border: 1px solid #3388cc;
+    }
+    #delete-button {
+      position: absolute;
+      right: 10px;
+      color: white;
+      background-color: #3388cc;
+      border: 1px solid #3388cc;
+    }
+    
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff;
+}

@@ -13,7 +13,6 @@ export class SignupService {
 
     public isAuthenticated(): boolean {
       const token = window.localStorage.getItem('token');
-      console.log(token);
       if (token == null)
       {
         return false;
