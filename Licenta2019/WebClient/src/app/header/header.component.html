@@ -2,8 +2,8 @@
     <div class="header-logo" >
       <img src="/assets/images/fii.png">
     </div>
-    <div class="tabs" *ngIf="showButtons && course">
-      <button mat-raised-button class="header-button" [routerLink]="['/profile',courseRoute,'add-project']">Add new project</button>
-      <button mat-raised-button class="header-button" [routerLink]="['/profile',courseRoute,'projects']">Projects</button>
+    <div class="tabs" *ngIf="showButtons">
+      <button mat-raised-button class="header-button" [routerLink]="['/profile',showButtons,'add-project']">Add new project</button>
+      <button mat-raised-button class="header-button" [routerLink]="['/profile',showButtons,'projects']">Projects</button>
     </div>
   </header>

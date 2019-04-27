@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Project, ProjectDto } from '../models/project';
-import { AddProjectService } from '../projects/add-project/add-project.service';
-import { element } from '@angular/core/src/render3';
+import { CourseService } from '../course/course.service';
+import { UserInformation } from '../models/user';
 
 @Component({
   selector: 'app-profile',
@@ -13,38 +12,40 @@ export class ProfileComponent implements OnInit {
 
   @Input() button: any;
   showButton: boolean;
-  course: any;
+  year: any;
+  userInformation: any;
+  courses: any;
+  coursesLoaded: boolean;
+  coursesShowed: any[] = [];
+  
   constructor(
-    private router: Router,
-    private route: ActivatedRoute
+    private courseService: CourseService
     ) {}
 
   ngOnInit() {
-    if (this.route.snapshot.params.id) {
-      this.showButton = true;
-      this.course = this.route.snapshot.params.id;
-    }
-    else {
-      if (this.button) {
-        this.showButton = true;
-        this.course = this.button;
-      }
-      else {
-        this.showButton = false;
-      }
-    }
+    var user = window.localStorage.getItem("userInfo");
+    this.userInformation = JSON.parse(user);
+    this.year = 1;
+    this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
+      this.courses = data;
+      this.coursesLoaded = true;
+      this.courses.forEach(element => {
+        if(element.year == this.year)
+        {
+          this.coursesShowed.push(element);
+        }
+      });
+    })
   }
 
-  selectCourse(course: any) {
-    if (this.course) {
-      this.router.navigate(['/profile/', course.id]);
-    }
-
-    if (course) {
-      this.showButton = true;
-      this.course = course;
-      this.router.navigate(['/profile/', course.id]);      
-    }
+  selectYear(year: any) {
+    this.year = year;
+    this.coursesShowed = [];
+    this.courses.forEach(element => {
+      if(element.year == this.year)
+      {
+        this.coursesShowed.push(element);
+      }
+    });
   }
-
 }

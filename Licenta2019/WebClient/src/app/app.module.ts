@@ -22,6 +22,7 @@ import { ProjectCardComponent } from './projects/project-card/project-card.compo
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { AssignComponent } from './projects/assign/assign.component';
+import { CourseCardComponent } from './course/course-card/course-card.component';
 
 
 
@@ -40,7 +41,8 @@ import { AssignComponent } from './projects/assign/assign.component';
     ProjectCardComponent,
     ProjectsListComponent,
     ProjectDetailsComponent,
-    AssignComponent
+    AssignComponent,
+    CourseCardComponent
   ],
   imports: [
     BrowserModule,

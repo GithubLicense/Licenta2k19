@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +11,12 @@ export class HeaderComponent implements OnInit {
   @Input() showButtons:boolean;
   @Input() course:any;
   courseRoute: string;
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
    }
 
   ngOnInit() {
-    this.courseRoute = this.course ? this.course.id? this.course.id : this.course : null;
+    this.showButtons = this.route.snapshot.params.id;
   }
 }

@@ -3490,11 +3490,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\Bogdan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3513,8 +3513,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\Entities\\Entities.csproj"
+            "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\Entities\\Entities.csproj"
             }
           }
         }

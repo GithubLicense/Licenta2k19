@@ -8,11 +8,8 @@ import { SidebarService } from './sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  @Output() course: EventEmitter<any> = new EventEmitter<any>();
+  @Output() year: EventEmitter<any> = new EventEmitter<any>();
   userInformation: any;
-  showObject: boolean;
-  coursesLoaded: boolean = false;
-  courses: any;
   userYears: number[] = [];
   showYearCourses: boolean[] = [];
 
@@ -21,7 +18,6 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.showObject = false;
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
 
@@ -29,26 +25,10 @@ export class SidebarComponent implements OnInit {
       this.userYears[i] = i + 1;
       this.showYearCourses[i] = false;
     }
-
-    this.sidebarService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
-      this.courses = data;
-      this.coursesLoaded = true;
-    })
   }
 
-  showObjects(year: number) {
-    for (var i = 0; i < this.userInformation.year; i++) {
-      if (year - 1 == i) {
-        this.showYearCourses[i] = !this.showYearCourses[i];
-      }
-      else {
-        this.showYearCourses[i] = false;
-      }
-    }
-  }
-
-  selectCourse(course: any) {
-    this.course.emit(course);
+  selectYear(year: number) {
+    this.year.emit(year);
   }
 
 }
