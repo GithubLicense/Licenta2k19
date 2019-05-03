@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Entities;
 using Models;
 
@@ -19,5 +18,7 @@ namespace BusinessLogic.Abstractions
         Team CreateTeam(TeamDto teamDto, Guid projectId);
 
         ICollection<TeamDto> GetTeamsByProjectId(Guid projectId);
+
+        Evaluation CreateEvaluation(EvalutionDto evaluationDto, Guid teamId);
     }
 }

@@ -9,17 +9,22 @@ import { Guid } from "guid-typescript";
 })
 export class HeaderComponent implements OnInit {
 
-  showButtons: boolean;
+  showButtons: boolean = false;
   courseId: string;
+  urlParsed: string[];
   constructor(
     private router: Router,
     private route: ActivatedRoute
   ) {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
-        this.courseId = val.url.split('/').pop();
-        this.showButtons = Guid.isGuid(this.courseId);
-        console.log(this.showButtons);
+        this.urlParsed = val.url.split('/');
+        this.urlParsed.forEach(element => {
+          if(Guid.isGuid(element) && this.showButtons == false){
+            this.showButtons = true;
+            this.courseId = element;
+          }
+        });
     }
   });
    }

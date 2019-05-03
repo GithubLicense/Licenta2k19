@@ -1,101 +1,116 @@
-.list-teams{
-    margin-left: 550px;
-    .title {
-        margin-top: 20px;
-        margin-left: 163px;
-        font-size: 50px;
-        color: #3388cc;
-    }
+.list-teams {
+  margin-left: 550px;
+
+  .title {
+    margin-top: 20px;
+    margin-left: 163px;
+    font-size: 50px;
+    color: #3388cc;
+  }
 }
 
 .team-card {
-    width: 400px;
-    height: 200px;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: white;
-    border-style: dotted; 
-    border-color: #3388cc;
-    border-width: 5px; 
-    text-align: center;
-    color: #3388cc;
-    cursor: pointer;
-    text-overflow: ellipsis;
-  }
+  width: 400px;
+  height: 200px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
+  border-style: dotted;
+  border-color: #3388cc;
+  border-width: 5px;
+  text-align: center;
+  color: #3388cc;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
 
-  .repository {
-    font-size: 15px;
-    font-weight: bold;
-    text-align: left;
-    color: #3388cc;
-  }
+.repository {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+  color: #3388cc;
+}
 
-  .teammates {
-    margin-top: 20px;
-    color: #3388cc;
-    font-size: 20px;
-    line-height: 1.6;
-  }
+.teammates {
+  margin-top: 20px;
+  color: #3388cc;
+  font-size: 20px;
+  line-height: 1.6;
+}
 
-  .button{
-    margin-top: 20px;
-    #evaluation {
-      color:white;
-      background-color: #3388cc;
-    }
+.button {
+  margin-top: 20px;
+
+  #evaluation {
+    color: white;
+    background-color: #3388cc;
   }
+}
 
 .evaluation-form {
-    width: 440px;
-    height: 320px;
-    background-color: white;
-    border-style: dotted; 
-    border-color: #3388cc;
-    border-width: 5px;
-    border-top: none;
-    margin-top: 5px;
+  width: 440px;
+  height: 360px;
+  background-color: white;
+  border-style: dotted;
+  border-color: #3388cc;
+  border-width: 5px;
+  border-top: none;
+  margin-top: 5px;
 
-    .closing-button{
-        color: #3388cc;
-        float: right;
-        padding-top: 5px;
-        padding-right: 10px;
-        cursor: pointer;
+  .closing-button {
+    color: #3388cc;
+    float: right;
+    padding-top: 5px;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+
+  .form-title {
+    text-align: center;
+    color: #3388cc;
+    font-size: 25px;
+    padding-top: 30px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 125px;
+    color: #3388cc;
+
+    input {
+      border: none;
+      border-bottom: 2px solid #3388cc;
+      background: transparent;
+      outline: none;
+      color: #3388cc;
+      font-size: 16px;
+      height: 25px;
+      width: 200px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
-    .form-title{
-        text-align: center;
-        color: #3388cc;
-        font-size: 25px;
-        padding-top: 30px; 
+    textarea {
+      width: 200px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      border-color: #3388cc;
+      color: #3388cc;
     }
-    
-    .form {
-        display: flex;
-        flex-direction: column; 
-        padding-top: 20px; 
-        padding-left: 125px;
-        color: #3388cc;
-       input{
-            border: none;
-            border-bottom: 2px solid #3388cc;
-            background: transparent;
-            outline: none;
-            color: #3388cc;
-            font-size: 16px; 
-            height: 25px;
-            width: 200px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        textarea{
-            width: 200px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border-color: #3388cc;
-        }
+  }
+
+  .button {
+    text-align: center;
+
+    #submit-button {
+      color: #3388cc;
+      background-color: white;
+      border: 1px solid #3388cc;
     }
+  }
 }
 
 
@@ -103,7 +118,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: #3388cc;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #3388cc;
 }
-

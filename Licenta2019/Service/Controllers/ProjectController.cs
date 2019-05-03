@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BusinessLogic.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -44,6 +41,19 @@ namespace Service.Controllers
             }
 
             var newTeam = _projectLogic.CreateTeam(teamDto, projectId);
+
+            return Ok();
+        }
+
+        [HttpPost("{courseId:guid}/projects/{projectId:guid}/teams/{teamId:guid}")]
+        public IActionResult AddEvaluation([FromBody] EvalutionDto evalutionDto, [FromRoute] Guid teamId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var newTeam = _projectLogic.CreateEvaluation(evalutionDto, teamId);
 
             return Ok();
         }

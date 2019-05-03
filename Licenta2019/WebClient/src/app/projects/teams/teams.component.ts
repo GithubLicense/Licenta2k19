@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddProjectService } from '../add-project/add-project.service';
+import { Evaluation } from '../../models/evaluation';
 
 @Component({
   selector: 'app-teams',
@@ -13,6 +14,11 @@ export class TeamsComponent implements OnInit {
   projectId: string;
   teams: any;
   evaluationForm: boolean[] = [];
+  type: string;
+  grade: string;
+  description: string;
+  evaluation: Evaluation = new Evaluation();
+
   constructor(
     private route: ActivatedRoute,
     private service: AddProjectService
@@ -33,10 +39,21 @@ export class TeamsComponent implements OnInit {
 
   showEvaluationForm(i: number){
     this.evaluationForm[i] = true;
-    console.log(this.evaluationForm);
   }
 
   closeEvaluationForm(i: number){
     this.evaluationForm[i] = false;
+  }
+
+  onSubmit(teamId: any, i: number){
+    this.evaluation.Type = this.type;
+    this.evaluation.Grade = this.grade;
+    this.evaluation.Description = this.description;
+    this.service.addEvalution(this.evaluation, this.courseInformation, this.projectId, teamId).subscribe((data) => {
+      this.evaluationForm[i] = false;
+      this.type = undefined;
+      this.grade = undefined;
+      this.description = undefined;
+    })
   }
 }

@@ -55,6 +55,52 @@ namespace DataAccess.Migrations
                     b.ToTable("CourseManagements");
                 });
 
+            modelBuilder.Entity("Entities.Email", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Receiver")
+                        .IsRequired();
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Emails");
+                });
+
+            modelBuilder.Entity("Entities.Evaluation", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description")
+                        .IsRequired();
+
+                    b.Property<string>("Grade")
+                        .IsRequired()
+                        .HasMaxLength(2);
+
+                    b.Property<Guid>("TeamId");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Evaluation");
+                });
+
             modelBuilder.Entity("Entities.Project", b =>
                 {
                     b.Property<Guid>("Id")
@@ -167,6 +213,14 @@ namespace DataAccess.Migrations
                     b.HasOne("Entities.Course", "Course")
                         .WithMany()
                         .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Entities.Evaluation", b =>
+                {
+                    b.HasOne("Entities.Team", "Team")
+                        .WithMany()
+                        .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

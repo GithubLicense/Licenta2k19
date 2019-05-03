@@ -19,6 +19,8 @@
         public DbSet<Project> Projects { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<Evaluation> Evaluation { get; set; }
+        public DbSet<Email> Emails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +30,8 @@
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new TeamConfiguration());
             modelBuilder.ApplyConfiguration(new TeamMemberConfiguration());
+            modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
+            modelBuilder.ApplyConfiguration(new EmailConfiguration());
         }
     }
 }

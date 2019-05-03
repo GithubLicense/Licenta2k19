@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using BusinessLogic.Abstractions;
 using DataAccess.Abstractions;
 using Entities;
@@ -31,6 +30,22 @@ namespace BusinessLogic.Implementations
             _repository.Save();
 
             return project;
+        }
+
+        public Evaluation CreateEvaluation(EvalutionDto evaluationDto, Guid teamId)
+        {
+            Evaluation evaluation = new Evaluation
+            {
+                TeamId = teamId,
+                Type = evaluationDto.Type,
+                Grade = evaluationDto.Grade,
+                Description = evaluationDto.Description
+            };
+
+            _repository.Insert(evaluation);
+            _repository.Save();
+
+            return evaluation;
         }
 
         public Team CreateTeam(TeamDto teamDto, Guid projectId)
@@ -99,6 +114,7 @@ namespace BusinessLogic.Implementations
 
                 var teamDto = new TeamDto
                 {
+                    Id = team.Id,
                     GithubRepository = team.GithubRepository,
                     GithubUsername = team.GithubUsername,
                     Teammates = teammates
