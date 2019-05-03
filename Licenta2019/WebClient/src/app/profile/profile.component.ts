@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { CourseService } from '../course/course.service';
-import { UserInformation } from '../models/user';
 
 @Component({
   selector: 'app-profile',

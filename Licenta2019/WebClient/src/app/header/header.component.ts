@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Guid } from "guid-typescript";
 
 @Component({
   selector: 'app-header',
@@ -8,15 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() showButtons:boolean;
-  @Input() course:any;
-  courseRoute: string;
+  showButtons: boolean;
+  courseId: string;
   constructor(
+    private router: Router,
     private route: ActivatedRoute
   ) {
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationStart) {
+        this.courseId = val.url.split('/').pop();
+        this.showButtons = Guid.isGuid(this.courseId);
+        console.log(this.showButtons);
+    }
+  });
    }
 
   ngOnInit() {
-    this.showButtons = this.route.snapshot.params.id;
   }
 }

@@ -17,5 +17,7 @@ namespace BusinessLogic.Abstractions
         int GetProjectYear(Guid projectId);
 
         Team CreateTeam(TeamDto teamDto, Guid projectId);
+
+        ICollection<TeamDto> GetTeamsByProjectId(Guid projectId);
     }
 }

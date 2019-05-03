@@ -48,6 +48,19 @@ namespace Service.Controllers
             return Ok();
         }
 
+        [HttpGet("{courseId:guid}/projects/{projectId:guid}/teams")]
+        public IActionResult GetTeams([FromRoute] Guid projectId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var teams = _projectLogic.GetTeamsByProjectId(projectId);
+
+            return Ok(teams);
+        }
+
         [HttpGet("{courseId:guid}/projects")]
         public IActionResult GetById([FromRoute] Guid courseId)
         {

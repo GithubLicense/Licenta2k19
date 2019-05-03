@@ -1,8 +1,7 @@
-<app-header  [showButtons]="showButton" [course]="course"></app-header>
 <app-sidebar (year)="selectYear($event)"></app-sidebar>
 <div *ngIf="courses && !button" class="list-courses">
     <div *ngFor="let course of coursesShowed">
       <app-course-card [course]="course" [routerLink]="['/profile',course.id]"></app-course-card>
-</div>
+    </div>
 </div>
 

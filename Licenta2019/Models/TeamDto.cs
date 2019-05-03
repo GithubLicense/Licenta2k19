@@ -10,6 +10,7 @@ namespace Models
 
         public string GithubUsername { get; set; }
 
-        public string[] Teammates { get; set; }
+        public List<string> Teammates { get; set; }
+
     }
 }

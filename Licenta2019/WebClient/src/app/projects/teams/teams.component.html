@@ -1,0 +1,34 @@
+<app-profile [button]="courseInformation"></app-profile>
+<div *ngIf="teams" class="list-teams">
+    <div class="title">
+        Teams
+    </div>
+    <div *ngFor="let team of teams; index as i">
+        <div class="team-card">
+            <div class="repository">
+                <a href={{team.githubUrl}}>{{team.githubUrl}}</a>
+            </div>
+            <div class="teammates">
+                <div *ngFor="let user of team.teammates">
+                  {{user}}
+                  <br>
+            </div>
+            <div class="button">
+              <button mat-raised-button id="evaluation" (click)="showEvaluationForm(i)">Add new evaluation</button>
+            </div>
+          </div>
+        </div>
+      <div *ngIf="evaluationForm[i]" class="evaluation-form">
+          <div class="closing-button" (click)="closeEvaluationForm(i)">X</div>
+          <div class="form-title"> Add new evaluation</div>
+          <form class="form">
+            Evaluation type
+            <input [(ngModel)]="type" name="Type" type="text"  class="form-input" required>
+            Note
+            <input [(ngModel)]="note" name="Note" type="text"  class="form-input" required>
+            Description
+            <textarea [(ngModel)]="description" name="Description" type="text" class="form-input" required></textarea>
+          </form>
+        </div>
+    </div>
+</div>

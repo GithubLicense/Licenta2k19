@@ -23,6 +23,7 @@ import { ProjectsListComponent } from './projects/projects-list/projects-list.co
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { AssignComponent } from './projects/assign/assign.component';
 import { CourseCardComponent } from './course/course-card/course-card.component';
+import { TeamsComponent } from './projects/teams/teams.component';
 
 
 
@@ -42,7 +43,8 @@ import { CourseCardComponent } from './course/course-card/course-card.component'
     ProjectsListComponent,
     ProjectDetailsComponent,
     AssignComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,

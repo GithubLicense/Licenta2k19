@@ -30,4 +30,8 @@ export class AddProjectService {
   assignToProject(team: Team, courseId: string, projectId: string): Observable<any>{
     return this.http.post<Project>("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/assign", team).pipe();
   }
+
+  getTeamsByProject(courseId: string, projectId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/teams").pipe();
+  }
 }

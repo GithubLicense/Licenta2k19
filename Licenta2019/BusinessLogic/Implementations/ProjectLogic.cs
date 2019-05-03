@@ -81,5 +81,32 @@ namespace BusinessLogic.Implementations
 
             return course.Year;
         }
+
+        public ICollection<TeamDto> GetTeamsByProjectId(Guid projectId)
+        {
+            ICollection<TeamDto> teamsDtos = new List<TeamDto>();
+            var teams = _repository.GetAllByFilter<Team>(c => c.ProjectId == projectId);
+
+            foreach (var team in teams)
+            {
+                var teammates = new List<string>();
+                var teamMembers =  _repository.GetAllByFilter<TeamMember>(c => c.TeamId == team.Id);
+                foreach (var teamMember in teamMembers)
+                {
+                    var user = _repository.GetLastByFilter<User>(c => c.Id == teamMember.MemberId);
+                    teammates.Add(user.FirstName + ' ' + user.LastName);
+                }
+
+                var teamDto = new TeamDto
+                {
+                    GithubRepository = team.GithubRepository,
+                    GithubUsername = team.GithubUsername,
+                    Teammates = teammates
+                };
+               teamsDtos.Add(teamDto);
+            }
+
+            return teamsDtos;
+        }
     }
 }

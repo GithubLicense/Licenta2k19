@@ -12066,11 +12066,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\AdminService\\AdminService.csproj",
+      "projectUniqueName": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\AdminService\\AdminService.csproj",
       "projectName": "AdminService",
-      "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\AdminService\\AdminService.csproj",
+      "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\AdminService\\AdminService.csproj",
       "packagesPath": "C:\\Users\\Bogdan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\AdminService\\obj\\",
+      "outputPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\AdminService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12089,8 +12089,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj"
+            "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj"
             }
           }
         }

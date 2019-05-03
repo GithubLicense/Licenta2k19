@@ -8226,11 +8226,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj",
       "projectName": "BusinessLogic",
-      "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj",
+      "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\BusinessLogic.csproj",
       "packagesPath": "C:\\Users\\Bogdan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\obj\\",
+      "outputPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8249,11 +8249,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Bogdan\\source\\repos\\Licenta2k19\\Licenta2019\\Models\\Models.csproj"
+            "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Bogdan\\Source\\Repos\\Licenta2k19\\Licenta2019\\Models\\Models.csproj"
             }
           }
         }
