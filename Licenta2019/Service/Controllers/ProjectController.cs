@@ -58,6 +58,19 @@ namespace Service.Controllers
             return Ok();
         }
 
+        [HttpGet("{courseId:guid}/evaluations/{userId:guid}")]
+        public IActionResult GetEvaluations([FromRoute] Guid userId, [FromRoute] Guid courseId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var evaluations = _projectLogic.GetEvalutions(userId, courseId);
+
+            return Ok(evaluations);
+        }
+
         [HttpGet("{courseId:guid}/projects/{projectId:guid}/teams")]
         public IActionResult GetTeams([FromRoute] Guid projectId)
         {
@@ -108,6 +121,22 @@ namespace Service.Controllers
             }
 
             return Ok(result);
+        }
+
+        [HttpGet("{courseId:guid}/checkAssigned/{userId:guid}")]
+        public IActionResult CheckProjectAssigned([FromRoute] Guid courseId, [FromRoute] Guid userId)
+        {
+            var result = _projectLogic.CheckProjectAssigned(courseId, userId);
+            if (result == false)
+            {
+                return Ok(0);
+            }
+            else if(result == true)
+            {
+                return Ok(1);
+            }
+
+            return NotFound();
         }
     }
 }

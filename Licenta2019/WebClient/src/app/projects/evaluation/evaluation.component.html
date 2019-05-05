@@ -1,0 +1,13 @@
+<app-profile></app-profile>
+<div *ngIf="evaluations" class="list-evaluations">
+  <div *ngFor="let evaluation of evaluations">
+    <div class="type">
+        {{evaluation.type}}
+    </div>
+    <div class="grade">
+      Grade: {{evaluation.grade}}
+    </div>
+    <div class="description">
+      {{evaluation.description}}
+    </div>
+</div>

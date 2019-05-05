@@ -13,6 +13,35 @@ namespace BusinessLogic.Implementations
         {
         }
 
+        public bool CheckProjectAssigned(Guid courseId, Guid userId)
+        {
+            var teamMembers = _repository.GetAllByFilter<TeamMember>(c => c.MemberId == userId);
+
+            if (teamMembers == null)
+            {
+                return false;
+            }
+
+            foreach (var teamMember in teamMembers)
+            {
+                var team = _repository.GetLastByFilter<Team>(c => c.Id == teamMember.TeamId);
+
+                if (team == null)
+                {
+                    return false;
+                }
+
+                var project = _repository.GetLastByFilter<Project>(c => c.Id == team.ProjectId);
+
+                if (project != null && project.CourseId == courseId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public Project Create(ProjectDto projectDto, Guid courseId)
         {
             Project project = new Project
@@ -86,6 +115,41 @@ namespace BusinessLogic.Implementations
             var project = _repository.GetLastByFilter<Project>(c => c.Id == projectId);
 
             return project;
+        }
+
+        public ICollection<EvalutionDto> GetEvalutions(Guid userId, Guid courseId)
+        {
+            ICollection<Evaluation> evaluations = new List<Evaluation>();
+            ICollection<EvalutionDto> evalutionDtos = new List<EvalutionDto>();
+
+            var teamMembers = _repository.GetAllByFilter<TeamMember>(c => c.MemberId == userId);
+
+            foreach (var teamMember in teamMembers)
+            {
+                var team = _repository.GetLastByFilter<Team>(c => c.Id == teamMember.TeamId);
+
+                var project = _repository.GetLastByFilter<Project>(c => c.Id == team.ProjectId);
+
+                if (project != null && project.CourseId == courseId)
+                {
+                    evaluations = _repository.GetAllByFilter<Evaluation>(c => c.TeamId == team.Id);
+                }
+            }
+
+            foreach (var evaluation in evaluations)
+            {
+                var evaluationDto = new EvalutionDto
+                {
+                    Description = evaluation.Description,
+                    Grade = evaluation.Grade,
+                    Type = evaluation.Type
+                };
+
+                evalutionDtos.Add(evaluationDto);
+            }
+
+            return evalutionDtos;
+
         }
 
         public int GetProjectYear(Guid projectId)

@@ -20,5 +20,9 @@ namespace BusinessLogic.Abstractions
         ICollection<TeamDto> GetTeamsByProjectId(Guid projectId);
 
         Evaluation CreateEvaluation(EvalutionDto evaluationDto, Guid teamId);
+
+        ICollection<EvalutionDto> GetEvalutions(Guid userId, Guid courseId);
+
+        bool CheckProjectAssigned(Guid courseId, Guid userId);
     }
 }

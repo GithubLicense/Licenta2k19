@@ -28,6 +28,10 @@ export class AddProjectService {
     return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/projects/" + projectId + "/year").pipe();
   }
 
+  getAssignedToProject(courseId: string, userId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/checkAssigned/" + userId).pipe();
+  }
+
   assignToProject(team: Team, courseId: string, projectId: string): Observable<any>{
     return this.http.post<Project>("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/assign", team).pipe();
   }
@@ -38,5 +42,9 @@ export class AddProjectService {
 
   addEvalution(evalution: Evaluation, courseId: string, projectId: string, teamId: string): Observable<any>{
     return this.http.post<Project>("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/teams/" + teamId, evalution).pipe();
+  }
+
+  getEvaluations(courseId: string, userId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/"+courseId+"/evaluations/" + userId).pipe();
   }
 }

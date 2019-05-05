@@ -11,6 +11,7 @@ import { ProjectsListComponent } from './projects/projects-list/projects-list.co
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { AssignComponent } from './projects/assign/assign.component';
 import { TeamsComponent } from './projects/teams/teams.component';
+import { EvaluationComponent } from './projects/evaluation/evaluation.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,11 @@ const routes: Routes = [
   {
     path: 'profile/:id/projects/:projectid/teams',
     component: TeamsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id/evaluations',
+    component: EvaluationComponent,
     canActivate: [AuthGuardService]
   },
   {

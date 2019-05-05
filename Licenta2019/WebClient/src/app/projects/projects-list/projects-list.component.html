@@ -1,4 +1,4 @@
-<app-profile [button]="courseInformation"></app-profile>
+<app-profile></app-profile>
 <div *ngIf="projects" class="list-projects">
   <div *ngFor="let project of projects">
     <app-project-card [project]="project" [routerLink]="['/profile',courseInformation,'projects', project.id]"></app-project-card>

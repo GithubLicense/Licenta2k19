@@ -5,5 +5,8 @@
     <div class="tabs" *ngIf="showButtons">
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'add-project']">Add new project</button>
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'projects']">Projects</button>
+      <div *ngIf="showEvaluationButton">
+        <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'evaluations']">Evaluation</button>
+      </div>
     </div>
   </header>

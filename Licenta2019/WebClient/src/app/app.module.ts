@@ -24,6 +24,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
 import { AssignComponent } from './projects/assign/assign.component';
 import { CourseCardComponent } from './course/course-card/course-card.component';
 import { TeamsComponent } from './projects/teams/teams.component';
+import { EvaluationComponent } from './projects/evaluation/evaluation.component';
 
 
 
@@ -44,7 +45,8 @@ import { TeamsComponent } from './projects/teams/teams.component';
     ProjectDetailsComponent,
     AssignComponent,
     CourseCardComponent,
-    TeamsComponent
+    TeamsComponent,
+    EvaluationComponent
   ],
   imports: [
     BrowserModule,

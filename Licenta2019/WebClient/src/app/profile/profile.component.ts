@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CourseService } from '../course/course.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,19 +9,21 @@ import { CourseService } from '../course/course.service';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() button: any;
   showButton: boolean;
   year: any;
   userInformation: any;
   courses: any;
   coursesLoaded: boolean;
   coursesShowed: any[] = [];
+  button: boolean;
   
   constructor(
-    private courseService: CourseService
+    private courseService: CourseService,
+    private route: ActivatedRoute
     ) {}
 
   ngOnInit() {
+    this.button = this.route.snapshot.url.length > 2;
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
     this.year = 1;
