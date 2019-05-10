@@ -17,20 +17,26 @@ namespace BusinessLogic.Implementations
         {
         }
 
-        public Email Create(EmailDto emailDto)
+        public ICollection<Email> Create(EmailDto emailDto)
         {
-            SendEmail(emailDto.Receiver, emailDto.Subject, emailDto.Body);
-            var newEmail = new Email
+            ICollection<Email> emails = new List<Email>();
+            SendEmail(emailDto.Teachers, emailDto.Subject, emailDto.Body);
+            foreach (var teacher in emailDto.Teachers)
             {
-                Body = emailDto.Body,
-                Receiver = emailDto.Receiver,
-                Subject = emailDto.Subject
-            };
+                var newEmail = new Email
+                {
+                    Body = emailDto.Body,
+                    Receiver = teacher,
+                    Subject = emailDto.Subject
+                };
 
-            _repository.Insert(newEmail);
-            _repository.Save();
+                _repository.Insert(newEmail);
+                _repository.Save();
 
-            return newEmail;
+                emails.Add(newEmail);
+            }
+
+            return emails;
         }
 
         public EmailDto GetById(Guid emailId)
@@ -40,7 +46,7 @@ namespace BusinessLogic.Implementations
             var emailDto = new EmailDto
             {
                 Body = email.Body,
-                Receiver = email.Receiver,
+                Teachers = new[] { email.Receiver },
                 Subject = email.Subject
             };
 
@@ -58,7 +64,7 @@ namespace BusinessLogic.Implementations
                 var emailDto = new EmailDto
                 {
                     Body = email.Body,
-                    Receiver = email.Receiver,
+                    Teachers = new []{email.Receiver},
                     Subject = email.Subject
                 };
 
@@ -68,23 +74,27 @@ namespace BusinessLogic.Implementations
             return emailDtos;
         }
 
-        public void SendEmail(string receiver, string subject, string body)
+        public void SendEmail(ICollection<string> teachers, string subject, string body)
         {
-            SmtpClient client = new SmtpClient();
-            client.Host = "127.0.0.1";
-            client.Port = 1925;
-            client.EnableSsl = false;
-            client.Timeout = 10000;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("learningsmart211@gmail.com", "q1w2e3r4t5!");
-            MailMessage mail = new MailMessage("learningsmart211@gmail.com", receiver);
-            mail.Subject = subject;
-            mail.Body = body;
-            mail.BodyEncoding = Encoding.UTF8;
-            mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-            client.Send(mail);
-            mail.Dispose();
+            foreach (var teacher in teachers)
+            {
+                SmtpClient client = new SmtpClient();
+                client.Host = "127.0.0.1";
+                client.Port = 1925;
+                client.EnableSsl = false;
+                client.Timeout = 10000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential("learningsmart211@gmail.com", "q1w2e3r4t5!");
+                MailMessage mail = new MailMessage("learningsmart211@gmail.com", teacher);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.BodyEncoding = Encoding.UTF8;
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                client.Send(mail);
+                mail.Dispose();
+            }
+            
         }
     }
 }

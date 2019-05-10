@@ -16,7 +16,7 @@ namespace AdminService.Controllers
         }
 
         [HttpPost("students")]
-        public IActionResult Register([FromBody] UserDto userDto)
+        public IActionResult RegisterStudent([FromBody] UserDto userDto)
         {
             if (!ModelState.IsValid)
             {
@@ -34,6 +34,27 @@ namespace AdminService.Controllers
 
             return Ok(userInformationDto);
         }
+
+        [HttpPost("teachers")]
+        public IActionResult RegisterTeacher([FromBody] TeacherDto teacherDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = _userLogic.CreateTeacher(teacherDto);
+
+            var userInformationDto = new UserInformationsDto
+            {
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
+
+            return Ok(userInformationDto);
+        }
+
 
     }
 }

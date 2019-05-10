@@ -4,6 +4,7 @@ import { Project } from '../../models/project';
 import { Observable } from 'rxjs';
 import { Team } from '../../models/team';
 import { Evaluation } from '../../models/evaluation';
+import { Email } from '../../models/email';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class AddProjectService {
 
   getAssignedToProject(courseId: string, userId: string): Observable<any> {
     return this.http.get("https://localhost:44308/api/v1/profile/" + courseId + "/checkAssigned/" + userId).pipe();
+  }
+
+  sendEmail(email: Email, userId: string): Observable<any>{
+    return this.http.post<Email>("https://localhost:44308/api/v1/profile/"+userId+"/send-email",email).pipe();
   }
 
   assignToProject(team: Team, courseId: string, projectId: string): Observable<any>{

@@ -1,0 +1,25 @@
+<app-profile></app-profile>
+<div class="emails">
+  <div *ngIf="teachers">
+    <div class="title"> Teachers:</div>
+    <div *ngFor="let teacher of teachers; index as i">
+      <div class="teacher">
+          {{teacher.lastName}} {{teacher.firstName}}
+        <div class="checkbox"> 
+          <mat-checkbox [(ngModel)]="checked[i].SendEmail"></mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="email-form">
+      <form class="form">
+        <span class="text">Subject</span>
+        <input [(ngModel)]="subject" name="Subject" type="text"  class="form-input" required>
+        <span class="text">Message</span>
+        <textarea [(ngModel)]="message" name="Message" type="text" class="form-input" required></textarea>
+      </form>
+      <div class="button">
+          <button mat-raised-button id="submit-button" (click)="onSubmit()">Send Email</button>
+      </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupService } from './signup/signup.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +26,8 @@ import { AssignComponent } from './projects/assign/assign.component';
 import { CourseCardComponent } from './course/course-card/course-card.component';
 import { TeamsComponent } from './projects/teams/teams.component';
 import { EvaluationComponent } from './projects/evaluation/evaluation.component';
+import { EmailsComponent } from './emails/emails.component';
+import { CourseDetailsComponent } from './course/course-details/course-details.component';
 
 
 
@@ -46,7 +49,9 @@ import { EvaluationComponent } from './projects/evaluation/evaluation.component'
     AssignComponent,
     CourseCardComponent,
     TeamsComponent,
-    EvaluationComponent
+    EvaluationComponent,
+    EmailsComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,7 @@ import { EvaluationComponent } from './projects/evaluation/evaluation.component'
     MatButtonModule,
     MatInputModule,
     MatIconModule,
+    MatCheckboxModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule 

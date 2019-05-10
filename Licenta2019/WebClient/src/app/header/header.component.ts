@@ -20,13 +20,11 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private service: AddProjectService
   ) {
-  }
-
-  ngOnInit() {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
+        this.showButtons = false;
         this.checkCourseId = false;
         this.urlParsed = val.url.split('/');
         this.urlParsed.forEach(element => {
@@ -44,6 +42,8 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-   
+  }
+
+  ngOnInit() { 
   }
 }

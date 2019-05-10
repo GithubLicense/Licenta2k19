@@ -95,11 +95,17 @@ namespace Service.Controllers
             return Ok(users);
         }
 
-        [AllowAnonymous]
         [HttpGet("users/year/{year}")]
         public IActionResult GetAllByYear([FromRoute] string year)
         {
             var users = _userLogic.GetAllByYear(year);
+            return Ok(users);
+        }
+
+        [HttpGet("users/{courseId}/teachers")]
+        public IActionResult GetTeachersByCourse([FromRoute] Guid courseId)
+        {
+            var users = _userLogic.GetTeachersByCourseId(courseId);
             return Ok(users);
         }
 

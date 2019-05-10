@@ -6,9 +6,8 @@ using System.Collections.Generic;
 
 namespace Service.Controllers
 {
-    [ApiVersion("1.0")]
     [ApiController]
-    [Route("api/v{version:apiVersion}/emails")]
+    [Route("api/v{version:apiVersion}/profile")]
     public class EmailController : ControllerBase
     {
         private readonly IEmailLogic _emailLogic;
@@ -18,8 +17,8 @@ namespace Service.Controllers
             _emailLogic = emailLogic;
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] EmailDto emailDto)
+        [HttpPost("{userId:guid}/send-email")]
+        public IActionResult Create([FromRoute] Guid userId, [FromBody] EmailDto emailDto)
         {
             if (!ModelState.IsValid)
             {
@@ -28,7 +27,7 @@ namespace Service.Controllers
 
             var email = _emailLogic.Create(emailDto);
 
-            return CreatedAtAction(nameof(GetById), new { emailId = email.Id }, emailDto);
+            return Ok(email);
         }
 
         [HttpGet("{emailId:guid}")]

@@ -79,6 +79,31 @@ namespace BusinessLogic.Implementations
             return usersDtos;
         }
 
+        public ICollection<Teacher> GetTeachersByCourseId(Guid courseId)
+        {
+            ICollection<Teacher> usersDtos = new List<Teacher>();
+            var courseManagements = _repository.GetAllByFilter<CourseManagement>(c => c.CourseId == courseId);
+
+            foreach (var courseManagement in courseManagements)
+            {
+                var user = _repository.GetLastByFilter<User>(c => c.Id == courseManagement.UserId);
+
+                if (user.UserPosition == UserPosition.Teacher)
+                {
+                    var userDto = new Teacher()
+                    {
+                        Id = user.Id,
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        LastName = user.LastName
+                    };
+                    usersDtos.Add(userDto);
+                }
+            }
+
+            return usersDtos;
+        }
+
 
         public UserInformationsDto GetById(Guid id)
         {
@@ -120,6 +145,25 @@ namespace BusinessLogic.Implementations
                 Year = userDto.Year,
                 Group = userDto.Group,
                 UserPosition = UserPosition.Student
+            };
+
+            _repository.Insert(user);
+            _repository.Save();
+
+            return user;
+        }
+
+
+        public User CreateTeacher(TeacherDto teacherDto)
+        {
+            User user = new User
+            {
+                LastName = teacherDto.LastName,
+                FirstName = teacherDto.FirstName,
+                Email = teacherDto.Email,
+                Year = "-",
+                Group = "-",
+                UserPosition = UserPosition.Teacher
             };
 
             _repository.Insert(user);

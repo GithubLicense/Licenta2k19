@@ -101,6 +101,24 @@ namespace DataAccess.Migrations
                     b.ToTable("Evaluation");
                 });
 
+            modelBuilder.Entity("Entities.FileMetadata", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CourseId");
+
+                    b.Property<string>("FileName")
+                        .IsRequired();
+
+                    b.Property<string>("Path")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("Entities.Project", b =>
                 {
                     b.Property<Guid>("Id")
@@ -180,14 +198,13 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(30);
+                        .HasMaxLength(60);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(25);
 
-                    b.Property<string>("Group")
-                        .HasMaxLength(2);
+                    b.Property<string>("Group");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -200,8 +217,7 @@ namespace DataAccess.Migrations
                     b.Property<string>("UserPosition")
                         .IsRequired();
 
-                    b.Property<string>("Year")
-                        .HasMaxLength(1);
+                    b.Property<string>("Year");
 
                     b.HasKey("Id");
 

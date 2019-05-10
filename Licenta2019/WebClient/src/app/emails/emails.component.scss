@@ -1,0 +1,100 @@
+.emails {
+    margin-left: 215px;
+    .title{
+        margin-top: 25px;
+        color: #3388cc;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .teacher {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        color: #3388cc;
+        font-size: 20px;
+        .checkbox {
+            padding-left: 10px;
+            margin-top: -1px; 
+        }
+    }
+
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #3388cc !important;
+  }
+  
+::ng-deep .mat-checkbox-input {
+    display: none;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-ripple {
+    display: none;
+}
+
+.email-form {
+    width: 440px;
+    height: 360px;
+    background-color: white;
+    margin-top: 25px;
+    margin-left: 280px;
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+      padding-left: 125px;
+      color: #3388cc;
+
+      .text{
+          margin-left: 140px;
+          margin-top: 10px;
+          font-weight: bold;
+      }
+  
+      input {
+        border: none;
+        border-bottom: 2px solid #3388cc;
+        background: transparent;
+        outline: none;
+        color: #3388cc;
+        font-size: 16px;
+        height: 25px;
+        width: 220px;
+        margin-left: 65px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+  
+      textarea {
+        width: 400px;
+        height: 250px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        border-color: #3388cc;
+        color: #3388cc;
+        font-size: 15px;
+      }
+    }
+  
+    .button {
+      margin-left: 250px;
+  
+      #submit-button {
+        color: white;
+        background-color: #3388cc;
+        border: 1px solid #3388cc;
+      }
+    }
+  }
+  
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #3388cc;
+  }
+  

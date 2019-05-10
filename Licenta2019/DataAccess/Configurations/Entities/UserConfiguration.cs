@@ -23,13 +23,7 @@ namespace DataAccess.Configurations.Entities
 
             builder.Property(p => p.Email)
                 .IsRequired()
-                .HasMaxLength(30);
-
-            builder.Property(p => p.Year)
-                .HasMaxLength(1);
-
-            builder.Property(p => p.Group)
-                .HasMaxLength(2);
+                .HasMaxLength(60);
 
             builder.Property(p => p.UserPosition)
                .IsRequired()

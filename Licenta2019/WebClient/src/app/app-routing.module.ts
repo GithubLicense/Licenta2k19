@@ -12,6 +12,8 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
 import { AssignComponent } from './projects/assign/assign.component';
 import { TeamsComponent } from './projects/teams/teams.component';
 import { EvaluationComponent } from './projects/evaluation/evaluation.component';
+import { EmailsComponent } from './emails/emails.component';
+import { CourseDetailsComponent } from './course/course-details/course-details.component';
 
 const routes: Routes = [
   {
@@ -29,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'profile/:id',
-    component: ProfileComponent,
+    component: CourseDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {
@@ -60,6 +62,11 @@ const routes: Routes = [
   {
     path: 'profile/:id/evaluations',
     component: EvaluationComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id/emails',
+    component: EmailsComponent,
     canActivate: [AuthGuardService]
   },
   {

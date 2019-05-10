@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.button = this.route.snapshot.url.length > 2;
+    this.button = this.route.snapshot.url.length > 1;
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
     this.year = 1;

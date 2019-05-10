@@ -20,5 +20,9 @@ namespace BusinessLogic.Abstractions
         User Create(SignUpUserDto user, string password);
 
         User CreateStudent(UserDto user);
+
+        User CreateTeacher(TeacherDto teacherDto);
+
+        ICollection<Teacher> GetTeachersByCourseId(Guid courseId);
     }
 }

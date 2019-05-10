@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.Collections.Generic;
+
+namespace Models
 {
     public class EmailDto : BaseDto
     {
@@ -6,6 +8,6 @@
 
         public string Body { get; set; }
 
-        public string Receiver { get; set; }
+        public string[] Teachers { get; set; }
     }
 }

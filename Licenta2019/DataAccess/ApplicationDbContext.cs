@@ -21,6 +21,7 @@
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<Evaluation> Evaluation { get; set; }
         public DbSet<Email> Emails { get; set; }
+        public DbSet<FileMetadata> Files { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,7 @@
             modelBuilder.ApplyConfiguration(new TeamMemberConfiguration());
             modelBuilder.ApplyConfiguration(new EvaluationConfiguration());
             modelBuilder.ApplyConfiguration(new EmailConfiguration());
+            modelBuilder.ApplyConfiguration(new FileConfiguration());
         }
     }
 }

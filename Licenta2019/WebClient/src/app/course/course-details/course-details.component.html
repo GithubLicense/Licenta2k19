@@ -1,0 +1,19 @@
+<app-profile></app-profile>
+<div *ngIf="course" class="details">
+    <div class="initials-circle">
+        <div class="initials">
+          {{courseAbreviation}}
+        </div>
+    </div>
+  <div class="title">{{course.name}}</div>
+  <br>
+  <div class="text"> 
+      This a course from year {{course.year}}, semester {{course.semester}} and it is ranked with 6 credits.
+  </div>
+  <br>
+  <div class="title">Description:</div>
+  <br>
+  <div class="text">
+      Programarea orientată pe obiecte (POO, uneori și Programarea orientată obiect, uneori denumită ca și în limba engleză, Object Oriented Programming (OOP)) este o paradigmă de programare, axată pe ideea încapsulării, adică grupării datelor și codului care operează asupra lor, într-o singură structură. Un alt concept important asociat programării orientate obiect este polimorfismul, care permite abstractizări ce permit o descriere conceptuală mai simplă a soluției.
+  </div>
+</div>
