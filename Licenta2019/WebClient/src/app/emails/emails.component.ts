@@ -47,7 +47,6 @@ export class EmailsComponent implements OnInit {
     this.email.Teachers = this.teachersEmail;
     this.email.Subject = this.subject;
     this.email.Body = this.message;
-    console.log(this.email);
     this.emailService.sendEmail(this.email, this.userInformation.id).subscribe((data) => {
       console.log(data);
     })

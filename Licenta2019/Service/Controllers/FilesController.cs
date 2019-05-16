@@ -28,8 +28,10 @@ namespace Service.Controllers
         }
 
         [HttpPost("{courseEntityId:guid}/upload")]
-        public async Task<IActionResult> UploadFilesTask([FromRoute] Guid courseEntityId, IFormFile file)
+        public async Task<IActionResult> UploadFilesTask([FromRoute] Guid courseEntityId)
         {
+            var file = Request.Form.Files[0];
+
             var fileDto = await _filesHandlerLogic.UploadFiles(courseEntityId, file);
 
             if (fileDto == null)
@@ -38,10 +40,9 @@ namespace Service.Controllers
             var newFile = _filesHandlerLogic.Create(fileDto);
 
             return Ok(newFile);
-            //return CreatedAtAction(nameof(GetById), new { fileEntityId = newFile.EntityId }, fileDto);
         }
 
-        [HttpGet("fileId={fileEntityId:guid}")]
+        [HttpGet("{fileEntityId:guid}")]
         public IActionResult GetById([FromRoute] Guid fileEntityId)
         {
             var file = _filesHandlerLogic.GetFile(fileEntityId, this);
@@ -54,7 +55,7 @@ namespace Service.Controllers
             return file;
         }
 
-        [HttpGet("courseId={courseEntityId:guid}")]
+        [HttpGet("{courseEntityId:guid}")]
         public IActionResult GetByCourseId([FromRoute] Guid courseEntityId)
         {
             var result = _filesHandlerLogic.GetByCourseId(courseEntityId);

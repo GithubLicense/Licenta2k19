@@ -52,4 +52,12 @@ export class AddProjectService {
   getEvaluations(courseId: string, userId: string): Observable<any> {
     return this.http.get("https://localhost:44308/api/v1/profile/"+courseId+"/evaluations/" + userId).pipe();
   }
+
+  getResources(courseId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/files/"+courseId).pipe();
+  }
+
+  addFile(courseId: string, file: any): Observable<any> {
+    return this.http.post<any>("https://localhost:44308/api/v1/files/"+courseId+"/upload", file).pipe();
+  }
 }

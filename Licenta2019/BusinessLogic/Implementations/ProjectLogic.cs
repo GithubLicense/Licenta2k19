@@ -44,6 +44,7 @@ namespace BusinessLogic.Implementations
 
         public Project Create(ProjectDto projectDto, Guid courseId)
         {
+
             Project project = new Project
             {
                 CourseId = courseId,

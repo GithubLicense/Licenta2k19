@@ -207,6 +207,18 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Octokit/0.32.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.1/Octokit.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Octokit.dll": {}
+        }
       }
     }
   },
@@ -680,11 +692,27 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Octokit/0.32.0": {
+      "sha512": "g6fG2fJbgmjb/OXyXquCKQpKPqEtoUajNGb+mdD9wb47px8SURnxADX6azujc4tKR0uUCNkrHLYvERwl02pbYw==",
+      "type": "package",
+      "path": "octokit/0.32.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Octokit.dll",
+        "lib/net45/Octokit.xml",
+        "lib/netstandard1.1/Octokit.dll",
+        "lib/netstandard1.1/Octokit.xml",
+        "octokit.0.32.0.nupkg.sha512",
+        "octokit.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Octokit >= 0.32.0"
     ]
   },
   "packageFolders": {
@@ -733,6 +761,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[0.32.0, )"
           }
         },
         "imports": [

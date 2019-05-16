@@ -28,6 +28,7 @@ import { TeamsComponent } from './projects/teams/teams.component';
 import { EvaluationComponent } from './projects/evaluation/evaluation.component';
 import { EmailsComponent } from './emails/emails.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
+import { ResourcesComponent } from './resources-course/resources.component';
 
 
 
@@ -51,7 +52,8 @@ import { CourseDetailsComponent } from './course/course-details/course-details.c
     TeamsComponent,
     EvaluationComponent,
     EmailsComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,
