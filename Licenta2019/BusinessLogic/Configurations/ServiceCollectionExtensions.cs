@@ -18,6 +18,7 @@
             services.AddScoped<IProjectLogic, ProjectLogic>();
             services.AddScoped<IEmailLogic, EmailLogic>();
             services.AddScoped<IFilesHandlerLogic, FileHandlerLogic>();
+            services.AddScoped<IStatisticsLogic, StatisticsLogic>();
         }
     }
 }

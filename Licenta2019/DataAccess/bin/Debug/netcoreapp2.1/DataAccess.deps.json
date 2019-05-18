@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "6d84475e7d1e621a9a16c41f84189dc08d6918ed"
+    "signature": "c4c9ee932d9a1f1125b5e26813a6bc3b45012607"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,7 +10,8 @@
         "dependencies": {
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.1.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.4",
+          "Octokit": "0.32.0"
         },
         "runtime": {
           "DataAccess.dll": {}
@@ -203,6 +204,14 @@
           "runtime/win/lib/_._": {
             "rid": "win",
             "assetType": "runtime"
+          }
+        }
+      },
+      "Octokit/0.32.0": {
+        "runtime": {
+          "lib/netstandard1.1/Octokit.dll": {
+            "assemblyVersion": "0.32.0.0",
+            "fileVersion": "0.32.0.0"
           }
         }
       },
@@ -509,6 +518,9 @@
         }
       },
       "Entities/1.0.0": {
+        "dependencies": {
+          "Octokit": "0.32.0"
+        },
         "runtime": {
           "Entities.dll": {}
         }
@@ -639,6 +651,13 @@
       "sha512": "sha512-vduxuHEqRgRrTE8wYG8Wxj/+6wwzddOmZzjKZx6rFMc/91aUBxI5etAFYxesoNaIja5NpgSTcnk6cN8BeYXf9A==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
+    },
+    "Octokit/0.32.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g6fG2fJbgmjb/OXyXquCKQpKPqEtoUajNGb+mdD9wb47px8SURnxADX6azujc4tKR0uUCNkrHLYvERwl02pbYw==",
+      "path": "octokit/0.32.0",
+      "hashPath": "octokit.0.32.0.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",

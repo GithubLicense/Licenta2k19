@@ -24,5 +24,7 @@ namespace BusinessLogic.Abstractions
         ICollection<EvalutionDto> GetEvalutions(Guid userId, Guid courseId);
 
         bool CheckProjectAssigned(Guid courseId, Guid userId);
+
+        TeamInfo GetTeamInfo(Guid courseId, Guid userId);
     }
 }

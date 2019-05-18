@@ -12091,6 +12091,7 @@
       "Microsoft.AspNetCore.Mvc.Versioning >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
+      "Octokit >= 0.32.0",
       "Swashbuckle.AspNetCore >= 4.0.1"
     ]
   },
@@ -12162,6 +12163,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[0.32.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -162,6 +162,27 @@ namespace BusinessLogic.Implementations
             return course.Year;
         }
 
+        public TeamInfo GetTeamInfo(Guid courseId, Guid userId)
+        {
+            var teamInfo = new TeamInfo();
+            var teamMembers = _repository.GetAllByFilter<TeamMember>(c => c.MemberId == userId);
+
+            foreach (var teamMember in teamMembers)
+            {
+                var team = _repository.GetLastByFilter<Team>(c => c.Id == teamMember.TeamId);
+
+                var project = _repository.GetLastByFilter<Project>(c => c.Id == team.ProjectId);
+
+                if (project.CourseId == courseId)
+                {
+                    teamInfo.TeamId = team.Id;
+                    teamInfo.ProjectId = team.ProjectId;
+                }
+            }
+
+            return teamInfo;
+        }
+
         public ICollection<TeamDto> GetTeamsByProjectId(Guid projectId)
         {
             ICollection<TeamDto> teamsDtos = new List<TeamDto>();

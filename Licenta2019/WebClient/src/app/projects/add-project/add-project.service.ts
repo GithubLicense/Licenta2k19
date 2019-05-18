@@ -60,4 +60,12 @@ export class AddProjectService {
   addFile(courseId: string, file: any): Observable<any> {
     return this.http.post<any>("https://localhost:44308/api/v1/files/"+courseId+"/upload", file).pipe();
   }
+
+  getTeamInfo(courseId: string, userId: string): Observable<any> {
+    return this.http.get("https://localhost:44308/api/v1/profile/"+courseId+"/teamInfo/" + userId).pipe();
+  }
+
+  getTeamStatistics(courseId: string, projectId: string, teamId: string):Observable<any>{
+    return this.http.get("https://localhost:44308/api/v1/profile/"+courseId+"/projects/" + projectId + "/teams/" + teamId + "/statistics").pipe();
+  }
 }

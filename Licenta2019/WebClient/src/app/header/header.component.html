@@ -14,5 +14,8 @@
         <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'emails']">Send email</button>
       </div>
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'resources']">Resources</button>
+      <div *ngIf="userInformation.userPosition == 0">
+        <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'statistics']">Statistics</button>
+      </div>
     </div>
   </header>

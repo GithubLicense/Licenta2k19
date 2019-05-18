@@ -3510,7 +3510,8 @@
       "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 2.1.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.1.4",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Octokit >= 0.32.0"
     ]
   },
   "packageFolders": {
@@ -3571,6 +3572,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "Octokit": {
+            "target": "Package",
+            "version": "[0.32.0, )"
           }
         },
         "imports": [

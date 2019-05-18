@@ -1,0 +1,29 @@
+.statistics {
+    margin-left: 215px;
+    color: #3388cc;
+
+    .title{
+        margin-top: 25px;
+        font-size: 40px;
+        text-align: center;
+    }
+    .commits{
+        font-size: 25px;
+        margin-left: 170px;
+        margin-top: 25px;
+        .font-bold {
+            font-weight: bold;
+        }
+    }
+    .members{
+        margin-top: 25px;
+        font-size: 25px;
+        margin-left: 170px;
+        font-weight: bold;
+    }
+    .collaborators{
+        font-size: 25px;
+        margin-left: 170px;
+        padding-top: 20px;
+    }
+}

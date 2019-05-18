@@ -1,0 +1,15 @@
+<app-profile></app-profile>
+<div *ngIf="teamStatistics" class="statistics">
+  <div class="title"> Project statistics:</div>
+  <div class="commits"> 
+    <span class="font-bold">Total number of commits is: </span>{{teamStatistics.totalNumberOfCommits}}
+  </div>
+  <div class="members">Contributors: </div>
+  <div class="collaborators" *ngFor="let collaborator of teamStatistics.collaborators">
+    <span>&bull; {{collaborator.userName}} -&rsaquo; {{collaborator.numberOfCommits}}
+      <span *ngIf="collaborator.numberOfCommits > 1 else singular">commits.</span>
+      <ng-template #singular>
+        <span>commit.</span>
+      </ng-template>
+      </span>
+</div>

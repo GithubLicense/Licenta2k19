@@ -15,6 +15,7 @@ import { EvaluationComponent } from './projects/evaluation/evaluation.component'
 import { EmailsComponent } from './emails/emails.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
 import { ResourcesComponent } from './resources-course/resources.component';
+import { StatisticsComponent } from './projects/statistics/statistics.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,11 @@ const routes: Routes = [
   {
     path: 'profile/:id/resources',
     component: ResourcesComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id/statistics',
+    component: StatisticsComponent,
     canActivate: [AuthGuardService]
   },
   {

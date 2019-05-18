@@ -11,10 +11,12 @@ namespace Service.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly IProjectLogic _projectLogic;
+        private readonly IStatisticsLogic _statisticsLogic;
 
-        public ProjectController(IProjectLogic projectLogic)
+        public ProjectController(IProjectLogic projectLogic, IStatisticsLogic statisticsLogic)
         {
             _projectLogic = projectLogic;
+            _statisticsLogic = statisticsLogic;
         }
 
         [HttpPost("{courseId:guid}/add-project")]
@@ -84,6 +86,19 @@ namespace Service.Controllers
             return Ok(teams);
         }
 
+        [HttpGet("{courseId:guid}/projects/{projectId:guid}/teams/{teamId:guid}/statistics")]
+        public IActionResult GetStatistics([FromRoute] Guid projectId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+             var statistics = _statisticsLogic.GetProjectStatistics();
+
+            return Ok(statistics);
+        }
+
         [HttpGet("{courseId:guid}/projects")]
         public IActionResult GetById([FromRoute] Guid courseId)
         {
@@ -114,6 +129,19 @@ namespace Service.Controllers
         public IActionResult GetProjectId([FromRoute] Guid projectId)
         {
             var result = _projectLogic.GetProjectYear(projectId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("{courseId:guid}/teamInfo/{userId:guid}")]
+        public IActionResult GetTeamInfo([FromRoute] Guid courseId, [FromRoute] Guid userId)
+        {
+            var result = _projectLogic.GetTeamInfo(courseId, userId);
 
             if (result == null)
             {
