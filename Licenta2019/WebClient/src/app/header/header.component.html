@@ -1,20 +1,20 @@
 <header id="header">
-    <div class="header-logo" >
-      <img src="/assets/images/fii.png">
+    <div class="header-logo">
+      <img src="/assets/images/fii.png"  [routerLink]="['/home']">
     </div>
     <div class="tabs" *ngIf="showButtons">
       <div *ngIf="userInformation.userPosition == 1">
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'add-project']">Add new project</button>
       </div>
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'projects']">Projects</button>
-      <div *ngIf="showEvaluationButton && userInformation.userPosition == 0">
+      <div *ngIf="isAssignedToAProject && userInformation.userPosition == 0">
         <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'evaluations']">Evaluation</button>
       </div>
       <div *ngIf="userInformation.userPosition == 0">
         <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'emails']">Send email</button>
       </div>
       <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'resources']">Resources</button>
-      <div *ngIf="userInformation.userPosition == 0">
+      <div *ngIf="isAssignedToAProject && userInformation.userPosition == 0">
         <button mat-raised-button class="header-button" [routerLink]="['/profile',courseId,'statistics']">Statistics</button>
       </div>
     </div>

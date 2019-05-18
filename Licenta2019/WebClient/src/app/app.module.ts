@@ -30,7 +30,7 @@ import { EmailsComponent } from './emails/emails.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
 import { ResourcesComponent } from './resources-course/resources.component';
 import { StatisticsComponent } from './projects/statistics/statistics.component';
-
+import { MatTableModule } from '@angular/material'
 
 
 @NgModule({
@@ -66,7 +66,8 @@ import { StatisticsComponent } from './projects/statistics/statistics.component'
     MatCheckboxModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

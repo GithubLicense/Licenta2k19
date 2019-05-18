@@ -25,27 +25,38 @@ namespace BusinessLogic.Implementations
 
             var commits = client.Repository.Commit.GetAll("dinusergiuandrei", "easylearn").Result;
 
-            var collaborators = client.Repository.Collaborator.GetAll("dinusergiuandrei", "easylearn").Result;
-
-            //var codeFrequency = client.Repository.Statistics.GetCodeFrequency("dinusergiuandrei", "easylearn").Result;
-
-            //var commitActivity = client.Repository.Statistics.GetCommitActivity("dinusergiuandrei", "easylearn").Result;
-
             var contributors = client.Repository.Statistics.GetContributors("dinusergiuandrei", "easylearn").Result;
 
-            //var participation = client.Repository.Statistics.GetParticipation("dinusergiuandrei", "easylearn").Result;
+            /*var collaborators = client.Repository.Collaborator.GetAll("dinusergiuandrei", "easylearn").Result;
 
-            //var punchCard = client.Repository.Statistics.GetPunchCard("dinusergiuandrei", "easylearn").Result;  
+            var codeFrequency = client.Repository.Statistics.GetCodeFrequency("dinusergiuandrei", "easylearn").Result;
+
+            var commitActivity = client.Repository.Statistics.GetCommitActivity("dinusergiuandrei", "easylearn").Result;
+
+
+            var participation = client.Repository.Statistics.GetParticipation("dinusergiuandrei", "easylearn").Result;
+
+            var punchCard = client.Repository.Statistics.GetPunchCard("dinusergiuandrei", "easylearn").Result;  */
 
             repositoryInformation.TotalNumberOfCommits = commits.Count;
             repositoryInformation.Collaborators = new List<GithubUser>();
 
             foreach (var contributor in contributors)
             {
+                int additions = 0;
+                int deletions = 0;
+
+                foreach (var contributorWeek in contributor.Weeks)
+                {
+                    additions += contributorWeek.Additions;
+                    deletions += contributorWeek.Deletions;
+                }
                 var user = new GithubUser
                 {
                     UserName = contributor.Author.Login,
-                    NumberOfCommits = contributor.Total
+                    NumberOfCommits = contributor.Total,
+                    NumberOfAddedLines = additions,
+                    NumberOfDeletedLines = deletions
                 };
 
                 repositoryInformation.Collaborators.Add(user);

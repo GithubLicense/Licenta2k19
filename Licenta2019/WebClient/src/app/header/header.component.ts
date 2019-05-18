@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   courseId: string;
   urlParsed: string[];
   userInformation: any;
-  showEvaluationButton: boolean = false;
+  isAssignedToAProject: boolean = false;
   checkCourseId: boolean;
   constructor(
     private router: Router,
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
         });
         if (this.courseId) {
             this.service.getAssignedToProject(this.courseId, this.userInformation.id).subscribe((data: any) => {
-            this.showEvaluationButton = data;
+            this.isAssignedToAProject = data;
           });
         }
       }

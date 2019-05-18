@@ -1,15 +1,39 @@
 <app-profile></app-profile>
-<div *ngIf="teamStatistics" class="statistics">
+<div *ngIf="teamStatistics else loader" class="statistics">
   <div class="title"> Project statistics:</div>
   <div class="commits"> 
     <span class="font-bold">Total number of commits is: </span>{{teamStatistics.totalNumberOfCommits}}
   </div>
-  <div class="members">Contributors: </div>
-  <div class="collaborators" *ngFor="let collaborator of teamStatistics.collaborators">
-    <span>&bull; {{collaborator.userName}} -&rsaquo; {{collaborator.numberOfCommits}}
-      <span *ngIf="collaborator.numberOfCommits > 1 else singular">commits.</span>
-      <ng-template #singular>
-        <span>commit.</span>
-      </ng-template>
-      </span>
+  <mat-table [dataSource]="teamStatistics.collaborators" class="mat-elevation-z8">
+      <ng-container matColumnDef="Github username">
+        <mat-header-cell *matHeaderCellDef> Github Username </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="Number of commits">
+        <mat-header-cell *matHeaderCellDef> Number of commits </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.numberOfCommits}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Number of added lines">
+          <mat-header-cell *matHeaderCellDef> Number of added lines </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.numberOfAddedLines}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Number of deleted lines">
+          <mat-header-cell *matHeaderCellDef> Number of deleted lines </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.numberOfDeletedLines}} </mat-cell>
+        </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
 </div>
+<ng-template #loader>
+  <div class="loader-page">  
+    <div class="loader">
+    </div>
+    <div class="title-loading">
+    Project statistics are loading !
+    </div>
+  </div>
