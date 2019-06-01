@@ -1,5 +1,4 @@
 .sidenav {
-    height: 200%; 
     width: 270px; 
     position: absolute; 
     z-index: 1; 
@@ -11,6 +10,8 @@
     font-size: 24px;
     text-align: center;
     overflow: hidden;
+    margin-bottom: -5000px;
+    padding-bottom: 5000px;
 
     .year {
       width: 220px;

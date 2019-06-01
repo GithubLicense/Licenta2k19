@@ -16,17 +16,21 @@ export class HeaderComponent implements OnInit {
   userInformation: any;
   isAssignedToAProject: boolean = false;
   checkCourseId: boolean;
+  year: string;
   constructor(
     private router: Router,
-    private service: AddProjectService
+    private service: AddProjectService,
+    private route: ActivatedRoute
   ) {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
+    this.year = this.route.snapshot.params.year;
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
         this.showButtons = false;
         this.checkCourseId = false;
         this.urlParsed = val.url.split('/');
+        this.year = this.urlParsed[2];
         this.urlParsed.forEach(element => {
           if (Guid.isGuid(element) && !this.checkCourseId) {
             this.showButtons = true;

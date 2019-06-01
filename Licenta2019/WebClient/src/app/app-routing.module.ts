@@ -27,57 +27,57 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: 'profile',
+    path: 'year/:year/profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id',
+    path: 'year/:year/profile/:id',
     component: CourseDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/add-project',
+    path: 'year/:year/profile/:id/add-project',
     component: AddProjectComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/projects',
+    path: 'year/:year/profile/:id/projects',
     component: ProjectsListComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/projects/:projectid',
+    path: 'year/:year/profile/:id/projects/:projectid',
     component: ProjectDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/projects/:projectid/assign',
+    path: 'year/:year/profile/:id/projects/:projectid/assign',
     component: AssignComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/projects/:projectid/teams',
+    path: 'year/:year/profile/:id/projects/:projectid/teams',
     component: TeamsComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/evaluations',
+    path: 'year/:year/profile/:id/evaluations',
     component: EvaluationComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/emails',
+    path: 'year/:year/profile/:id/emails',
     component: EmailsComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/resources',
+    path: 'year/:year/profile/:id/resources',
     component: ResourcesComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'profile/:id/statistics',
+    path: 'year/:year/profile/:id/statistics',
     component: StatisticsComponent,
     canActivate: [AuthGuardService]
   },

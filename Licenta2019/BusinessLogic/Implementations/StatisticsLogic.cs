@@ -23,23 +23,18 @@ namespace BusinessLogic.Implementations
 
             var repositoryInformation = new RepositoryInformation();
 
-            var commits = client.Repository.Commit.GetAll("dinusergiuandrei", "easylearn").Result;
+            var commits = client.Repository.Commit.GetAll("vripan", "pdf2article").Result;
 
-            var contributors = client.Repository.Statistics.GetContributors("dinusergiuandrei", "easylearn").Result;
+            var contributors = client.Repository.Statistics.GetContributors("vripan", "pdf2article").Result;
 
-            /*var collaborators = client.Repository.Collaborator.GetAll("dinusergiuandrei", "easylearn").Result;
+            var codeFrequency = client.Repository.Statistics.GetCodeFrequency("vripan", "pdf2article").Result;
 
-            var codeFrequency = client.Repository.Statistics.GetCodeFrequency("dinusergiuandrei", "easylearn").Result;
-
-            var commitActivity = client.Repository.Statistics.GetCommitActivity("dinusergiuandrei", "easylearn").Result;
-
-
-            var participation = client.Repository.Statistics.GetParticipation("dinusergiuandrei", "easylearn").Result;
-
-            var punchCard = client.Repository.Statistics.GetPunchCard("dinusergiuandrei", "easylearn").Result;  */
+            var commitActivity = client.Repository.Statistics.GetCommitActivity("GithubLicense", "Licenta2k19").Result;
 
             repositoryInformation.TotalNumberOfCommits = commits.Count;
             repositoryInformation.Collaborators = new List<GithubUser>();
+            repositoryInformation.CodeFrequency = new List<CodeFrequencyDto>();
+            repositoryInformation.DayStatistics = new List<CommitDayStatisticsDto>();
 
             foreach (var contributor in contributors)
             {
@@ -60,6 +55,51 @@ namespace BusinessLogic.Implementations
                 };
 
                 repositoryInformation.Collaborators.Add(user);
+            }
+
+            foreach (var codeFreq in codeFrequency.AdditionsAndDeletionsByWeek)
+            {
+                if (codeFreq.Additions != 0 || codeFreq.Deletions != 0)
+                {
+                    var frequecyDetails = new CodeFrequencyDto
+                    {
+                        Additions = codeFreq.Additions,
+                        Day = codeFreq.Timestamp.DateTime,
+                        Deletions = codeFreq.Deletions
+                    };
+                    repositoryInformation.CodeFrequency.Add(frequecyDetails);
+                }
+            }
+
+            foreach (var activity in commitActivity.Activity)
+            {
+                for (int i = 0; i < activity.Days.Count; i++)
+                {
+                    if (activity.Days[i] != 0)
+                    {
+                        bool found = false;
+                        foreach (var dayStatistic in repositoryInformation.DayStatistics)
+                        {
+                            if (dayStatistic.Day == Enum.GetName(typeof(DaysOfTheWeek), i).ToString())
+                            {
+                                found = true;
+                                dayStatistic.NumberOfCommits += activity.Days[i];
+                            }
+                        }
+
+                        if (!found)
+                        {
+                            var dayStatistics = new CommitDayStatisticsDto
+                            {
+                                Day = Enum.GetName(typeof(DaysOfTheWeek), i).ToString(),
+                                NumberOfCommits = activity.Days[i]
+                            };
+                            repositoryInformation.DayStatistics.Add(dayStatistics);
+                        }
+                    }
+                }
+                    
+
             }
 
             return repositoryInformation;

@@ -1,4 +1,3 @@
-<app-profile></app-profile>
 <div *ngIf="project" class="details">
   <span class="title">#{{project.code}} {{project.name}}</span>
   <div class="grade-circle">
@@ -16,7 +15,7 @@
   <span class="text">{{project.description}}</span>
 
   <div class="button">
-    <button mat-raised-button id="assign-project" [routerLink]="['/profile',courseInformation,'projects', projectId, 'assign']">Assign to this project</button>
-    <button mat-raised-button id="teams" [routerLink]="['/profile',courseInformation,'projects', projectId, 'teams']">Teams</button>
+    <button mat-raised-button id="assign-project" [routerLink]="['/year', year, 'profile',courseInformation,'projects', projectId, 'assign']">Assign to this project</button>
+    <button mat-raised-button id="teams" [routerLink]="['/year', year, 'profile',courseInformation,'projects', projectId, 'teams']">Teams</button>
   </div>
 </div>

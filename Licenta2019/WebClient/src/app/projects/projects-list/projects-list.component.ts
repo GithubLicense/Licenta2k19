@@ -11,12 +11,15 @@ export class ProjectsListComponent implements OnInit {
 
   projects: any[];
   courseInformation: any;
+  year: string;
+  
   constructor(
     private route: ActivatedRoute,
     private service: AddProjectService) { }
 
   ngOnInit() {
     this.courseInformation = this.route.snapshot.params.id;
+    this.year = this.route.snapshot.params.year;
     this.service.getProjects(this.courseInformation).subscribe((data: any) => {
       this.projects = data;
     })

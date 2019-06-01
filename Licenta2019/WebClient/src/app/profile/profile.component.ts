@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CourseService } from '../course/course.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -16,37 +16,44 @@ export class ProfileComponent implements OnInit {
   coursesLoaded: boolean;
   coursesShowed: any[] = [];
   button: boolean;
-  
+  urlParsed: string[];
+
   constructor(
     private courseService: CourseService,
-    private route: ActivatedRoute
-    ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.button = this.route.snapshot.url.length > 1;
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
-    this.year = 1;
+    this.year = "1";
+
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationStart) {
+        this.urlParsed = val.url.split('/');
+        this.year = this.urlParsed[2];
+        this.button = this.urlParsed.length > 4;
+      }
+
+      this.coursesShowed = [];
+      this.courses.forEach(element => {
+        if (element.year == this.year) {
+          this.coursesShowed.push(element);
+        }
+      });
+    });
+
     this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
       this.courses = data;
       this.coursesLoaded = true;
+      this.coursesShowed = [];
       this.courses.forEach(element => {
-        if(element.year == this.year)
-        {
+        if (element.year == this.year) {
           this.coursesShowed.push(element);
         }
       });
     })
   }
-
-  selectYear(year: any) {
-    this.year = year;
-    this.coursesShowed = [];
-    this.courses.forEach(element => {
-      if(element.year == this.year)
-      {
-        this.coursesShowed.push(element);
-      }
-    });
-  }
 }
+

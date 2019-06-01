@@ -12,6 +12,7 @@ export class ProjectDetailsComponent implements OnInit {
   courseInformation: string;
   projectId: string;
   project: any;
+  year: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnInit() {
     this.courseInformation = this.route.snapshot.params.id;
     this.projectId = this.route.snapshot.params.projectid;
+    this.year = this.route.snapshot.params.year;
     this.service.getProjectById(this.courseInformation, this.projectId).subscribe((data: any) => {
       this.project = data;
     })

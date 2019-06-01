@@ -4,6 +4,6 @@
   <span>Year {{userInformation.year}} Group {{userInformation.group}}</span><br><br>
 
   <div *ngFor="let year of userYears">
-    <div class="year" (click)="selectYear(year)" [routerLink]="['/profile']">Year {{year}}</div>
+    <div class="year" [routerLink]="['/year', year, 'profile']">Year {{year}}</div>
   </div>
 </div>

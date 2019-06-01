@@ -9,5 +9,10 @@ namespace Models
         public int TotalNumberOfCommits { get; set; }
 
         public ICollection<GithubUser> Collaborators { get; set; }
+
+        public ICollection<CodeFrequencyDto> CodeFrequency { get; set; }
+
+        public ICollection<CommitDayStatisticsDto> DayStatistics { get; set; }
+
     }
 }

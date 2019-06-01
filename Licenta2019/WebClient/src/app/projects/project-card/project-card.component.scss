@@ -12,10 +12,16 @@
   cursor: pointer;
 }
 
+.project-card:hover  #assign-project{
+  visibility: visible;
+}
+
 .code {
   font-size: 30px;
   text-align: left;
   color: #3388cc;
+  display: flex;
+  justify-content: space-between;
 }
 
 .grade-circle
@@ -61,3 +67,10 @@
   font-weight: 600;
   text-align: center;
 }
+
+
+  #assign-project {
+      visibility: hidden;
+      color:white;
+      background-color: #3388cc;
+  } 
