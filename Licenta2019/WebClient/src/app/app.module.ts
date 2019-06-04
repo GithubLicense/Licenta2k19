@@ -30,7 +30,8 @@ import { EmailsComponent } from './emails/emails.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
 import { ResourcesComponent } from './resources-course/resources.component';
 import { StatisticsComponent } from './projects/statistics/statistics.component';
-import { MatTableModule } from '@angular/material'
+import { MatTableModule } from '@angular/material';
+import { Chart } from 'chart.js';
 
 
 @NgModule({

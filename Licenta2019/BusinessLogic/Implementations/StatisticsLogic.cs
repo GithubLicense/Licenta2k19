@@ -29,8 +29,9 @@ namespace BusinessLogic.Implementations
 
             var codeFrequency = client.Repository.Statistics.GetCodeFrequency("vripan", "pdf2article").Result;
 
-            var commitActivity = client.Repository.Statistics.GetCommitActivity("GithubLicense", "Licenta2k19").Result;
+            var commitActivity = client.Repository.Statistics.GetCommitActivity("vripan", "pdf2article").Result;
 
+            int totalCommits = 0;
             repositoryInformation.TotalNumberOfCommits = commits.Count;
             repositoryInformation.Collaborators = new List<GithubUser>();
             repositoryInformation.CodeFrequency = new List<CodeFrequencyDto>();
@@ -84,6 +85,7 @@ namespace BusinessLogic.Implementations
                             {
                                 found = true;
                                 dayStatistic.NumberOfCommits += activity.Days[i];
+                                totalCommits += activity.Days[i];
                             }
                         }
 
@@ -94,12 +96,16 @@ namespace BusinessLogic.Implementations
                                 Day = Enum.GetName(typeof(DaysOfTheWeek), i).ToString(),
                                 NumberOfCommits = activity.Days[i]
                             };
+                            totalCommits += activity.Days[i];
                             repositoryInformation.DayStatistics.Add(dayStatistics);
                         }
                     }
                 }
-                    
+            }
 
+            foreach (var dayStatistic in repositoryInformation.DayStatistics)
+            {
+                dayStatistic.Percentage = (double) dayStatistic.NumberOfCommits / totalCommits * 100;
             }
 
             return repositoryInformation;

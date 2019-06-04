@@ -1,4 +1,4 @@
-<div class="sidenav">
+<div *ngIf="showSidebar" class="sidenav">
   <span>{{userInformation.lastName}}</span><br>
   <span>{{userInformation.firstName}}</span><br>
   <span>Year {{userInformation.year}} Group {{userInformation.group}}</span><br><br>

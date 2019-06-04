@@ -9,5 +9,8 @@ namespace Models
         public string Day { get; set; }
 
         public int NumberOfCommits { get; set; }
+
+        public double Percentage { get; set; }
+
     }
 }

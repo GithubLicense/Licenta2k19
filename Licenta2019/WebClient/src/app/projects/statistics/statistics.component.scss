@@ -1,36 +1,44 @@
 .statistics {
-    margin-left: 215px;
-    color: #3388cc;
+  margin-left: 215px;
+  color: #3388cc;
 
-    .title{
-        margin-top: 25px;
-        font-size: 40px;
-        text-align: center;
+  .title {
+    margin-top: 25px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .commits {
+    font-size: 25px;
+    margin-left: 170px;
+    margin-top: 25px;
+
+    .font-bold {
+      font-weight: bold;
     }
-    .commits{
-        font-size: 25px;
-        margin-left: 170px;
-        margin-top: 25px;
-        .font-bold {
-            font-weight: bold;
-        }
-    }
-    .collaborators{
-        font-size: 25px;
-        margin-left: 170px;
-        padding-top: 20px;
-    }
+  }
+
+  .collaborators {
+    font-size: 25px;
+    margin-left: 170px;
+    padding-top: 20px;
+  }
+
+  &.invisible{
+      display: none;
+  }
 }
 
-.loader-page{
-    margin-top: 60px;
-    margin-left: 215px;
-    color: #3388cc;
-    font-size: 25px;
-    text-align: center;
-.loader {
-    border: 16px solid #f3f3f3; 
-    border-top: 16px solid #3388cc; 
+.loader-page {
+  margin-top: 60px;
+  margin-left: 215px;
+  color: #3388cc;
+  font-size: 25px;
+  text-align: center;
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3388cc;
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -38,18 +46,34 @@
     margin-right: auto;
     animation: spin 2s linear infinite;
   }
+
   .title-loading {
-      margin-top: 30px;
+    margin-top: 30px;
+  }
+
+  &.invisible {
+      display: none;
   }
 }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
 
-  mat-table {
-    margin-left: 148px;
-    width: 80%;
-    font-weight: bold;
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+mat-table {
+  margin-left: 148px;
+  width: 80%;
+  font-weight: bold;
+}
+
+.chart {
+  margin-left: 400px;
+  height: 500px;
+  width: 700px;
+}
