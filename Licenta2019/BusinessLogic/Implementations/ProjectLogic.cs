@@ -99,6 +99,11 @@ namespace BusinessLogic.Implementations
                 _repository.Insert(teamMember);
             }
 
+            var project = _repository.GetLastByFilter<Project>(c => c.Id == projectId);
+
+            project.NumberOfTeams = (Int32.Parse(project.NumberOfTeams) - 1).ToString();
+            _repository.Update(project);
+
             _repository.Save();
 
             return team;

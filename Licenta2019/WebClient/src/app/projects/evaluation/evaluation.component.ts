@@ -22,6 +22,7 @@ export class EvaluationComponent implements OnInit {
     this.userInformation = JSON.parse(user);
     this.service.getEvaluations(this.courseId, this.userInformation.id).subscribe((data: any) => {
       this.evaluations = data;
+      console.log(this.evaluations);
     });
   }
 

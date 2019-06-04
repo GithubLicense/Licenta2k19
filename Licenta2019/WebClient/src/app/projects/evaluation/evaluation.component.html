@@ -1,4 +1,4 @@
-<div *ngIf="evaluations" class="list-evaluations">
+<div *ngIf="evaluations && evaluations.length > 0; else noEvaluations" class="list-evaluations">
   <div *ngFor="let evaluation of evaluations">
     <div class="type">
         {{evaluation.type}}
@@ -9,4 +9,13 @@
     <div class="description">
       {{evaluation.description}}
     </div>
+  </div>
 </div>
+<ng-template #noEvaluations>
+  <div class="noEvaluations-title">
+      You don't have any evaluations, yet!
+  </div>
+  <div class="noEvaluations-image">
+      <img src="/assets/images/Loupe_light.svg.png">
+  </div>
+</ng-template>

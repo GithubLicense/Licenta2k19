@@ -11,7 +11,7 @@ import { Chart } from 'chart.js';
 export class StatisticsComponent implements OnInit {
 
   @ViewChild('lineChart') lineChart: ElementRef;
-  @ViewChild('pieChart') pieChart:ElementRef;
+  @ViewChild('pieChart') pieChart: ElementRef;
 
   courseId: string;
   userInformation: any;
@@ -21,6 +21,11 @@ export class StatisticsComponent implements OnInit {
   displayedColumns: string[];
   LineChart = [];
   PieChart = [];
+  days : string[] = [];
+  additions: number[] = [];
+  deletions: number[] = [];
+  weekDays: string[] = [];
+  percentage: number[] = [];
 
 
   constructor(
@@ -40,95 +45,102 @@ export class StatisticsComponent implements OnInit {
         this.teamStatistics = data;
         this.teamStatistics.collaborators.sort((a, b) => (a.numberOfCommits < b.numberOfCommits) ? 1 : -1);
         this.teamStatistics.codeFrequency.forEach(element => {
-          element.day = element.day.slice(0, 10);
+          this.days.push(element.day.slice(0, 10));
+          this.additions.push(element.additions);
+          this.deletions.push(element.deletions * (-1));
+        });
+        this.teamStatistics.dayStatistics.forEach(element => {
+          this.weekDays.push(element.day);
+          this.percentage.push(element.percentage);
         });
         this.isLoaded = true;
         console.log(this.teamStatistics);
+
+        var ctx = this.lineChart.nativeElement;
+        this.LineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: this.days,
+            datasets: [{
+              label: 'Lines added',
+              data: this.additions,
+              fill: false,
+              lineTension: 0.2,
+              borderColor: "red",
+              borderWidth: 2
+            },
+            {
+              label: 'Lines deleted',
+              data: this.deletions,
+              fill: false,
+              lineTension: 0.2,
+              borderColor: "blue",
+              borderWidth: 2
+            },
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              text: "Additions and Deletions Chart",
+              display: true
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+
+        var pieCtx = this.pieChart.nativeElement;
+        this.PieChart = new Chart(pieCtx, {
+          type: 'pie',
+          data: {
+            labels: this.weekDays,
+            datasets: [{
+              data: this.percentage,
+              backgroundColor: [
+                '#003873',
+                '#006400',
+                '#32CD32',
+                '#FFFF00',
+                '#ff6600',
+                '#ff0a00',
+                '#800000'
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+                'white',
+                'white',
+                'white',
+                'white'
+              ],
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              text: "Days of the week statistics",
+              display: true
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
       });
-    });
-
-    var ctx = this.lineChart.nativeElement;
-    this.LineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-          label: 'Number of Items Sold in Months',
-          data: [9, 7, 3, 5, 2, 10, 15, 16, 19, 3, 1, 9],
-          fill: false,
-          lineTension: 0.2,
-          borderColor: "red",
-          borderWidth: 1
-        },
-        {
-          label: 'Test Line',
-          data: [3, 5, 3, 1, 7, 8, 14, 20, 6, 9, 14, 2],
-          fill: false,
-          lineTension: 0.2,
-          borderColor: "blue",
-          borderWidth: 1
-        },
-      ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-          text: "Line Chart",
-          display: true
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
-
-    var pieCtx = this.pieChart.nativeElement;
-    this.PieChart = new Chart(pieCtx, {
-      type: 'pie',
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-          label: '# of Votes',
-          data: [9, 7, 3, 5, 2, 10],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-          text: "Pie Chart",
-          display: true
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
     });
 
 

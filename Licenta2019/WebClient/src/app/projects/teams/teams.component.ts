@@ -18,6 +18,7 @@ export class TeamsComponent implements OnInit {
   grade: string;
   description: string;
   evaluation: Evaluation = new Evaluation();
+  userInformation: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +26,8 @@ export class TeamsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    var user = window.localStorage.getItem("userInfo");
+    this.userInformation = JSON.parse(user);
     this.courseInformation = this.route.snapshot.params.id;
     this.projectId = this.route.snapshot.params.projectid;
     let index = 0;

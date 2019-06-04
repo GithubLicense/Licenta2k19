@@ -53,6 +53,7 @@ export class ProfileComponent implements OnInit {
           this.coursesShowed.push(element);
         }
       });
+      console.log(this.coursesShowed);
     })
   }
 }

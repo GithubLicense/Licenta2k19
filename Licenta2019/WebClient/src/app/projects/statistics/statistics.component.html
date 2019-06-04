@@ -27,6 +27,12 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
+    <div class="chart">
+        <canvas #lineChart>{{LineChart}}</canvas>
+      </div>
+      <div class="chart">
+        <canvas #pieChart>{{PieChart}}</canvas>
+      </div>
 </div>
 
   <div class="loader-page" [class.invisible]="isLoaded == true">  
@@ -36,10 +42,5 @@
     Project statistics are loading !
     </div>
   </div>
-  <div class="chart">
-    <canvas #lineChart>{{LineChart}}</canvas>
-  </div>
-  <div class="chart">
-    <canvas #pieChart>{{PieChart}}</canvas>
-  </div>
+
 
