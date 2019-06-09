@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { AddProjectService } from './add-project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-project',
@@ -18,15 +19,18 @@ export class AddProjectComponent implements OnInit {
   project: Project = new Project();
   courseId: any;
   courseInformation: any;
+  year: any;
 
   constructor(
     private service: AddProjectService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toaster: MatSnackBar
     ) { }
 
   ngOnInit() {
       this.courseInformation = this.route.snapshot.params.id;
+      this.year = this.route.snapshot.params.year;
   }
 
   onSubmit(){
@@ -38,7 +42,11 @@ export class AddProjectComponent implements OnInit {
     this.project.MaxGrade = this.maxGrade;
     this.project.Description = this.description;
     this.service.addProject(this.project, this.courseInformation).subscribe((data) => {
-      this.router.navigate(["/profile",this.courseInformation,"projects"]);
+      this.toaster.open("The project has been successfully added!", 'Close', {
+        duration: 3000,
+        panelClass: ['green-snackbar']
+      });
+      this.router.navigate(["/year",this.year,"profile",this.courseInformation,"projects"]);
     })
   }
 

@@ -1,4 +1,4 @@
-<div *ngIf="teams" class="list-teams">
+<div *ngIf="teams && teams.length > 0; else noTeams" class="list-teams">
     <div class="title">
         Teams
     </div>
@@ -34,3 +34,11 @@
         </div>
     </div>
 </div>
+<ng-template #noTeams>
+    <div class="noTeams-title">
+        There are no teams assigned to this project, yet!
+    </div>
+    <div class="noTeams-image">
+        <img src="/assets/images/Loupe_light.svg.png">
+    </div>
+  </ng-template>

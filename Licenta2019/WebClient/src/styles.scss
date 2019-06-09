@@ -4,3 +4,17 @@
   font-family: sans-serif;
   overflow: visible;
 }
+
+.green-snackbar{
+  color: white;
+  background: #10DB25;
+  max-width: none !important;
+  width: 1010px;
+  margin-left: 300px !important;
+  top: 500px !important;
+  position: absolute;
+}
+
+.cdk-live-announcer-element {
+  display: none !important;
+}

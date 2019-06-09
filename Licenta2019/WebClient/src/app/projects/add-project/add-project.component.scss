@@ -1,8 +1,23 @@
+.add-project{
+    display: flex;
+}
+
+.noEvaluations-image{
+    margin-left: 400px;
+    margin-top: 110px;
+    width: 400px;
+    height: 300px;
+    border-right: 2px solid #3388cc; 
+    img {
+        height: 300px;
+    } 
+}
+
 .add-project-form {
     width: 300px;
     height: 510px;
     margin-top: 10px;
-    margin-left: 600px;
+    margin-left: 130px;
     background-color: #3388cc;
     border-radius: 15px;
 

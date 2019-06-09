@@ -31,7 +31,8 @@ import { CourseDetailsComponent } from './course/course-details/course-details.c
 import { ResourcesComponent } from './resources-course/resources.component';
 import { StatisticsComponent } from './projects/statistics/statistics.component';
 import { MatTableModule } from '@angular/material';
-import { Chart } from 'chart.js';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -68,7 +69,9 @@ import { Chart } from 'chart.js';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

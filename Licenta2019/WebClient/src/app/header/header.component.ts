@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Guid } from "guid-typescript";
 import { AddProjectService } from '../projects/add-project/add-project.service';
