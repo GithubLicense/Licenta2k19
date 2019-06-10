@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddProjectService } from '../projects/add-project/add-project.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-resources',
@@ -18,10 +19,13 @@ export class ResourcesComponent implements OnInit {
   userInformation: any;
   reader: FileReader = new FileReader();
   file: File;
+  acceptedExtensions: string[] = ["zip", "bmp", "doc", "jpg", "pdf", "png", "rar"]
+  extensions: string[];
 
   constructor(
     private route: ActivatedRoute,
-    private service: AddProjectService
+    private service: AddProjectService,
+    private toaster: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -35,19 +39,31 @@ export class ResourcesComponent implements OnInit {
         this.fileNameSplitted = element.fileName.split(".");
         element.fileType = this.fileNameSplitted.pop();
       });
-      console.log(this.resources);
     })
   }
 
   onFileChange(event) {
     if (event.target.files) {
-      this.textFileButton = event.target.files[0].name;
-      this.showUploadButton = true;
-      this.file = event.target.files[0];
-
-      if (this.file) {
-        this.reader.readAsDataURL(this.file);
+      this.extensions = event.target.files[0].name.split('.');
+      if(this.acceptedExtensions.indexOf(this.extensions[this.extensions.length-1]) > -1)
+      {
+        this.textFileButton = event.target.files[0].name;
+        this.showUploadButton = true;
+        this.file = event.target.files[0];
+  
+        if (this.file) {
+          this.reader.readAsDataURL(this.file);
+        }
       }
+      else
+      {
+        this.textFileButton = "Choose a file…";
+        this.showUploadButton = false;
+        this.toaster.open("This is not a valid file!", 'Close', {
+          duration: 3000,
+          panelClass: ['red-snackbar']
+        });
+      } 
     }
   }
 
@@ -55,7 +71,10 @@ export class ResourcesComponent implements OnInit {
     const formData = new FormData();
     formData.append(this.file.name, this.file);
     this.service.addFile(this.courseId, formData).subscribe((data) => {
-      console.log(data);
+      this.toaster.open("The resource has been successfully added!", 'Close', {
+        duration: 3000,
+        panelClass: ['green-snackbar']
+      });
     })
   }
 

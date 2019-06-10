@@ -1,8 +1,12 @@
-<div class="emails">
-  <div *ngIf="teachers">
-    <div class="title"> Teachers:</div>
-    <div *ngFor="let teacher of teachers; index as i">
-      <div class="teacher">
+<div class="send-emails">
+  <div class="sendEmail-image">
+    <img src="/assets/images/email.png">
+  </div>
+  <div class="emails">
+    <div *ngIf="teachers">
+      <div class="title"> Teachers:</div>
+      <div *ngFor="let teacher of teachers; index as i">
+        <div class="teacher">
           {{teacher.lastName}} {{teacher.firstName}}
         <div class="checkbox"> 
           <mat-checkbox [(ngModel)]="checked[i].SendEmail"></mat-checkbox>
@@ -21,4 +25,5 @@
           <button mat-raised-button id="submit-button" (click)="onSubmit()">Send Email</button>
       </div>
     </div>
+  </div>
 </div>

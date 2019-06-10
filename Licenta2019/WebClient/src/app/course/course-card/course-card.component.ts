@@ -10,6 +10,8 @@ export class CourseCardComponent implements OnInit {
   
   @Input() course: any;
   courseAbreviation: string = "";
+  yearsTitle: string[] = ["First Year", "Second Year", "Third Year"];
+  semestersTitle: string[] = ["First Semester", "Second Semester"];
 
   constructor() { }
 

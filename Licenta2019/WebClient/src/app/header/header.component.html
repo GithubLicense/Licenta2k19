@@ -3,15 +3,14 @@
       <img src="/assets/images/fii.png"  [routerLink]="['/home']">
     </div>
     <div class="tabs" *ngIf="showButtons">
-      <div *ngIf="userInformation.userPosition == 0">      
+      <div *ngIf="userInformation.userPosition == 1">      
       <button mat-raised-button class="header-button" [routerLink]="['/year', year, 'profile',courseId,'add-project']">Add new project</button>
       </div>
       <button mat-raised-button class="header-button" [routerLink]="['/year', year, 'profile',courseId,'projects']">Projects</button>
       <div *ngIf="isAssignedToAProject && userInformation.userPosition == 0">
         <button mat-raised-button class="header-button" [routerLink]="['/year', year, 'profile',courseId,'evaluations']">Evaluation</button>
       </div>
-      <div *ngIf="userInformation.userPosition == 1">
-        <!-- 0 -->
+      <div *ngIf="userInformation.userPosition == 0">
         <button mat-raised-button class="header-button" [routerLink]="['/year', year, 'profile',courseId,'emails']">Send email</button>
       </div>
       <button mat-raised-button class="header-button" [routerLink]="['/year', year, 'profile',courseId,'resources']">Resources</button>

@@ -1,5 +1,19 @@
+.send-emails{
+  display: flex;
+}
+
+.sendEmail-image{
+  margin-left: 370px;
+  margin-top: 110px;
+  width: 400px;
+  height: 300px;
+  border-right: 2px solid #3388cc; 
+  img {
+      height: 300px;
+  } 
+}
+
 .emails {
-    margin-left: 215px;
     .title{
         margin-top: 25px;
         color: #3388cc;
@@ -38,12 +52,11 @@
     height: 360px;
     background-color: white;
     margin-top: 25px;
-    margin-left: 280px;
   
     .form {
       display: flex;
       flex-direction: column;
-      padding-left: 125px;
+      padding-left: 55px;
       color: #3388cc;
 
       .text{
@@ -79,7 +92,9 @@
     }
   
     .button {
-      margin-left: 250px;
+      margin-left: 190px;
+      margin-top: 10px;
+      margin-bottom: 20px;
   
       #submit-button {
         color: white;

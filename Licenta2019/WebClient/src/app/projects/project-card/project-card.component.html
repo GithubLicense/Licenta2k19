@@ -1,7 +1,7 @@
 <div class="project-card">
     <div class="code">
       {{project.code}}
-      <button mat-raised-button id="assign-project" [routerLink]="['/year', year, 'profile',project.courseId,'projects', project.id, 'assign']">Assign</button>
+        <button *ngIf="!assigned" mat-raised-button id="assign-project" [routerLink]="['/year', year, 'profile',project.courseId,'projects', project.id, 'assign']">Assign</button>
     </div>
     <div class="grade-circle">
       <div class="grade" [class.six]="project.maxGrade <= 6" [class.eight]="project.maxGrade > 6 && project.maxGrade <= 8"

@@ -14,6 +14,8 @@ export class SidebarComponent implements OnInit {
   showYearCourses: boolean[] = [];
   urlParsed: string[];
   showSidebar: boolean = false;
+  yearTitles: string[] = ["First Year", "Second Year", "Third Year"];
+  studentYear: string[] = ["1st", "2nd", "3rd"];
 
   constructor(
     protected sidebarService: SidebarService,

@@ -15,6 +15,16 @@
   position: absolute;
 }
 
+.red-snackbar{
+  color: white;
+  background: #CC0000;
+  max-width: none !important;
+  width: 1010px;
+  margin-left: 300px !important;
+  top: 500px !important;
+  position: absolute;
+}
+
 .cdk-live-announcer-element {
   display: none !important;
 }

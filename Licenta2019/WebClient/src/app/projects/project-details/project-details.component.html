@@ -15,7 +15,7 @@
   <span class="text">{{project.description}}</span>
 
   <div class="button">
-    <button mat-raised-button id="assign-project" [routerLink]="['/year', year, 'profile',courseInformation,'projects', projectId, 'assign']">Assign to this project</button>
+    <button *ngIf="serviceCalled && !isAssignedToAProject" mat-raised-button id="assign-project" [routerLink]="['/year', year, 'profile',courseInformation,'projects', projectId, 'assign']">Assign to this project</button>
     <button mat-raised-button id="teams" [routerLink]="['/year', year, 'profile',courseInformation,'projects', projectId, 'teams']">Teams</button>
   </div>
 </div>

@@ -83,7 +83,7 @@
     }
     
     .inputfile-1 + label {
-        color: #f1e5e6;
+        color: white;
         background-color: #3388cc;
     }
     
@@ -117,3 +117,21 @@ text-decoration:none;
     text-align: right;
     top: 0;
 }
+
+.noResources-image {
+    margin-left: 330px;
+    text-align: center;
+  
+    img {
+      height: 350px;
+      margin-top: 50px;
+    }
+  }
+
+  .noResources-title {
+    margin-left: 330px;
+    margin-top: 50px;
+    text-align: center;
+    color: #3388cc;
+    font-size: 36px;
+  }

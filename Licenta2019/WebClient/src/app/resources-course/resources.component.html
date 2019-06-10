@@ -1,26 +1,41 @@
-<div class="resources">
-  <div *ngIf="resources">
+<div *ngIf="resources && resources.length > 0; else noResources">
+  <div class="resources">
     <div class="title"> Resources:</div>
+    <div class="buttons">  <!-- *ngIf="userInformation.userPosition == 1" -->
+      <div class="box">
+          <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" (change)="onFileChange($event)" />
+          <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+            <span>{{textFileButton}}</span></label>
+      </div>
+      <div *ngIf="showUploadButton" class="button">
+        <button mat-raised-button id="submit-button" (click)="onSubmit()">Upload file</button>
+      </div>
+    </div>
     <div *ngFor="let resource of resources">
       <a class="file" href="{{resource.downloadLink}}" download>
-          <div *ngIf="resource.fileType === 'pdf' ">
+          <div *ngIf="resource.fileType === 'pdf'; else png">
             <img class="file-logo" src="/assets/images/pdf.png">
           </div>
-          <div *ngIf="resource.fileType === 'png' ">
-              <img class="file-logo" src="/assets/images/photo.png">
-          </div>
+          <ng-template #png>
+              <div *ngIf="resource.fileType === 'png' || resource.fileType === 'jpg' ; else other">
+                  <img class="file-logo" src="/assets/images/photo.png">
+              </div>
+          </ng-template>
+          <ng-template #other>
+            <div>
+              <img class="file-logo" src="/assets/images/download.jfif">
+            </div>
+          </ng-template>
           <span class="file-name">{{resource.fileName}}</span>
       </a>
     </div>
   </div>
-  <div class="buttons">  <!-- *ngIf="userInformation.userPosition == 1" -->
-  <div class="box">
-      <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" (change)="onFileChange($event)" />
-      <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
-        <span>{{textFileButton}}</span></label>
-  </div>
-  <div *ngIf="showUploadButton" class="button">
-    <button mat-raised-button id="submit-button" (click)="onSubmit()">Upload file</button>
-  </div>
 </div>
-</div>
+<ng-template #noResources>
+    <div class="noResources-title">
+        There are no recources added for this course, yet!
+    </div>
+    <div class="noResources-image">
+        <img src="/assets/images/Loupe_light.svg.png">
+    </div>
+  </ng-template>

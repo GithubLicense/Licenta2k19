@@ -1,4 +1,4 @@
-<div *ngIf="projects" class="list-projects">
+<div *ngIf="projects && serviceExecuted" class="list-projects">
   <div *ngFor="let project of projects">
-    <app-project-card [project]="project" [year]="year" [routerLink]="['/year', year,'profile',courseInformation,'projects', project.id]"></app-project-card>
+    <app-project-card [project]="project" [year]="year" [assigned]="isAssignedToAProject" [routerLink]="['/year', year,'profile',courseInformation,'projects', project.id]"></app-project-card>
   </div>

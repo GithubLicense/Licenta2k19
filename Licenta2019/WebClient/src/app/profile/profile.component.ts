@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course/course.service';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   year: any;
   userInformation: any;
   courses: any;
-  coursesLoaded: boolean;
+  coursesLoaded: boolean = false;
   coursesShowed: any[] = [];
   button: boolean;
   urlParsed: string[];
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
-    this.year = "1";
+    this.year = this.route.snapshot.params.year;
 
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
@@ -53,7 +53,6 @@ export class ProfileComponent implements OnInit {
           this.coursesShowed.push(element);
         }
       });
-      console.log(this.coursesShowed);
     })
   }
 }

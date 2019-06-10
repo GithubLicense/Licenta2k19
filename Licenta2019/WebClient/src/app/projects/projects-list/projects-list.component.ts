@@ -12,6 +12,9 @@ export class ProjectsListComponent implements OnInit {
   projects: any[];
   courseInformation: any;
   year: string;
+  userInformation: any;
+  isAssignedToAProject: boolean = false;
+  serviceExecuted: boolean = false;
   
   constructor(
     private route: ActivatedRoute,
@@ -20,9 +23,16 @@ export class ProjectsListComponent implements OnInit {
   ngOnInit() {
     this.courseInformation = this.route.snapshot.params.id;
     this.year = this.route.snapshot.params.year;
+    var user = window.localStorage.getItem("userInfo");
+    this.userInformation = JSON.parse(user);
     this.service.getProjects(this.courseInformation).subscribe((data: any) => {
       this.projects = data;
     })
+
+    this.service.getAssignedToProject(this.courseInformation, this.userInformation.id).subscribe((data: any) => {
+      this.isAssignedToAProject = data;
+      this.serviceExecuted = true;
+    });
   }
 
 }

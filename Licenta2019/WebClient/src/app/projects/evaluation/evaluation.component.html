@@ -1,4 +1,5 @@
 <div *ngIf="evaluations && evaluations.length > 0; else noEvaluations" class="list-evaluations">
+  <div class="evaluations">
   <div *ngFor="let evaluation of evaluations">
     <div class="type">
         {{evaluation.type}}
@@ -9,6 +10,10 @@
     <div class="description">
       {{evaluation.description}}
     </div>
+  </div>
+</div>
+  <div class="check-image">
+    <img src="/assets/images/check.png">
   </div>
 </div>
 <ng-template #noEvaluations>
