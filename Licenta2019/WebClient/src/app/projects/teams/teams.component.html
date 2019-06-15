@@ -14,6 +14,7 @@
             </div>
             <div *ngIf="userInformation.userPosition == 1" class="button">
               <button mat-raised-button id="evaluation" (click)="showEvaluationForm(i)">Add new evaluation</button>
+              <button mat-raised-button id="statistics" [routerLink]="['/profile', courseInformation, 'projects', projectId, 'teams', team.id ,'statistics']">See statistics</button>
             </div>
           </div>
         </div>

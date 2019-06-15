@@ -1,9 +1,17 @@
 <div *ngIf="showSidebar" class="sidenav">
   <span>{{userInformation.lastName}}</span><br>
   <span>{{userInformation.firstName}}</span><br>
-  <span>{{studentYear[userInformation.year-1]}} Year Group {{userInformation.group}}</span><br><br>
+  <span *ngIf="userInformation.userPosition == 0">{{studentYear[userInformation.year-1]}} Year Group {{userInformation.group}}</span><br><br>
 
-  <div *ngFor="let year of userYears">
-    <div class="year" [routerLink]="['/year', year, 'profile']">{{yearTitles[year-1]}}</div>
+  <div *ngIf="userInformation.userPosition == 0">
+    <div *ngFor="let year of userYears">
+      <div class="element-sidebar" [routerLink]="['/year', year, 'profile']">{{yearTitles[year-1]}}</div>
+    </div>
   </div>
+  <div *ngIf="courses && userInformation.userPosition == 1">
+    <div *ngFor="let course of courses">
+      <div class="element-sidebar" [routerLink]="['/profile', course.id]">{{course.abreviation}}</div>
+    </div>
+  </div>
+
 </div>

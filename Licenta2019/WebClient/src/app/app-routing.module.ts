@@ -32,6 +32,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'profile/:id',
+    component: CourseDetailsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
     path: 'year/:year/profile/:id',
     component: CourseDetailsComponent,
     canActivate: [AuthGuardService]
@@ -78,6 +88,12 @@ const routes: Routes = [
   },
   {
     path: 'year/:year/profile/:id/statistics',
+    component: StatisticsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    
+    path: 'profile/:id/projects/:projectId/teams/:teamId/statistics',
     component: StatisticsComponent,
     canActivate: [AuthGuardService]
   },

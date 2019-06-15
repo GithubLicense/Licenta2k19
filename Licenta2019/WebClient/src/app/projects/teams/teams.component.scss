@@ -40,10 +40,16 @@
 
 .button {
   margin-top: 20px;
+  display: inline-grid;
 
   #evaluation {
     color: white;
     background-color: #3388cc;
+  }
+  #statistics {
+    color: white;
+    background-color: #3388cc;
+    margin-top: 10px
   }
 }
 

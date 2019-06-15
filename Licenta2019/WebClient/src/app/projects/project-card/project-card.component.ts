@@ -12,9 +12,13 @@ export class ProjectCardComponent implements OnInit {
   @Input() year: any;
   @Input() assigned: any;
 
+  userInformation: any[];
+
   constructor() { }
 
   ngOnInit() {
+    var user = window.localStorage.getItem("userInfo");
+    this.userInformation = JSON.parse(user);
   }
 
 }

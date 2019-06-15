@@ -1,6 +1,8 @@
-<div *ngIf="courses && !button" class="list-courses">
-    <div *ngFor="let course of coursesShowed">
-      <app-course-card [course]="course" [routerLink]="['/year', year, 'profile',course.id]"></app-course-card>
+<div *ngIf="courses && !button">
+    <div *ngIf="userInformation.userPosition == 0"  class="list-courses">
+      <div *ngFor="let course of coursesShowed">
+        <app-course-card [course]="course" [routerLink]="['/year', year, 'profile',course.id]"></app-course-card>
+      </div>
     </div>
 </div>
 

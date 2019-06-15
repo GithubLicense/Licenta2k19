@@ -24,9 +24,12 @@ export class HeaderComponent implements OnInit {
   ) {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
+    console.log(this.userInformation);
     this.year = this.route.snapshot.params.year;
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
+        var user = window.localStorage.getItem("userInfo");
+        this.userInformation = JSON.parse(user);
         this.showButtons = false;
         this.checkCourseId = false;
         this.urlParsed = val.url.split('/');

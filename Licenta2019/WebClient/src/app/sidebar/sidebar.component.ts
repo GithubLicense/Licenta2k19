@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SidebarService } from './sidebar.service';
 import { Router, NavigationStart } from '@angular/router';
+import { CourseService } from '../course/course.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,31 +17,64 @@ export class SidebarComponent implements OnInit {
   showSidebar: boolean = false;
   yearTitles: string[] = ["First Year", "Second Year", "Third Year"];
   studentYear: string[] = ["1st", "2nd", "3rd"];
+  courses: any[];
 
   constructor(
     protected sidebarService: SidebarService,
-    protected router: Router
+    protected router: Router,
+    protected courseService: CourseService
   ) { }
 
   ngOnInit() {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
-    this.router.events.subscribe((val) => {
-      if (val instanceof NavigationStart) {
-        var user = window.localStorage.getItem("userInfo");
-        this.userInformation = JSON.parse(user);
-        this.userYears = [];
-        for (var i = 0; i < this.userInformation.year; i++) {
-          this.userYears[i] = i + 1;
-          this.showYearCourses[i] = false;
-        }
-        this.showSidebar = true;
-        this.urlParsed = val.url.split('/');
-        if(this.urlParsed[1] == 'home' || this.urlParsed[1] == 'login' || this.urlParsed[1] == 'register' || this.urlParsed[1] == ''){
-          this.showSidebar = false;
-        }
-      }
-    });
+    if (this.userInformation) {
+      this.router.events.subscribe((val) => {
+        if (val instanceof NavigationStart) {
+          var user = window.localStorage.getItem("userInfo");
+          this.userInformation = JSON.parse(user);
+          this.userYears = [];
+          for (var i = 0; i < this.userInformation.year; i++) {
+            this.userYears[i] = i + 1;
+            this.showYearCourses[i] = false;
+          }
+          this.showSidebar = true;
+          this.urlParsed = val.url.split('/');
+          if (this.urlParsed[1] == 'home' || this.urlParsed[1] == 'login' || this.urlParsed[1] == 'register' || this.urlParsed[1] == '') {
+            this.showSidebar = false;
+          }
 
+          this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
+            this.courses = data;
+            this.courses.forEach(element => {
+              var words = element.name.split(" ");
+              var courseAbreviation = '';
+              words.forEach(element => {
+                if (element.length > 3) {
+                  courseAbreviation += element[0];
+                }
+              });
+              element.abreviation = courseAbreviation.toUpperCase();
+            });
+            console.log(this.courses);
+          });
+        }
+      });
+    }
+
+      this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
+        this.courses = data;
+        this.courses.forEach(element => {
+          var words = element.name.split(" ");
+          var courseAbreviation = '';
+          words.forEach(element => {
+            if (element.length > 3) {
+              courseAbreviation += element[0];
+            }
+          });
+          element.abreviation = courseAbreviation.toUpperCase();
+        });
+        console.log(this.courses);
+      });
+    };
   }
-}

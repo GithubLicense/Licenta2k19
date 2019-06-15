@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
     this.year = this.route.snapshot.params.year;
-
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
         this.urlParsed = val.url.split('/');
@@ -43,17 +42,19 @@ export class ProfileComponent implements OnInit {
         }
       });
     });
-
-    this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
-      this.courses = data;
-      this.coursesLoaded = true;
-      this.coursesShowed = [];
-      this.courses.forEach(element => {
-        if (element.year == this.year) {
-          this.coursesShowed.push(element);
-        }
-      });
-    })
+    
+    if (this.userInformation.userPosition == 0) {
+      this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
+        this.courses = data;
+        this.coursesLoaded = true;
+        this.coursesShowed = [];
+        this.courses.forEach(element => {
+          if (element.year == this.year) {
+            this.coursesShowed.push(element);
+          }
+        });
+      })
+    }
   }
 }
 

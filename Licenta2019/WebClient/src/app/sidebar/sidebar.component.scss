@@ -13,9 +13,10 @@
     margin-bottom: -5000px;
     padding-bottom: 5000px;
 
-    .year {
+    .element-sidebar {
       width: 220px;
-      height: 50px;
+      height: auto;
+      min-height: 50px;
       background-color: white;
       color: #3388cc;
       margin-left: auto;
