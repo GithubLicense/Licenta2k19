@@ -1,4 +1,13 @@
 <div *ngIf="projects && serviceExecuted" class="list-projects">
   <div *ngFor="let project of projects">
-    <app-project-card [project]="project" [year]="year" [assigned]="isAssignedToAProject" [routerLink]="['/year', year,'profile',courseInformation,'projects', project.id]"></app-project-card>
+    <app-project-card [project]="project" [year]="year" [assigned]="isAssignedToAProject"
+      [routerLink]="['/year', year,'profile',courseInformation,'projects', project.id]"></app-project-card>
+  </div>
+  <div *ngIf="projects.length == 0" class="noProjects">
+    <div class="noProjects-title">
+      There are no projects added to this course, yet!
+    </div>
+    <div class="noProjects-image">
+      <img src="/assets/images/Loupe_light.svg.png">
+    </div>
   </div>

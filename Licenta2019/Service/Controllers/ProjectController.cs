@@ -87,14 +87,14 @@ namespace Service.Controllers
         }
 
         [HttpGet("{courseId:guid}/projects/{projectId:guid}/teams/{teamId:guid}/statistics")]
-        public IActionResult GetStatistics([FromRoute] Guid projectId)
+        public IActionResult GetStatistics([FromRoute] Guid projectId, [FromRoute] Guid teamId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-             var statistics = _statisticsLogic.GetProjectStatistics();
+             var statistics = _statisticsLogic.GetProjectStatistics(teamId);
 
             return Ok(statistics);
         }

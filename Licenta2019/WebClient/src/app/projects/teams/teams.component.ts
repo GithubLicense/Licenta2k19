@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddProjectService } from '../add-project/add-project.service';
 import { Evaluation } from '../../models/evaluation';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-teams',
@@ -22,7 +23,8 @@ export class TeamsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: AddProjectService
+    private service: AddProjectService,
+    private toaster: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -57,6 +59,10 @@ export class TeamsComponent implements OnInit {
       this.type = undefined;
       this.grade = undefined;
       this.description = undefined;
+      this.toaster.open("This evaluation has been successfully added!", 'Close', {
+        duration: 3000,
+        panelClass: ['green-snackbar']
+      });
     })
   }
 }

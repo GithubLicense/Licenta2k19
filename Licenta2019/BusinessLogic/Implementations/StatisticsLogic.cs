@@ -8,6 +8,10 @@ using Octokit;
 
 namespace BusinessLogic.Implementations
 {
+    using System.Linq;
+
+    using Entities;
+
     public class StatisticsLogic : BaseLogic, IStatisticsLogic
     {
 
@@ -15,27 +19,30 @@ namespace BusinessLogic.Implementations
         {
         }
 
-        public RepositoryInformation GetProjectStatistics()
+        public RepositoryInformation GetProjectStatistics(Guid teamId)
         {
             var client = new GitHubClient(new ProductHeaderValue("my-bachelor-degree"));
             var basicAuth = new Credentials("BogdanConstantin", "telemeacugustdomol97!!");
             client.Credentials = basicAuth;
 
+            var team = this._repository.GetLastByFilter<Team>(c => c.Id == teamId);
+
             var repositoryInformation = new RepositoryInformation();
 
-            var commits = client.Repository.Commit.GetAll("vripan", "pdf2article").Result;
+            var commits = client.Repository.Commit.GetAll(team.GithubUsername, team.GithubRepository).Result;
 
-            var contributors = client.Repository.Statistics.GetContributors("vripan", "pdf2article").Result;
+            var contributors = client.Repository.Statistics.GetContributors(team.GithubUsername, team.GithubRepository).Result;
 
-            var codeFrequency = client.Repository.Statistics.GetCodeFrequency("vripan", "pdf2article").Result;
+            var codeFrequency = client.Repository.Statistics.GetCodeFrequency(team.GithubUsername, team.GithubRepository).Result;
 
-            var commitActivity = client.Repository.Statistics.GetCommitActivity("vripan", "pdf2article").Result;
+            var commitActivity = client.Repository.Statistics.GetCommitActivity(team.GithubUsername, team.GithubRepository).Result;
 
             int totalCommits = 0;
             repositoryInformation.TotalNumberOfCommits = commits.Count;
             repositoryInformation.Collaborators = new List<GithubUser>();
             repositoryInformation.CodeFrequency = new List<CodeFrequencyDto>();
             repositoryInformation.DayStatistics = new List<CommitDayStatisticsDto>();
+            repositoryInformation.CollaboratorsCodeFrequency = new List<CollaboratorsCodeFrequencyDto>();
 
             foreach (var contributor in contributors)
             {
@@ -107,6 +114,51 @@ namespace BusinessLogic.Implementations
             {
                 dayStatistic.Percentage = (double) dayStatistic.NumberOfCommits / totalCommits * 100;
             }
+
+            foreach (var collaborator in repositoryInformation.Collaborators)
+            {
+
+
+                var listCodeFq = new List<CodeFrequencyDto>();
+
+                for (int i = 1; i < repositoryInformation.CodeFrequency.Count; i++)
+                {
+                    int additionsUser = 0;
+     
+                    foreach (var commit in commits)
+                    {
+                        if (commit.Author != null && commit.Author.Login == collaborator.UserName
+                            && commit.Commit.Author.Date.DateTime.Date
+                            >= repositoryInformation.CodeFrequency.ElementAt(i - 1).Day.Date
+                            && commit.Commit.Author.Date.DateTime.Date
+                            <= repositoryInformation.CodeFrequency.ElementAt(i).Day.Date)
+                        {
+                            additionsUser++;
+                        }
+                    }
+
+                    var codeFq = new CodeFrequencyDto
+                                     {
+                                         Additions = additionsUser,
+                                         Deletions = 0,
+                                         Day = repositoryInformation.CodeFrequency.ElementAt(i - 1).Day
+                                     };
+
+                    listCodeFq.Add(codeFq);
+
+                }
+
+                var collaboratorCodeFreq =
+                    new CollaboratorsCodeFrequencyDto
+                        {
+                            userCodeFrequency = listCodeFq,
+                            Username = collaborator.UserName
+                        };
+
+                repositoryInformation.CollaboratorsCodeFrequency.Add(collaboratorCodeFreq);
+
+            }
+
 
             return repositoryInformation;
         }

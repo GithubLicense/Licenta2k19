@@ -14,5 +14,7 @@ namespace Models
 
         public ICollection<CommitDayStatisticsDto> DayStatistics { get; set; }
 
+        public ICollection<CollaboratorsCodeFrequencyDto> CollaboratorsCodeFrequency { get; set; }
+
     }
 }

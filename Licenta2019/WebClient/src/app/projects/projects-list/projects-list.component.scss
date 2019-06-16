@@ -1,5 +1,25 @@
-.list-projects{
-    margin-left: 300px;
-    display: flex;
-    flex-wrap: wrap;
+.list-projects {
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.noProjects {
+  margin: auto;
+
+  .noProjects-image {
+    text-align: center;
+
+    img {
+      height: 350px;
+      margin-top: 50px;
+    }
+  }
+
+  .noProjects-title {
+    margin-top: 50px;
+    text-align: center;
+    color: #3388cc;
+    font-size: 36px;
+  }
 }

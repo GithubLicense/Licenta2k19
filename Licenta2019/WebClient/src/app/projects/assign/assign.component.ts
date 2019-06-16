@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddProjectService } from '../add-project/add-project.service';
 import { UserService } from '../../services/user.service';
 import { Team } from '../../models/team';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-assign',
@@ -25,16 +26,20 @@ export class AssignComponent implements OnInit {
   team: Team = new Team();
   maxTeammates: number;
   userInformation: any;
+  year:any;
 
   constructor(
     private route: ActivatedRoute,
     private service: AddProjectService,
-    private userService: UserService
+    private userService: UserService,
+    private toaster: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.courseInformation = this.route.snapshot.params.id;
     this.projectId = this.route.snapshot.params.projectid;
+    this.year = this.route.snapshot.params.year;
     this.service.getProjectById(this.courseInformation, this.projectId).subscribe((data: any) => {
       this.project = data;
       this.maxTeammates = this.project.numberOfMembers;
@@ -93,7 +98,11 @@ export class AssignComponent implements OnInit {
     });
 
     this.service.assignToProject(this.team, this.courseInformation, this.projectId).subscribe((data) => {
-      console.log(data);
+      this.toaster.open("You were assigned to this project!", 'Close', {
+        duration: 3000,
+        panelClass: ['green-snackbar']
+      });
+      this.router.navigate(["/year",this.year,"profile",this.courseInformation,"projects",this.projectId]);
     })
   }
 }
