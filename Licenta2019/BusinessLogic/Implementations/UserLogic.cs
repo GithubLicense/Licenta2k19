@@ -60,7 +60,7 @@ namespace BusinessLogic.Implementations
         {
             ICollection<UserInformationsDto> usersDtos = new List<UserInformationsDto>();
 
-            var users = _repository.GetAllByFilter<User>(c => c.Year == year && c.UserPosition == UserPosition.Student);
+            var users = _repository.GetAllByFilter<User>(c => Int32.Parse(c.Year) >= Int32.Parse(year) && c.UserPosition == UserPosition.Student);
 
             foreach (var user in users)
             {

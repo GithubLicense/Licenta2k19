@@ -12,6 +12,7 @@ export class StatisticsComponent implements OnInit {
 
   @ViewChild('lineChart') lineChart: ElementRef;
   @ViewChild('pieChart') pieChart: ElementRef;
+  @ViewChild('lineChart2') lineChart2:  ElementRef;
 
   courseId: string;
   projectId: string;
@@ -22,12 +23,16 @@ export class StatisticsComponent implements OnInit {
   isLoaded: boolean = false;
   displayedColumns: string[];
   LineChart = [];
+  LineChart2 = [];
   PieChart = [];
   days: string[] = [];
   additions: number[] = [];
   deletions: number[] = [];
   weekDays: string[] = [];
   percentage: number[] = [];
+  chart3Datasets: any[] = [];
+  dataset: any = {};
+  userAdditions: number[] = [];
 
 
   constructor(
@@ -49,6 +54,7 @@ export class StatisticsComponent implements OnInit {
         this.teamInformation = data;
         this.service.getTeamStatistics(this.courseId, this.teamInformation.projectId, this.teamInformation.teamId).subscribe((data: any) => {
           this.teamStatistics = data;
+          console.log(this.teamStatistics);
           this.teamStatistics.collaborators.sort((a, b) => (a.numberOfCommits < b.numberOfCommits) ? 1 : -1);
           this.teamStatistics.codeFrequency.forEach(element => {
             this.days.push(element.day.slice(0, 10));
@@ -145,6 +151,46 @@ export class StatisticsComponent implements OnInit {
               }
             }
           });
+
+          this.teamStatistics.collaboratorsCodeFrequency.forEach(element => {
+            this.dataset.label = element.username;
+            element.userCodeFrequency.forEach(element => {
+              this.userAdditions.push(element.additions);
+            });;
+            this.dataset.data = this.userAdditions;
+            this.dataset.fill = false,
+            this.dataset.lineTension = 0.2,
+            this.dataset.borderColor = this.getRandomColor(),
+            this.dataset.borderWidth = 2;
+            this.chart3Datasets.push({...this.dataset});
+            this.userAdditions = [];
+          });
+
+          var chart3 = this.lineChart2.nativeElement;
+          this.LineChart2 = new Chart(chart3, {
+            type: 'line',
+            data: {
+              labels: this.days,
+              datasets: this.chart3Datasets
+
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              title: {
+                text: "Commits of every collaborator Chart",
+                display: true
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+
         });
       });
     }
@@ -247,7 +293,39 @@ export class StatisticsComponent implements OnInit {
             }
           }
         });
+
+        var chart3 = this.lineChart2.nativeElement;
+          this.LineChart2 = new Chart(chart3, {
+            type: 'line',
+            data: {
+              labels: this.days,
+              datasets: this.chart3Datasets
+
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              title: {
+                text: "Commits of every collaborator Chart",
+                display: true
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+
+          
       });
     }
+  }
+
+  private getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
   }
 }

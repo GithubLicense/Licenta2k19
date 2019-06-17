@@ -7,6 +7,6 @@ namespace BusinessLogic.Abstractions
 {
     public interface IStatisticsLogic
     {
-        RepositoryInformation GetProjectStatistics();
+        RepositoryInformation GetProjectStatistics(Guid teamId);
     }
 }
