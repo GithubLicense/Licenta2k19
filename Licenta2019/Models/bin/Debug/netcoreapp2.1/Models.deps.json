@@ -33,7 +33,7 @@
     "Octokit/0.32.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D4FXke5w5vjIaZLP6ZxYzcLe2EZnByF/1iMzasH3fkk/QmCUBfKX4ciDX9FCqE/MToeBmZ47h+w1u6Sn4HrHpA==",
+      "sha512": "sha512-g6fG2fJbgmjb/OXyXquCKQpKPqEtoUajNGb+mdD9wb47px8SURnxADX6azujc4tKR0uUCNkrHLYvERwl02pbYw==",
       "path": "octokit/0.32.0",
       "hashPath": "octokit.0.32.0.nupkg.sha512"
     }

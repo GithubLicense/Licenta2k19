@@ -44,6 +44,10 @@ export class SidebarComponent implements OnInit {
             this.showSidebar = false;
           }
 
+          if(this.urlParsed.length > 2 && this.urlParsed[1] == 'admin' && (this.urlParsed[2] == 'home' || this.urlParsed[2] == 'login' || this.urlParsed[2] == 'register' || this.urlParsed[2] == '')){
+            this.showSidebar = false;
+          }
+
           this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
             this.courses = data;
             this.courses.forEach(element => {
@@ -56,7 +60,6 @@ export class SidebarComponent implements OnInit {
               });
               element.abreviation = courseAbreviation.toUpperCase();
             });
-            console.log(this.courses);
           });
         }
       });
@@ -74,7 +77,6 @@ export class SidebarComponent implements OnInit {
           });
           element.abreviation = courseAbreviation.toUpperCase();
         });
-        console.log(this.courses);
       });
     };
   }

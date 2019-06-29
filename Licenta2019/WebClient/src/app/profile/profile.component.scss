@@ -3,3 +3,28 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.admin-info{
+    display: flex;
+    padding-left: 360px;
+    padding-top: 60px;
+    line-height: 1.4;
+    color: #3388cc;
+}
+
+.big-message{
+    padding-top: 95px;
+    padding-left: 30px;
+    font-size: 40px;
+}
+
+
+.admin-image{
+    margin-top: 70px;
+    width: 400px;
+    height: 300px;
+    border-right: 2px solid #3388cc; 
+    img {
+        height: 300px;
+    } 
+}

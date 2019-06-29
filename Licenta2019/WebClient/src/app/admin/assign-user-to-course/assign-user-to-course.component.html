@@ -1,0 +1,36 @@
+<div class="assign-user">
+    <div class="assign-user-image">
+        <img src="/assets/images/assign-to-course.svg">
+    </div>
+  <div class="assign-user-form">
+    <div class="title"> Assign user to course</div>
+    <form class="form" [formGroup]="assignUser">
+        Search for course:
+        <input formControlName="searchForCourse" type="text"  class="form-input">
+
+        <span style="margin-bottom: 10px; font-size: 20px">Courses</span>
+        <mat-form-field>
+            <select matNativeControl formControlName="courses">
+                <option style="background-color: #3388cc; font-size: 20px; height:100px" *ngFor="let course of coursesDisplayed" [value]="course.id">
+                  {{course.name}}
+                </option>
+              </select>
+          </mat-form-field>
+
+        <br>
+        Search for user:
+        <input formControlName="searchForUser" type="text"  class="form-input">
+        <span style="margin-bottom: 10px; font-size: 20px">Users</span>
+        <mat-form-field>
+            <select matNativeControl formControlName="users">
+                <option style="background-color: #3388cc; font-size: 20px; height:100px" *ngFor="let user of usersDisplayed" [value]="user.id">
+                  {{user.firstName}} {{user.lastName}} 
+                </option>
+              </select>
+          </mat-form-field>
+      </form>
+      <div class="button">
+        <button mat-raised-button id="submit-button" (click)="onSubmit()">Assign user</button>
+      </div>     
+  </div>
+</div>

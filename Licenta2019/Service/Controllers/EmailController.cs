@@ -25,7 +25,7 @@ namespace Service.Controllers
                 return BadRequest(ModelState);
             }
 
-            var email = _emailLogic.Create(emailDto);
+            var email = _emailLogic.Create(userId, emailDto);
 
             return Ok(email);
         }

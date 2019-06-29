@@ -33,6 +33,12 @@ import { StatisticsComponent } from './projects/statistics/statistics.component'
 import { MatTableModule } from '@angular/material';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SignUpAdminComponent } from './sign-up-admin/sign-up-admin.component';
+import { AddStudentComponent } from './admin/add-student/add-student.component';
+import { AddTeacherComponent } from './admin/add-teacher/add-teacher.component';
+import { AddCourseComponent } from './admin/add-course/add-course.component';
+import {MatSelectModule} from '@angular/material/select';
+import { AssignUserToCourseComponent } from './admin/assign-user-to-course/assign-user-to-course.component';
 
 
 @NgModule({
@@ -57,7 +63,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EmailsComponent,
     CourseDetailsComponent,
     ResourcesComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    SignUpAdminComponent,
+    AddStudentComponent,
+    AddTeacherComponent,
+    AddCourseComponent,
+    AssignUserToCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +82,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     MatTableModule,
     MatSnackBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [SignupService],
   bootstrap: [AppComponent]

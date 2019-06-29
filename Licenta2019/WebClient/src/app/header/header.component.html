@@ -1,6 +1,9 @@
 <header id="header">
-    <div class="header-logo">
-      <img src="/assets/images/fii.png"  [routerLink]="['/home']">
+    <div *ngIf="userInformation.userPosition == 2" class="header-logo">
+      <img src="/assets/images/fii.png"  [routerLink]="['/admin', 'home']">
+    </div>
+    <div *ngIf="userInformation.userPosition != 2" class="header-logo">
+        <img src="/assets/images/fii.png"  [routerLink]="['/home']">
     </div>
     <div class="tabs" *ngIf="showButtons">
       <div *ngIf="userInformation.userPosition == 1">      

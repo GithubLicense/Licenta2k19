@@ -1,0 +1,73 @@
+.add-student{
+    display: flex;
+}
+
+.addStudent-image{
+    margin-left: 400px;
+    margin-top: 110px;
+    width: 400px;
+    height: 300px;
+    border-right: 2px solid #3388cc; 
+    img {
+        height: 300px;
+    } 
+}
+
+.add-student-form {
+    width: 300px;
+    height: 510px;
+    margin-top: 10px;
+    margin-left: 130px;
+    background-color: #3388cc;
+    border-radius: 15px;
+
+    .title{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        padding-top: 30px; 
+    }
+    
+    .form {
+        display: flex;
+        flex-direction: column; 
+        padding-top: 20px; 
+        padding-left: 30px;
+        color: white;
+       input{
+            border: none;
+            border-bottom: 2px solid #fff;
+            background: transparent;
+            outline: none;
+            color: #fff;
+            font-size: 16px; 
+            height: 25px;
+            width: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        textarea{
+            width: 200px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    }
+    .button{
+        text-align: center;
+        padding-top: 10px;
+    #submit-button{   
+        color: #3388cc;
+        background-color: white;
+        border: 1px solid #3388cc;
+    }
+}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<g>
+	<path style="fill:#FFFFFF;" d="M2.5,36.5v-33h35V36c0,0.276-0.224,0.5-0.5,0.5H2.5z"/>
+	<g>
+		<path style="fill:#4788C7;" d="M37,4v32H3V4H37 M38,3H2v34h35c0.552,0,1-0.448,1-1V3L38,3z"/>
+	</g>
+</g>
+<g>
+	<rect x="3" y="4" style="fill:#98CCFD;" width="34" height="5"/>
+</g>
+<path style="fill:#FFFFFF;" d="M38,21h-1v15H20v1h17c0.552,0,1-0.448,1-1V21z"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="13.5" y1="16.5" x2="30.5" y2="16.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="9.5" y1="16.5" x2="9.5" y2="16.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="9.5" y1="20.5" x2="9.5" y2="20.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="13.5" y1="24.5" x2="21.5" y2="24.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="9.5" y1="24.5" x2="9.5" y2="24.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="13.5" y1="28.5" x2="19.5" y2="28.5"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="9.5" y1="28.5" x2="9.5" y2="28.5"/>
+<path style="fill:#4788C7;" d="M37.5,22L37.5,22c-0.275,0-0.5-0.225-0.5-0.5v-2c0-0.275,0.225-0.5,0.5-0.5l0,0  c0.275,0,0.5,0.225,0.5,0.5v2C38,21.775,37.775,22,37.5,22z"/>
+<path style="fill:#4788C7;" d="M18.5,36h2c0.275,0,0.5,0.225,0.5,0.5l0,0c0,0.275-0.225,0.5-0.5,0.5h-2c-0.275,0-0.5-0.225-0.5-0.5  l0,0C18,36.225,18.225,36,18.5,36z"/>
+<g>
+	<circle style="fill:#98CCFD;" cx="31" cy="31" r="8.5"/>
+	<g>
+		<path style="fill:#4788C7;" d="M31,23c4.411,0,8,3.589,8,8s-3.589,8-8,8s-8-3.589-8-8S26.589,23,31,23 M31,22    c-4.971,0-9,4.029-9,9s4.029,9,9,9s9-4.029,9-9S35.971,22,31,22L31,22z"/>
+	</g>
+</g>
+<line style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" x1="31" y1="36" x2="31" y2="26"/>
+<line style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;" x1="26" y1="31" x2="36" y2="31"/>
+<line style="fill:none;stroke:#4788C7;stroke-linecap:round;stroke-miterlimit:10;" x1="13.5" y1="20.5" x2="25.5" y2="20.5"/>
+</svg>

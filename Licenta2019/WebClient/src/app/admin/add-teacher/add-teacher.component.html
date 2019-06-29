@@ -1,0 +1,19 @@
+<div class="add-teacher">
+    <div class="addTeacher-image">
+        <img src="/assets/images/Add User Male-595b40b65ba036ed117d11e7.svg">
+    </div>
+  <div class="add-teacher-form">
+    <div class="title"> Add new teacher</div>
+    <form class="form">
+        First name
+        <input [(ngModel)]="firstName" name="First Name" type="text"  class="form-input" required>
+        Last name
+        <input [(ngModel)]="lastName" name="Last Name" type="text" class="form-input" required>
+        Email
+        <input [(ngModel)]="email" name="Email" type="email" class="form-input" required>
+      </form>
+      <div class="button">
+        <button mat-raised-button id="submit-button" (click)="onSubmit()">Add teacher</button>
+      </div>     
+  </div>
+</div>

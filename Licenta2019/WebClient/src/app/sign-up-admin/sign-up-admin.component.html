@@ -1,0 +1,19 @@
+<div class="register-body">
+  <app-home></app-home>
+  <div class="register-form">
+    <div class="title"> Sign-up</div>
+    <form class="form">
+      First Name
+      <input [(ngModel)]="firstName" name="firstName" type="text"  class="form-input" required>
+      Last Name
+      <input [(ngModel)]="lastName" name="lastName" type="text"  class="form-input" required>
+      Email
+      <input [(ngModel)]="email" name="Email" type="email"  class="form-input" required>
+      Password
+      <input [(ngModel)]="password" name="Password" type="password"  class="form-input" required>
+    </form>
+    <div class="button">
+    <button mat-raised-button id="submit-button" (click)="onSubmit()">Submit</button>
+    </div>
+  </div>
+</div>

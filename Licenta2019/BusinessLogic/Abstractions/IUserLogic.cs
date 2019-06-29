@@ -19,6 +19,8 @@ namespace BusinessLogic.Abstractions
 
         User Create(SignUpUserDto user, string password);
 
+        User CreateAdmin(SignUpAdminDto user, string password);
+
         User CreateStudent(UserDto user);
 
         User CreateTeacher(TeacherDto teacherDto);

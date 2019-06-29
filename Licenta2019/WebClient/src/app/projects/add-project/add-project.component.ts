@@ -35,7 +35,7 @@ export class AddProjectComponent implements OnInit {
 
   onSubmit(){
     this.courseInformation = this.route.snapshot.params.id;
-    this.project.Code = this.code;
+    this.project.Code = (Math.floor(Math.random() * 1000) + 1).toString();
     this.project.Name = this.name;
     this.project.NumberOfMembers = this.nrMembers;
     this.project.NumberOfTeams = this.nrTeams;

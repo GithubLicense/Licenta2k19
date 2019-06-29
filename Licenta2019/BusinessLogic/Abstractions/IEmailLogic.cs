@@ -7,7 +7,7 @@ namespace BusinessLogic.Abstractions
 {
     public interface IEmailLogic
     {
-        ICollection<Email> Create(EmailDto emailDto);
+        ICollection<Email> Create(Guid userId, EmailDto emailDto);
 
         EmailDto GetById(Guid emailId);
 

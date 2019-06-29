@@ -27,6 +27,10 @@
       line-height: 50px; 
       border-radius: 10px;
       cursor: pointer;
+
+      &.admin{
+        font-size: 20px;
+      }
     }
 
       .object{

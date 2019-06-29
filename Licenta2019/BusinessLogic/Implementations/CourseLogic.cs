@@ -94,6 +94,7 @@ namespace BusinessLogic.Implementations
             {
                 var courseDto = new CourseDto
                 {
+                    Id = course.Id,
                     Name = course.Name,
                     Year = course.Year,
                     Semester = course.Semester

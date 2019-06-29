@@ -13,5 +13,12 @@
       <div class="element-sidebar" [routerLink]="['/profile', course.id]">{{course.abreviation}}</div>
     </div>
   </div>
+  <div *ngIf="userInformation.userPosition == 2">
+      <div class="element-sidebar admin" [routerLink]="['/admin', 'add-student']">Add new student</div>
+      <div class="element-sidebar admin" [routerLink]="['/admin', 'add-teacher']">Add new teacher</div>
+      <div class="element-sidebar admin" [routerLink]="['/admin', 'add-course']">Add new course</div>
+      <div class="element-sidebar admin" [routerLink]="['/admin', 'assign-user']">Assign user to course</div>
+  </div>
+
 
 </div>

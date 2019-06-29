@@ -134,6 +134,31 @@ namespace BusinessLogic.Implementations
             return user;
         }
 
+        public User CreateAdmin(SignUpAdminDto userdto, string password)
+        {
+
+            byte[] passwordHash, passwordSalt;
+            CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
+            var user = new User
+            {
+                Email = userdto.Email,
+                LastName = userdto.LastName,
+                FirstName = userdto.FirstName,
+                Group = "-",
+                Year = "-",
+                UserPosition = UserPosition.Admin,
+                PasswordHash = System.Convert.ToBase64String(passwordHash),
+                PasswordSalt = System.Convert.ToBase64String(passwordSalt)
+
+            };
+
+            _repository.Insert(user);
+            _repository.Save();
+
+            return user;
+        }
+
 
         public User CreateStudent(UserDto userDto)
         {
@@ -217,7 +242,25 @@ namespace BusinessLogic.Implementations
 
         ICollection<UserInformationsDto> IUserLogic.GetAll()
         {
-            throw new NotImplementedException();
+            ICollection<UserInformationsDto> usersDtos = new List<UserInformationsDto>();
+
+            var users = this._repository.GetAll<User>();
+
+            foreach (var user in users)
+            {
+                var userDto = new UserInformationsDto
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Group = user.Group,
+                    Year = user.Year
+                };
+                usersDtos.Add(userDto);
+            }
+
+            return usersDtos;
         }
     }
 }

@@ -294,6 +294,21 @@ export class StatisticsComponent implements OnInit {
           }
         });
 
+        
+        this.teamStatistics.collaboratorsCodeFrequency.forEach(element => {
+          this.dataset.label = element.username;
+          element.userCodeFrequency.forEach(element => {
+            this.userAdditions.push(element.additions);
+          });;
+          this.dataset.data = this.userAdditions;
+          this.dataset.fill = false,
+          this.dataset.lineTension = 0.2,
+          this.dataset.borderColor = this.getRandomColor(),
+          this.dataset.borderWidth = 2;
+          this.chart3Datasets.push({...this.dataset});
+          this.userAdditions = [];
+        });
+
         var chart3 = this.lineChart2.nativeElement;
           this.LineChart2 = new Chart(chart3, {
             type: 'line',

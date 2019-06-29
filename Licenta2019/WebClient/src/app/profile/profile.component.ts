@@ -42,19 +42,21 @@ export class ProfileComponent implements OnInit {
         }
       });
     });
-    
-    if (this.userInformation.userPosition == 0) {
-      this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
-        this.courses = data;
-        this.coursesLoaded = true;
-        this.coursesShowed = [];
-        this.courses.forEach(element => {
-          if (element.year == this.year) {
-            this.coursesShowed.push(element);
-          }
-        });
-      })
-    }
+
+    this.courseService.getUserCourses(this.userInformation.id).subscribe((data: any) => {
+      this.courses = data;
+      this.coursesLoaded = true;
+      this.coursesShowed = [];
+      this.courses.forEach(element => {
+        if (element.year == this.year) {
+          this.coursesShowed.push(element);
+        }
+      });
+      if (this.userInformation.userPosition == 1 && this.courses) {
+        this.router.navigate(["/profile",this.courses[0].id]);
+      }
+    })
+   
   }
 }
 

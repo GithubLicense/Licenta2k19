@@ -1,15 +1,15 @@
 <div class="login-body">
-    <app-home></app-home>
-    <div class="login-form">
-      <div class="title"> Login</div>
-      <form class="form">
-        Email
-        <input [(ngModel)]="email" name="Email" type="email"  class="form-input" required>
-        Password
-        <input [(ngModel)]="password" name="Password" type="password"  class="form-input" required>
-      </form>
-      <div class="button">
-      <button mat-raised-button id="login-button" (click)="onSubmit()">Login</button>
-      </div>
+  <app-home></app-home>
+  <div class="login-form">
+    <div class="title"> Login</div>
+    <form class="form">
+      Email
+      <input [(ngModel)]="email" name="Email" type="email"  class="form-input" required>
+      Password
+      <input [(ngModel)]="password" name="Password" type="password"  class="form-input" required>
+    </form>
+    <div class="button">
+    <button mat-raised-button id="login-button" (click)="onSubmit()">Login</button>
     </div>
   </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="add-student">
+    <div class="addStudent-image">
+        <img src="/assets/images/add-student.png">
+    </div>
+  <div class="add-student-form">
+    <div class="title"> Add new student</div>
+    <form class="form">
+        First name
+        <input [(ngModel)]="firstName" name="First Name" type="text"  class="form-input" required>
+        Last name
+        <input [(ngModel)]="lastName" name="Last Name" type="text" class="form-input" required>
+        Year
+        <input [(ngModel)]="year" name="Year" type="text" class="form-input" required>
+        Group
+        <input [(ngModel)]="group" name="Group" type="text" class="form-input" required>
+        Email
+        <input [(ngModel)]="email" name="Email" type="email" class="form-input" required>
+      </form>
+      <div class="button">
+        <button mat-raised-button id="submit-button" (click)="onSubmit()">Add student</button>
+      </div>     
+  </div>
+</div>

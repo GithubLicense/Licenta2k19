@@ -24,6 +24,10 @@ export class SignupService {
       return this.http.post<User>("https://localhost:44308/api/v1/register", userInformation).pipe();
   }
 
+  signUpAdmin(userInformation: any): Observable<any>{
+    return this.http.post<any>("https://localhost:44308/api/v1/admin/register", userInformation).pipe();
+  }
+
   login(userInformation: UserLogin): Observable<any>{
       return this.http.post<UserLogin>("https://localhost:44308/api/v1/login", userInformation).pipe();
   }

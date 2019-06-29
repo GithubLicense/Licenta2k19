@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Abstractions;
+﻿using System.Collections.Generic;
+using BusinessLogic.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -53,6 +54,14 @@ namespace AdminService.Controllers
             };
 
             return Ok(userInformationDto);
+        }
+
+        [HttpGet]
+        public ICollection<UserInformationsDto> GetAll()
+        {
+            var users = _userLogic.GetAll();
+
+            return users;
         }
 
 

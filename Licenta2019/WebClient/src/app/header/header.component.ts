@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   isAssignedToAProject: boolean = false;
   checkCourseId: boolean;
   year: string;
+  isAdmin: boolean;
   constructor(
     private router: Router,
     private service: AddProjectService,
@@ -24,7 +25,6 @@ export class HeaderComponent implements OnInit {
   ) {
     var user = window.localStorage.getItem("userInfo");
     this.userInformation = JSON.parse(user);
-    console.log(this.userInformation);
     this.year = this.route.snapshot.params.year;
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
@@ -53,4 +53,5 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() { 
   }
+
 }

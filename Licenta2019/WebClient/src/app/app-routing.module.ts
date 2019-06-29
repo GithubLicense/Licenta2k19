@@ -16,6 +16,11 @@ import { EmailsComponent } from './emails/emails.component';
 import { CourseDetailsComponent } from './course/course-details/course-details.component';
 import { ResourcesComponent } from './resources-course/resources.component';
 import { StatisticsComponent } from './projects/statistics/statistics.component';
+import { SignUpAdminComponent } from './sign-up-admin/sign-up-admin.component';
+import { AddStudentComponent } from './admin/add-student/add-student.component';
+import { AddTeacherComponent } from './admin/add-teacher/add-teacher.component';
+import { AddCourseComponent } from './admin/add-course/add-course.component';
+import { AssignUserToCourseComponent } from './admin/assign-user-to-course/assign-user-to-course.component';
 
 const routes: Routes = [
   {
@@ -23,12 +28,45 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'admin/login',
+    component: LoginComponent
+  },
+  {
     path: 'register',
     component: SignupComponent
   },
   {
+    path: 'admin/register',
+    component: SignUpAdminComponent
+  },
+  {
     path: 'year/:year/profile',
     component: ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin/profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin/add-student',
+    component: AddStudentComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin/add-course',
+    component: AddCourseComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin/add-teacher',
+    component: AddTeacherComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'admin/assign-user',
+    component: AssignUserToCourseComponent,
     canActivate: [AuthGuardService]
   },
   {
@@ -99,6 +137,10 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    component: StartUpComponent
+  },
+  {
+    path: 'admin/home',
     component: StartUpComponent
   },
   {

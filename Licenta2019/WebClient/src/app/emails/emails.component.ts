@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Email, Teacher } from '../models/email';
 import { AddProjectService } from '../projects/add-project/add-project.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-emails',
@@ -24,7 +25,8 @@ export class EmailsComponent implements OnInit {
   constructor(
     private service: UserService,
     private route: ActivatedRoute,
-    private emailService: AddProjectService
+    private emailService: AddProjectService,
+    private toaster: MatSnackBar
     ) { }
 
   ngOnInit() {
@@ -48,7 +50,10 @@ export class EmailsComponent implements OnInit {
     this.email.Subject = this.subject;
     this.email.Body = this.message;
     this.emailService.sendEmail(this.email, this.userInformation.id).subscribe((data) => {
-      console.log(data);
+      this.toaster.open("The email was sent successfully!", 'Close', {
+        duration: 3000,
+        panelClass: ['green-snackbar']
+      });
     })
   }
 

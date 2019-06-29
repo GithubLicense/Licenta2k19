@@ -19,14 +19,12 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log('onInit');
   }
 
   onSubmit(){
     window.localStorage.clear();
     this.userInformation.Email = this.email;
     this.userInformation.Password = this.password;
-    console.log(this.userInformation);
     this.signUpService.login(this.userInformation).subscribe((data: any) => {
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("userInfo", JSON.stringify(data));
@@ -34,9 +32,13 @@ export class LoginComponent implements OnInit {
       {
         this.router.navigate(["year/1/profile"]);
       }
-      else
+      else if(data.userPosition == 1)
       {
         this.router.navigate(["profile"]);
+      }
+      else{
+        this.router.navigate(["admin/profile"]);
+
       }
     });
   }

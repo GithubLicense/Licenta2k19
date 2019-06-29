@@ -17,10 +17,17 @@ namespace BusinessLogic.Implementations
         {
         }
 
-        public ICollection<Email> Create(EmailDto emailDto)
+        public ICollection<Email> Create(Guid userId, EmailDto emailDto)
         {
             ICollection<Email> emails = new List<Email>();
-            SendEmail(emailDto.Teachers, emailDto.Subject, emailDto.Body);
+
+            var user = _repository.GetLastByFilter<User>(c => c.Id == userId);
+
+            string body = "The student, " + user.FirstName + " " + user.LastName + " wants to send you this message:" +
+                          Environment.NewLine + emailDto.Body;
+
+            SendEmail(emailDto.Teachers, emailDto.Subject, body);
+
             foreach (var teacher in emailDto.Teachers)
             {
                 var newEmail = new Email
@@ -85,8 +92,8 @@ namespace BusinessLogic.Implementations
                 client.Timeout = 10000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("learningsmart211@gmail.com", "q1w2e3r4t5!");
-                MailMessage mail = new MailMessage("learningsmart211@gmail.com", teacher);
+                client.Credentials = new NetworkCredential("fii.project.keeper@gmail.com", "a1zs2xd3c");
+                MailMessage mail = new MailMessage("fii.project.keeper@gmail.com", teacher);
                 mail.Subject = subject;
                 mail.Body = body;
                 mail.BodyEncoding = Encoding.UTF8;

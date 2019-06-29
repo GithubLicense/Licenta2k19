@@ -1,7 +1,8 @@
 <div class="home-content">
 
   <div class="home-introduction">
-      <span class="small-message">Welcome to FII Project Keeper</span> <br><br>
+      <span *ngIf="isAdmin" class="small-message">Welcome to the Admin page of FII Project Keeper</span>
+      <span *ngIf="!isAdmin" class="small-message">Welcome to FII Project Keeper</span> <br><br>
 
       <span class="big-message">
         The application where <br>
@@ -11,8 +12,12 @@
       </span>
   </div>
 
-  <div class="home-buttons">
+  <div *ngIf="!isAdmin" class="home-buttons">
       <button mat-raised-button id="sign-up-button" [routerLink]="['/register']">Get it started</button>
       <button mat-raised-button id="login-button" [routerLink]="['/login']">Login</button>
   </div>
+  <div *ngIf="isAdmin" class="home-buttons">
+    <button mat-raised-button id="sign-up-button" [routerLink]="['/admin' , 'register']">Get it started</button>
+    <button mat-raised-button id="login-button" [routerLink]="['/admin', 'login']">Login</button>
+ </div>
 </div> 

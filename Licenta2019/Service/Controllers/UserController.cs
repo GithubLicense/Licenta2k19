@@ -43,10 +43,10 @@ namespace Service.Controllers
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                                                                           {
-                                                                               new Claim(ClaimTypes.Name, user.Id.ToString())
-                                                                           }),
+                Subject = new ClaimsIdentity(new[] {
+                                            new Claim(ClaimTypes.Name, user.Id.ToString())
+
+                }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -76,6 +76,27 @@ namespace Service.Controllers
             }
 
             var user = _userLogic.Create(userDto, userDto.Password);
+
+            var userInformationDto = new UserInformationsDto
+            {
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
+
+            return Ok(userInformationDto);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("admin/register")]
+        public IActionResult RegisterAdmin([FromBody] SignUpAdminDto userDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = _userLogic.CreateAdmin(userDto, userDto.Password);
 
             var userInformationDto = new UserInformationsDto
             {

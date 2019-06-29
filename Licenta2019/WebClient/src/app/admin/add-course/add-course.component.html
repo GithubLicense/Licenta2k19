@@ -1,0 +1,19 @@
+<div class="add-course">
+    <div class="addCourse-image">
+        <img src="/assets/images/add-course.svg">
+    </div>
+  <div class="add-course-form">
+    <div class="title"> Add new course</div>
+    <form class="form">
+        Name
+        <input [(ngModel)]="name" name="Name" type="text"  class="form-input" required>
+        Year
+        <input [(ngModel)]="year" name="Year" type="text" class="form-input" required>
+        Semester
+        <input [(ngModel)]="semester" name="Semester" type="text" class="form-input" required>
+      </form>
+      <div class="button">
+        <button mat-raised-button id="submit-button" (click)="onSubmit()">Add course</button>
+      </div>     
+  </div>
+</div>

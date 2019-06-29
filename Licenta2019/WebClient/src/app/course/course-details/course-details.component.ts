@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { CourseService } from '../course.service';
+import { AddProjectService } from '../../projects/add-project/add-project.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-course-details',
@@ -13,15 +15,21 @@ export class CourseDetailsComponent implements OnInit {
   course: any;
   courseAbreviation: string = '';
   urlSplitted: string[];
+  teachers: any[];
 
   constructor(
     private route: ActivatedRoute,
     private service: CourseService,
-    private router: Router
+    private router: Router,
+    private teacherService: UserService
   ) { }
 
   ngOnInit() {
     this.courseInformation = this.route.snapshot.params.id;
+    this.teacherService.getCourseTeachers(this.courseInformation).subscribe((data: any) => {
+      this.teachers = data;
+    })
+
     this.service.getCourseById(this.courseInformation).subscribe((data: any) => {
       this.course = data;
       console.log(this.course);
