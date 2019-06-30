@@ -19,7 +19,8 @@ namespace BusinessLogic.Implementations
             {
                 Name = courseDto.Name,
                 Semester = courseDto.Semester,
-                Year = courseDto.Year
+                Year = courseDto.Year,
+                Description = courseDto.Description
             };
 
             _repository.Insert(newCourse);
@@ -34,6 +35,7 @@ namespace BusinessLogic.Implementations
             course.Name = courseDto.Name;
             course.Semester = courseDto.Semester;
             course.Year = courseDto.Year;
+            course.Description = courseDto.Description;
 
             _repository.Update(course);
             _repository.Save();
@@ -62,7 +64,8 @@ namespace BusinessLogic.Implementations
             {
                 Name = course.Name,
                 Year = course.Year,
-                Semester = course.Semester
+                Semester = course.Semester,
+                Description = course.Description
             };
 
             return courseDto;
@@ -97,7 +100,8 @@ namespace BusinessLogic.Implementations
                     Id = course.Id,
                     Name = course.Name,
                     Year = course.Year,
-                    Semester = course.Semester
+                    Semester = course.Semester,
+                    Description = course.Description
                 };
 
                 courseDtos.Add(courseDto);

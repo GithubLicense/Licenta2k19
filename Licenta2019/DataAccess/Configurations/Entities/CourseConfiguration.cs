@@ -22,6 +22,9 @@ namespace DataAccess.Configurations.Entities
             builder.Property(p => p.Year)
                 .IsRequired()
                 .HasMaxLength(2);
+
+            builder.Property(p => p.Description)
+                .IsRequired();
         }
     }
 }

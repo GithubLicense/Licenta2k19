@@ -11,6 +11,8 @@
         <input [(ngModel)]="year" name="Year" type="text" class="form-input" required>
         Semester
         <input [(ngModel)]="semester" name="Semester" type="text" class="form-input" required>
+        Description
+        <textarea [(ngModel)]="description" name="Description" type="text" class="form-input" required></textarea>
       </form>
       <div class="button">
         <button mat-raised-button id="submit-button" (click)="onSubmit()">Add course</button>

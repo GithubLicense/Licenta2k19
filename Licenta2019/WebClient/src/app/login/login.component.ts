@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.signUpService.login(this.userInformation).subscribe((data: any) => {
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("userInfo", JSON.stringify(data));
+      console.log(data);
       if(data.userPosition == 0)
       {
         this.router.navigate(["year/1/profile"]);

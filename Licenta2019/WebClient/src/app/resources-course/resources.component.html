@@ -1,9 +1,9 @@
 <div *ngIf="resources && resources.length > 0; else noResources">
   <div class="resources">
     <div class="title"> Resources:</div>
-    <div class="buttons">
-      <!-- *ngIf="userInformation.userPosition == 1" -->
-      <div class="box">
+    <div *ngIf="userInformation.userPosition == 1" class="buttons">
+      
+      <div  class="box">
         <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" (change)="onFileChange($event)" />
         <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
             <path
@@ -43,7 +43,7 @@
     <img src="/assets/images/Loupe_light.svg.png">
   </div>
   <div class="resources ">
-    <div class="buttons">
+    <div *ngIf="userInformation.userPosition == 1"  class="buttons">
       <div class="box">
         <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" (change)="onFileChange($event)" />
         <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">

@@ -14,6 +14,7 @@ export class AddCourseComponent implements OnInit {
   name:string;
   year:string;
   semester:string;
+  description:string;
   course: Course = new Course();
   courseId: any;
   courseInformation: any;
@@ -32,6 +33,7 @@ export class AddCourseComponent implements OnInit {
     this.course.Name = this.name;
     this.course.Year = this.year;
     this.course.Semester = this.semester;
+    this.course.Description = this.description;
     this.service.addCourse(this.course).subscribe((data) => {
       this.toaster.open("The course has been successfully added!", 'Close', {
         duration: 3000,
